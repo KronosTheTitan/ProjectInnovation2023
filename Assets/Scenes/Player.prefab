@@ -116,6 +116,9 @@ GameObject:
   - component: {fileID: 5079568322928406196}
   - component: {fileID: 6368742091494709419}
   - component: {fileID: 2930339019709753782}
+  - component: {fileID: 2857472905130534143}
+  - component: {fileID: 6703407163788104989}
+  - component: {fileID: 6828393510063373239}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -167,6 +170,70 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 825ff93c12b1b7142b2a03f8bd1c4ae1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  actions:
+  - {fileID: 6703407163788104989}
+  - {fileID: 6828393510063373239}
+  selectedAction: {fileID: 0}
+  targetedNode: {fileID: 0}
+  character: {fileID: 2857472905130534143}
+--- !u!114 &2857472905130534143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553213299081691988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc9653bdbb2cff4d88ef3173340d4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  health: 0
+  speed: 0
+  remainingSpeed: 0
+  defence: 0
+  attack: 0
+  sense: 0
+  head: {fileID: 0}
+  chest: {fileID: 0}
+  legs: {fileID: 0}
+  feet: {fileID: 0}
+  weapon: {fileID: 0}
+  location: {fileID: 0}
+  faction: 0
+--- !u!114 &6703407163788104989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553213299081691988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b0504c20ba452294cc8ef4c82e211c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+--- !u!114 &6828393510063373239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553213299081691988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 978480575f704ee39a34798bb14c9faf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   syncDirection: 0

@@ -1,10 +1,7 @@
 using UnityEngine;
 
-namespace Items
+public class Armour : Item
 {
-    public class Armour : Item
-    {
-        [SerializeField] private int defenceBonus;
-        public int DefenceBonus => defenceBonus;
-    }
+    [SerializeField] private int defenceBonus;
+    public int DefenceBonus => defenceBonus;
 }

@@ -7,26 +7,26 @@ using UnityEngine;
 /// </summary>
 public class TileGrid : MonoBehaviour
 {
-    public List<GridTile> randomTilesToGenerate = new List<GridTile>();
+    public List<Node> randomTilesToGenerate = new List<Node>();
 
     [SerializeField] private int width;
     [SerializeField] private int height;
 
-    [SerializeField] private List<GridTile> generatedTiles = new List<GridTile>();
+    [SerializeField] private List<Node> generatedTiles = new List<Node>();
 
     [SerializeField] private float offsetXAxis = 1.73205f; // Horizontal offset between hex tiles.
     [SerializeField] private float offsetZAxis = 1.5f;     // Vertical offset between hex tiles.
 
-    [SerializeField] private GridTile prefab;
+    [SerializeField] private Node prefab;
 
         
     public void GenerateGrid()
     {
         ClearGrid();
-        GridTile[][] grid = new GridTile[width][];
+        Node[][] grid = new Node[width][];
         for (int index = 0; index < width; index++)
         {
-            grid[index] = new GridTile[height];
+            grid[index] = new Node[height];
         }
 
         for (int x = 0; x < width; x++)
@@ -36,7 +36,7 @@ public class TileGrid : MonoBehaviour
                 Vector3 position = new Vector3(x * offsetXAxis, 0, y * offsetZAxis);
 
                 // Create a new HexTile using the provided factory method.
-                GridTile tile = Instantiate(prefab, position,quaternion.identity,transform);
+                Node tile = Instantiate(prefab, position,quaternion.identity,transform);
                 generatedTiles.Add(tile);
 
                 grid[x][y] = tile;
@@ -62,7 +62,7 @@ public class TileGrid : MonoBehaviour
     {
         while (generatedTiles.Count > 0)
         {
-            GridTile tile = generatedTiles[0];
+            Node tile = generatedTiles[0];
             generatedTiles.Remove(generatedTiles[0]);
 
             DestroyImmediate(tile.gameObject);
@@ -76,9 +76,9 @@ public class TileGrid : MonoBehaviour
     /// </summary>
     /// <param name="a">The first hexagonal tile.</param>
     /// <param name="b">The second hexagonal tile.</param>
-    private void ConnectTiles(GridTile a, GridTile b)
+    private void ConnectTiles(Node a, Node b)
     {
-        a.adjacentTiles.Add(b);
-        b.adjacentTiles.Add(a);
+        a.connections.Add(b);
+        b.connections.Add(a);
     }
 }
