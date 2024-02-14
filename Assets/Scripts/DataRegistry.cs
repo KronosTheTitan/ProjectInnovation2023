@@ -1,3 +1,4 @@
+using Items;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Data Registry", menuName = "Project Innovation/DataRegistry")]
