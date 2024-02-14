@@ -1,10 +1,11 @@
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Edgegap.Editor.Api.Models.Requests;
-using Edgegap.Editor.Api.Models.Results;
+using Mirror.Hosting.Edgegap.Editor.Api.Models.Requests;
+using Mirror.Hosting.Edgegap.Editor.Api.Models.Results;
+using Mirror.Hosting.Edgegap.Enums;
 
-namespace Edgegap.Editor.Api
+namespace Mirror.Hosting.Edgegap.Editor.Api
 {
     /// <summary>
     /// Wraps the v1/app API endpoint: Applications Control API.

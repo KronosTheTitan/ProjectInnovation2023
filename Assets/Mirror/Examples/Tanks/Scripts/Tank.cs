@@ -1,7 +1,8 @@
+using Mirror.Core;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Mirror.Examples.Tanks
+namespace Mirror.Examples.Tanks.Scripts
 {
     public class Tank : NetworkBehaviour
     {

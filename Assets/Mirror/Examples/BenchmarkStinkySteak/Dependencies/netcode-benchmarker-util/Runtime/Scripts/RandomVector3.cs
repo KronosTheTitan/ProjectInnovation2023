@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace StinkySteak.NetcodeBenchmark
+namespace Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts
 {
     public static class RandomVector3
     {

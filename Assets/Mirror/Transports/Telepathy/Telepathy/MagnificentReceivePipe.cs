@@ -6,10 +6,11 @@
 // => hides all the complexity from telepathy
 // => easy to switch between stack/queue/concurrentqueue/etc.
 // => easy to test
+
 using System;
 using System.Collections.Generic;
 
-namespace Telepathy
+namespace Mirror.Transports.Telepathy.Telepathy
 {
     public class MagnificentReceivePipe
     {

@@ -3,7 +3,7 @@ using System;
 using System.Runtime.InteropServices;
 #endif
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb.SimpleWeb.Client.Webgl
 {
     internal static class SimpleWebJSLib
     {

@@ -1,6 +1,8 @@
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components
 {
     /// <summary>
     /// This component works in conjunction with the NetworkRoomManager to make up the multiplayer room system.

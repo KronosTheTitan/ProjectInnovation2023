@@ -1,19 +1,21 @@
+using Mirror.Core;
+using Mirror.Examples._Common.Scripts;
 using UnityEngine;
 
-namespace Mirror.Examples.NetworkRoom
+namespace Mirror.Examples.Room.Scripts
 {
-    [RequireComponent(typeof(Common.RandomColor))]
+    [RequireComponent(typeof(RandomColor))]
     public class Reward : NetworkBehaviour
     {
         public bool available = true;
-        public Common.RandomColor randomColor;
+        public RandomColor randomColor;
 
         protected override void OnValidate()
         {
             base.OnValidate();
 
             if (randomColor == null)
-                randomColor = GetComponent<Common.RandomColor>();
+                randomColor = GetComponent<RandomColor>();
         }
 
         [ServerCallback]

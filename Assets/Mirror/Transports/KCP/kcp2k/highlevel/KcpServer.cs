@@ -1,12 +1,13 @@
 // kcp server logic abstracted into a class.
 // for use in Mirror, DOTSNET, testing, etc.
+
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 using System.Runtime.InteropServices;
 
-namespace kcp2k
+namespace Mirror.Transports.KCP.kcp2k.highlevel
 {
     public class KcpServer
     {

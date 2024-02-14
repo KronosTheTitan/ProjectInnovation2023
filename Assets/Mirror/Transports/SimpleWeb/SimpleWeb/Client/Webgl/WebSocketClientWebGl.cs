@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using AOT;
+using Mirror.Transports.SimpleWeb.SimpleWeb.Common;
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb.SimpleWeb.Client.Webgl
 {
 #if !UNITY_2021_3_OR_NEWER
 

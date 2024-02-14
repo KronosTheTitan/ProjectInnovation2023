@@ -1,9 +1,10 @@
 // Kcp based on https://github.com/skywind3000/kcp
 // Kept as close to original as possible.
+
 using System;
 using System.Collections.Generic;
 
-namespace kcp2k
+namespace Mirror.Transports.KCP.kcp2k.kcp
 {
     public class Kcp
     {

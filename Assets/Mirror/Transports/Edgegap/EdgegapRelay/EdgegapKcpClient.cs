@@ -1,11 +1,12 @@
 // overwrite RawSend/Receive
+
 using System;
 using System.Net.Sockets;
-using Mirror;
+using Mirror.Core;
+using Mirror.Transports.KCP.kcp2k.highlevel;
 using UnityEngine;
-using kcp2k;
 
-namespace Edgegap
+namespace Mirror.Transports.Edgegap.EdgegapRelay
 {
     public class EdgegapKcpClient : KcpClient
     {

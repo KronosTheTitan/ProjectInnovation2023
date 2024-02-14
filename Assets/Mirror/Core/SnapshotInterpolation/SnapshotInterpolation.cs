@@ -8,10 +8,12 @@
 //   fholm: netcode streams
 //   fakebyte: standard deviation for dynamic adjustment
 //   ninjakicka: math & debugging
+
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Mirror.Core.Tools;
 
-namespace Mirror
+namespace Mirror.Core.SnapshotInterpolation
 {
     public static class SortedListExtensions
     {

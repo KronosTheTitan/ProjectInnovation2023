@@ -1,6 +1,8 @@
+using Mirror.Core;
+using Mirror.Examples.BilliardsPredicted.Player;
 using UnityEngine;
 
-namespace Mirror.Examples.BilliardsPredicted
+namespace Mirror.Examples.BilliardsPredicted.Ball
 {
     public class WhiteBallPredicted : NetworkBehaviour
     {

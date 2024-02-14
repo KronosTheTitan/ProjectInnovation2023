@@ -1,6 +1,7 @@
+using Mirror.Components;
 using UnityEngine;
 
-namespace Mirror.Examples.NetworkRoom
+namespace Mirror.Examples.Room.Scripts
 {
     [AddComponentMenu("")]
     public class NetworkRoomPlayerExt : NetworkRoomPlayer

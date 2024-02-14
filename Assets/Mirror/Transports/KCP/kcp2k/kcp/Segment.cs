@@ -1,6 +1,6 @@
 using System.IO;
 
-namespace kcp2k
+namespace Mirror.Transports.KCP.kcp2k.kcp
 {
     // KCP Segment Definition
     internal class Segment

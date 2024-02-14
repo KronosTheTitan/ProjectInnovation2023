@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.CharacterSelection
+namespace Mirror.Examples.CharacterSelection.Scripts
 {
     public class SceneReferencer : MonoBehaviour
     {

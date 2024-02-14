@@ -1,4 +1,6 @@
 ﻿// idle object that rarely gets dirty
+
+using Mirror.Core;
 using UnityEngine;
 
 namespace Mirror.Examples.BenchmarkIdle

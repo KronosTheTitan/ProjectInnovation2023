@@ -1,8 +1,9 @@
 // using TMPro; // MIRROR CHANGE
-using UnityEngine;
-using UnityEngine.UI;
 
-namespace StinkySteak.NetcodeBenchmark
+using Mirror.Examples.BenchmarkStinkySteak.Dependencies.Unity_Simulation_Timer.Runtime;
+using UnityEngine;
+
+namespace Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts.UI
 {
     public class BaseGUIGame : MonoBehaviour
     {
@@ -13,7 +14,7 @@ namespace StinkySteak.NetcodeBenchmark
         // MIRROR CHANGE
         protected string _textLatency = ""; // [SerializeField] protected TextMesh _textLatency; // MIRROR CHANGE: Canvas + TextMeshPro -> OnGUI
         [SerializeField] private float _updateLatencyTextInterval = 1f;
-        private SimulationTimer.SimulationTimer _timerUpdateLatencyText;
+        private SimulationTimer _timerUpdateLatencyText;
 
         [Header("Stress Test 1: Move Y")]
         [SerializeField] protected StressTestEssential _test_1;
@@ -86,7 +87,7 @@ namespace StinkySteak.NetcodeBenchmark
             if (!_timerUpdateLatencyText.IsExpiredOrNotRunning()) return;
 
             UpdateNetworkStats();
-            _timerUpdateLatencyText = SimulationTimer.SimulationTimer.CreateFromSeconds(_updateLatencyTextInterval);
+            _timerUpdateLatencyText = SimulationTimer.CreateFromSeconds(_updateLatencyTextInterval);
         }
 
         protected virtual void UpdateNetworkStats() { }

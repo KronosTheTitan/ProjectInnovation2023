@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core
 {
     // SyncMode decides if a component is synced to all observers, or only owner
     public enum SyncMode { Observers, Owner }

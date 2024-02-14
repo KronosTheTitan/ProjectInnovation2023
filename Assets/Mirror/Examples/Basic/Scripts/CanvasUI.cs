@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Mirror.Examples.Basic
+namespace Mirror.Examples.Basic.Scripts
 {
     public class CanvasUI : MonoBehaviour
     {

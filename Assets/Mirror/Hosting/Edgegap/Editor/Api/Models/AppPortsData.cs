@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Edgegap.Editor.Api.Models
+namespace Mirror.Hosting.Edgegap.Editor.Api.Models
 {
     /// <summary>
     /// Used in `UpdateAppVersionRequest`, `CreateAppVersionRequest`.

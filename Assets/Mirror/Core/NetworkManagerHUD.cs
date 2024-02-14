@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core
 {
     /// <summary>Shows NetworkManager controls in a GUI at runtime.</summary>
     [DisallowMultipleComponent]

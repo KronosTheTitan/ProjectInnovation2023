@@ -2,11 +2,13 @@
 // timeouts, authentication, state, etc.
 //
 // still IO agnostic to work with udp, nonalloc, relays, native, etc.
+
 using System;
 using System.Diagnostics;
 using System.Net.Sockets;
+using Mirror.Transports.KCP.kcp2k.kcp;
 
-namespace kcp2k
+namespace Mirror.Transports.KCP.kcp2k.highlevel
 {
     public abstract class KcpPeer
     {

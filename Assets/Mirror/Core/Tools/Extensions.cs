@@ -3,7 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Mirror
+namespace Mirror.Core.Tools
 {
     public static class Extensions
     {

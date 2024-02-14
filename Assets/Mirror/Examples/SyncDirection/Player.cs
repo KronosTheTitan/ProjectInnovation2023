@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Mirror.Core;
+using UnityEngine;
 
-namespace Mirror.Examples.SyncDir // ".SyncDirection" would overshadow the enum
+namespace Mirror.Examples.SyncDirection // ".SyncDirection" would overshadow the enum
 {
     public class Player : NetworkBehaviour
     {

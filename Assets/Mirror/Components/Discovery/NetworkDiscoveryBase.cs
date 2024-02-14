@@ -2,13 +2,15 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 
 // Based on https://github.com/EnlightenedOne/MirrorNetworkDiscovery
 // forked from https://github.com/in0finite/MirrorNetworkDiscovery
 // Both are MIT Licensed
 
-namespace Mirror.Discovery
+namespace Mirror.Components.Discovery
 {
     /// <summary>
     /// Base implementation for Network Discovery.  Extend this component

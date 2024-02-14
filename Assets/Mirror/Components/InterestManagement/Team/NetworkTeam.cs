@@ -1,7 +1,9 @@
 ﻿// simple component that holds team information
+
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components.InterestManagement.Team
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/ Interest Management/ Team/Network Team")]

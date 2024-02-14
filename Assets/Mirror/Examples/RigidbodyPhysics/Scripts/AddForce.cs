@@ -1,6 +1,7 @@
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.RigidbodyPhysics
+namespace Mirror.Examples.RigidbodyPhysics.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
     public class AddForce : NetworkBehaviour

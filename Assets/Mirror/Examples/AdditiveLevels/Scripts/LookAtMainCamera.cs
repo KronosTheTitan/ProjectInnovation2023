@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Mirror.Core;
+using UnityEngine;
 
-namespace Mirror.Examples.AdditiveLevels
+namespace Mirror.Examples.AdditiveLevels.Scripts
 {
     // This script is attached to portal labels to keep them facing the camera
     public class LookAtMainCamera : MonoBehaviour

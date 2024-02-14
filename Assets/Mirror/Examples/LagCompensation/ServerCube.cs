@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Mirror.Core;
+using Mirror.Core.LagCompensation;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-namespace Mirror.Examples.LagCompensationDemo
+namespace Mirror.Examples.LagCompensation
 {
     public class ServerCube : MonoBehaviour
     {
@@ -145,7 +147,7 @@ namespace Mirror.Examples.LagCompensationDemo
             Capture2D capture = new Capture2D(NetworkTime.localTime, transform.position, col.size);
 
             // insert into history
-            LagCompensation.Insert(history, lagCompensationSettings.historyLimit, NetworkTime.localTime, capture);
+            Core.LagCompensation.LagCompensation.Insert(history, lagCompensationSettings.historyLimit, NetworkTime.localTime, capture);
         }
 
         // client says: "I was clicked here, at this time."
@@ -157,14 +159,14 @@ namespace Mirror.Examples.LagCompensationDemo
             // https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking
             // the estimation is very good. the error is as low as ~6ms for the demo.
             double rtt = AverageLatency() * 2; // the function needs rtt, which is latency * 2
-            double estimatedTime = LagCompensation.EstimateTime(NetworkTime.localTime, rtt, client.bufferTime);
+            double estimatedTime = Core.LagCompensation.LagCompensation.EstimateTime(NetworkTime.localTime, rtt, client.bufferTime);
 
             // compare estimated time with actual client time for debugging
             double error = Math.Abs(estimatedTime - client.localTimeline);
             Debug.Log($"CmdClicked: serverTime={NetworkTime.localTime:F3} clientTime={client.localTimeline:F3} estimatedTime={estimatedTime:F3} estimationError={error:F3} position={position}");
 
             // sample the history to get the nearest snapshots around 'timestamp'
-            if (LagCompensation.Sample(history, estimatedTime, lagCompensationSettings.captureInterval, out resultBefore, out resultAfter, out double t))
+            if (Core.LagCompensation.LagCompensation.Sample(history, estimatedTime, lagCompensationSettings.captureInterval, out resultBefore, out resultAfter, out double t))
             {
                 // interpolate to get a decent estimation at exactly 'timestamp'
                 resultInterpolated = Capture2D.Interpolate(resultBefore, resultAfter, t);
@@ -198,7 +200,7 @@ namespace Mirror.Examples.LagCompensationDemo
 
             // draw history
             Gizmos.color = historyColor;
-            LagCompensation.DrawGizmos(history);
+            Core.LagCompensation.LagCompensation.DrawGizmos(history);
 
             // draw result samples after. useful to see the selection process.
             if (showResult)

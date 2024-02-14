@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.SnapshotInterpolationDemo
+namespace Mirror.Examples.Snapshot_Interpolation
 {
     public class ServerCube : MonoBehaviour
     {

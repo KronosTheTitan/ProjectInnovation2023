@@ -1,9 +1,13 @@
 // NetworkTransform V3 (reliable) by mischa (2022-10)
+
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Mirror.Core;
+using Mirror.Core.SnapshotInterpolation;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components.NetworkTransform
 {
     [AddComponentMenu("Network/Network Transform (Reliable)")]
     public class NetworkTransformReliable : NetworkTransformBase

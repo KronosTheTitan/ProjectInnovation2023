@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.Serialization;
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb.SimpleWeb.Common
 {
     public static class ReadHelper
     {

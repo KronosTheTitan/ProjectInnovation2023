@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.AdditiveLevels
+namespace Mirror.Examples.AdditiveLevels.Scripts
 {
     public class FadeInOut : MonoBehaviour
     {

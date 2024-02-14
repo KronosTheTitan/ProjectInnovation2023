@@ -1,7 +1,8 @@
+using Mirror.Transports.SimpleWeb.SimpleWeb.Client;
 using UnityEditor;
 using UnityEngine;
 
-namespace Mirror.SimpleWeb.Editor
+namespace Mirror.Transports.SimpleWeb.Editor
 {
 #if UNITY_EDITOR
     [CustomPropertyDrawer(typeof(ClientWebsocketSettings))]

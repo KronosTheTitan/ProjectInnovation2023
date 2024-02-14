@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Edgegap.Editor.Api.Models.Results
+namespace Mirror.Hosting.Edgegap.Editor.Api.Models.Results
 {
     /// <summary>
     /// Result model for `GET v1/status/{request_id}`.

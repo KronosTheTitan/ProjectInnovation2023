@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.Chat
+namespace Mirror.Examples.Chat.Scripts
 {
     public class ChatUI : NetworkBehaviour
     {

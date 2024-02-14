@@ -6,17 +6,18 @@
 // https://forum.unity.com/threads/how-does-unity-do-codegen-and-why-cant-i-do-it-myself.853867/#post-5646937
 using System.IO;
 using System.Linq;
-// to use Mono.CecilX here, we need to 'override references' in the
-// Unity.Mirror.CodeGen assembly definition file in the Editor, and add CecilX.
-// otherwise we get a reflection exception with 'file not found: CecilX'.
 using Mono.CecilX;
 using Mono.CecilX.Cil;
 using Unity.CompilationPipeline.Common.ILPostProcessing;
+// to use Mono.CecilX here, we need to 'override references' in the
+// Unity.Mirror.CodeGen assembly definition file in the Editor, and add CecilX.
+// otherwise we get a reflection exception with 'file not found: CecilX'.
+
 // IMPORTANT: 'using UnityEngine' does not work in here.
 // Unity gives "(0,0): error System.Security.SecurityException: ECall methods must be packaged into a system module."
 //using UnityEngine;
 
-namespace Mirror.Weaver
+namespace Mirror.Editor.Weaver.EntryPointILPostProcessor
 {
     public class ILPostProcessorHook : ILPostProcessor
     {

@@ -1,7 +1,9 @@
 using System;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Transports.Middleware
 {
     /// <summary>
     /// Allows Middleware to override some of the transport methods or let the inner transport handle them.

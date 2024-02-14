@@ -1,8 +1,9 @@
 // API consistent with Microsoft's ObjectPool<T>.
 // thread safe.
+
 using System.Runtime.CompilerServices;
 
-namespace Mirror
+namespace Mirror.Core.Threading
 {
     public static class ConcurrentNetworkWriterPool
     {

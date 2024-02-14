@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Mirror
+namespace Mirror.Core
 {
     [Serializable] public class UnityEventNetworkConnection : UnityEvent<NetworkConnectionToClient> {}
 

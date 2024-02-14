@@ -1,6 +1,7 @@
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.MultipleAdditiveScenes
+namespace Mirror.Examples.MultipleAdditiveScenes.Scripts
 {
     public class PlayerScore : NetworkBehaviour
     {

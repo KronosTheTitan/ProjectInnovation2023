@@ -1,9 +1,10 @@
 // interest management component for custom solutions like
 // distance based, spatial hashing, raycast based, etc.
 // low level base class allows for low level spatial hashing etc., which is 3-5x faster.
+
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core
 {
     [DisallowMultipleComponent]
     [HelpURL("https://mirror-networking.gitbook.io/docs/guides/interest-management")]

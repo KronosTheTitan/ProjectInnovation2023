@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading;
 using UnityEngine.Profiling;
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb.SimpleWeb.Common
 {
     internal static class ReceiveLoop
     {

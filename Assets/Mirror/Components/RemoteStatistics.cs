@@ -10,11 +10,14 @@
 //
 // for safety reasons, let's keep this read-only.
 // at least until there's safe authentication.
+
 using System;
 using System.IO;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components
 {
     // server -> client
     struct Stats

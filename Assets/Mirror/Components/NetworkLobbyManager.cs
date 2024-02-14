@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components
 {
     /// <summary>
     /// This is a specialized NetworkManager that includes a networked lobby.

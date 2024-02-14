@@ -1,7 +1,8 @@
+using Mirror.Components.NetworkTransform;
+using Mirror.Core;
 using UnityEngine;
-using Mirror;
 
-namespace Mirror.Examples.CharacterSelection
+namespace Mirror.Examples.CharacterSelection.Scripts
 {
     [RequireComponent(typeof(CapsuleCollider))]
     [RequireComponent(typeof(CharacterController))]

@@ -1,6 +1,9 @@
 using UnityEngine;
 
-public class Item : ScriptableObject
+namespace Items
 {
+    public class Item : ScriptableObject
+    {
         
+    }
 }

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using Conditional = System.Diagnostics.ConditionalAttribute;
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb.SimpleWeb.Common
 {
     public static class Log
     {

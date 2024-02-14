@@ -1,25 +1,27 @@
 ﻿using UnityEditor;
 using UnityEngine.UIElements;
-using Edgegap;
 
-[CustomEditor(typeof(EdgegapToolScript))]
-public class EdgegapPluginScriptEditor : Editor
+namespace Mirror.Hosting.Edgegap.Editor
 {
-    VisualElement _serverDataContainer;
-
-    private void OnEnable()
+    [CustomEditor(typeof(EdgegapToolScript))]
+    public class EdgegapPluginScriptEditor : UnityEditor.Editor
     {
-        _serverDataContainer = EdgegapServerDataManager.GetServerDataVisualTree();
-        EdgegapServerDataManager.RegisterServerDataContainer(_serverDataContainer);
-    }
+        VisualElement _serverDataContainer;
 
-    private void OnDisable()
-    {
-        EdgegapServerDataManager.DeregisterServerDataContainer(_serverDataContainer);
-    }
+        private void OnEnable()
+        {
+            _serverDataContainer = EdgegapServerDataManager.GetServerDataVisualTree();
+            EdgegapServerDataManager.RegisterServerDataContainer(_serverDataContainer);
+        }
 
-    public override VisualElement CreateInspectorGUI()
-    {
-        return _serverDataContainer;
+        private void OnDisable()
+        {
+            EdgegapServerDataManager.DeregisterServerDataContainer(_serverDataContainer);
+        }
+
+        public override VisualElement CreateInspectorGUI()
+        {
+            return _serverDataContainer;
+        }
     }
 }

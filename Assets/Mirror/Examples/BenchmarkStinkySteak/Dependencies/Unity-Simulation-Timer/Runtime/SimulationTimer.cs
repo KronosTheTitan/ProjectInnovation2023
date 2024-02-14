@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace StinkySteak.SimulationTimer
+namespace Mirror.Examples.BenchmarkStinkySteak.Dependencies.Unity_Simulation_Timer.Runtime
 {
     public struct SimulationTimer
     {

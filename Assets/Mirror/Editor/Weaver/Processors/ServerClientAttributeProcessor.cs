@@ -1,8 +1,10 @@
 // Injects server/client active checks for [Server/Client] attributes
+
+using Mirror.Core;
 using Mono.CecilX;
 using Mono.CecilX.Cil;
 
-namespace Mirror.Weaver
+namespace Mirror.Editor.Weaver.Processors
 {
     static class ServerClientAttributeProcessor
     {

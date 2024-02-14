@@ -1,8 +1,9 @@
-using System;
 using System.Collections.Generic;
+using Mirror.Core;
+using Mirror.Examples.BilliardsPredicted.Ball;
 using UnityEngine;
 
-namespace Mirror.Examples.BilliardsPredicted
+namespace Mirror.Examples.BilliardsPredicted.Player
 {
     // example input for this exact demo.
     // not general purpose yet.

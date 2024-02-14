@@ -1,9 +1,11 @@
 // standalone lag compensation algorithm
 // based on the Valve Networking Model:
 // https://developer.valvesoftware.com/wiki/Source_Multiplayer_Networking
-using System.Collections.Generic;
 
-namespace Mirror
+using System.Collections.Generic;
+using Mirror.Core.Tools;
+
+namespace Mirror.Core.LagCompensation
 {
     public static class LagCompensation
     {

@@ -1,7 +1,8 @@
 using System;
 using System.Runtime.CompilerServices;
+using Mirror.Core.Tools;
 
-namespace Mirror
+namespace Mirror.Core
 {
     public class NetworkConnectionToServer : NetworkConnection
     {

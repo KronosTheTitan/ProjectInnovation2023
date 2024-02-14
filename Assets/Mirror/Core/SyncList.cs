@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Mirror
+namespace Mirror.Core
 {
     public class SyncList<T> : SyncObject, IList<T>, IReadOnlyList<T>
     {

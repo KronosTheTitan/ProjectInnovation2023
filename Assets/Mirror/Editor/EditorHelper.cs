@@ -3,7 +3,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Editor
 {
     public static class EditorHelper
     {

@@ -1,7 +1,8 @@
+using Mirror.Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Mirror.Examples.RigidbodyBenchmark
+namespace Mirror.Examples.RigidbodyBenchmark.Scripts
 {
     [RequireComponent(typeof(Rigidbody))]
     public class AutoForce : NetworkBehaviour

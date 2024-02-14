@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Transports.Multiplex
 {
     // a transport that can listen to multiple underlying transport at the same time
     [DisallowMultipleComponent]

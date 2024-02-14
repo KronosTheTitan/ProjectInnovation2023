@@ -6,12 +6,15 @@
 // IMPORTANT: use Time.unscaledTime instead of Time.time.
 //            some games might have Time.timeScale modified.
 //            see also: https://github.com/vis2k/Mirror/issues/2907
+
 using System;
 using System.Collections.Generic;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Mirror
+namespace Mirror.Transports.Latency
 {
     struct QueuedMessage
     {

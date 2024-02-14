@@ -4,7 +4,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core
 {
     [DisallowMultipleComponent]
     [HelpURL("https://mirror-networking.gitbook.io/docs/guides/interest-management")]

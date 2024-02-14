@@ -1,10 +1,16 @@
 using System;
 using System.Net;
 using System.Security.Authentication;
+using Mirror.Core;
+using Mirror.Core.Tools;
+using Mirror.Transports.SimpleWeb.SimpleWeb;
+using Mirror.Transports.SimpleWeb.SimpleWeb.Client;
+using Mirror.Transports.SimpleWeb.SimpleWeb.Common;
+using Mirror.Transports.SimpleWeb.SimpleWeb.Server;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb
 {
     [DisallowMultipleComponent]
     [HelpURL("https://mirror-networking.gitbook.io/docs/manual/transports/websockets-transport")]

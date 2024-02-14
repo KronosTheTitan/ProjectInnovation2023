@@ -1,8 +1,9 @@
 // standalone, easy to test algorithms for prediction
-using System.Collections.Generic;
-using UnityEngine;
 
-namespace Mirror
+using System.Collections.Generic;
+using Mirror.Core.Tools;
+
+namespace Mirror.Core.Prediction
 {
     // prediction may capture Rigidbody3D/2D/etc. state
     // have a common interface.

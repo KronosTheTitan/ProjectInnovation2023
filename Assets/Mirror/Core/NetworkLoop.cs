@@ -24,12 +24,13 @@
 //    * we add to the end of EarlyUpdate so it runs after any Unity initializations
 //    * we add to the end of PreLateUpdate so it runs after LateUpdate(). adding
 //      to the beginning of PostLateUpdate doesn't actually work.
+
 using System;
 using UnityEngine;
 using UnityEngine.LowLevel;
 using UnityEngine.PlayerLoop;
 
-namespace Mirror
+namespace Mirror.Core
 {
     public static class NetworkLoop
     {

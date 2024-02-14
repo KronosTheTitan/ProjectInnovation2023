@@ -5,10 +5,11 @@
 //
 // this is in Weaver folder becuase CompilationPipeline can only be accessed
 // from assemblies with the name "Unity.*.CodeGen"
+
 using System.IO;
 using Unity.CompilationPipeline.Common.ILPostProcessing;
 
-namespace Mirror.Weaver
+namespace Mirror.Editor.Weaver.EntryPointILPostProcessor
 {
     public class CompiledAssemblyFromFile : ICompiledAssembly
     {

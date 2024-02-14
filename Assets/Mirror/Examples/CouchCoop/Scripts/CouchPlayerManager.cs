@@ -1,7 +1,7 @@
+using Mirror.Core;
 using UnityEngine;
-using Mirror;
 
-namespace Mirror.Examples.CouchCoop
+namespace Mirror.Examples.CouchCoop.Scripts
 {
     public class CouchPlayerManager : NetworkBehaviour
     {

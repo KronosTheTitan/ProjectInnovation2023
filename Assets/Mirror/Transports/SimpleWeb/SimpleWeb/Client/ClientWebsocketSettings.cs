@@ -1,6 +1,6 @@
 using System;
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb.SimpleWeb.Client
 {
     [Serializable]
     public struct ClientWebsocketSettings

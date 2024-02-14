@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using Mirror.Core;
 using UnityEngine;
 using UnityEngine.UI;
-using Mirror;
 
-namespace Mirror.Examples.Common
+namespace Mirror.Examples._Common.Scripts.CanvasNetworkManagerHUD
 {
     public class CanvasNetworkManagerHUD : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Mirror.Core;
 using UnityEngine;
 
 /*
@@ -7,7 +8,7 @@ using UnityEngine;
     API Reference: https://mirror-networking.com/docs/api/Mirror.NetworkAuthenticator.html
 */
 
-namespace Mirror.Examples.Chat
+namespace Mirror.Examples.Chat.Scripts
 {
     [AddComponentMenu("")]
     public class ChatAuthenticator : NetworkAuthenticator

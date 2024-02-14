@@ -1,8 +1,10 @@
 // add this to NetworkIdentities for custom range if needed.
 // only works with DistanceInterestManagement.
+
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components.InterestManagement.Distance
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/ Interest Management/ Distance/Distance Custom Range")]

@@ -1,6 +1,8 @@
+using Mirror.Components;
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.AdditiveScenes
+namespace Mirror.Examples.AdditiveScenes.Scripts
 {
     // This script demonstrates the NetworkAnimator and how to leverage
     // the built-in observers system to track players.

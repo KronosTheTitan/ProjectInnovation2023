@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Mirror.Core;
+using Mirror.Core.SnapshotInterpolation;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Examples.SnapshotInterpolationDemo
+namespace Mirror.Examples.Snapshot_Interpolation
 {
     public class ClientCube : MonoBehaviour
     {

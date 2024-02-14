@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.IO;
 using System.Text.RegularExpressions;
+using Mirror.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Mirror.Examples.AdditiveLevels
+namespace Mirror.Examples.AdditiveLevels.Scripts
 {
     public class Portal : NetworkBehaviour
     {

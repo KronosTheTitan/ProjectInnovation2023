@@ -4,7 +4,7 @@
 //
 // note that not all transports have ports, but most do.
 
-namespace  Mirror
+namespace Mirror.Core
 {
     public interface PortTransport
     {

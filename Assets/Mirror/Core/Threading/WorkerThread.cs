@@ -1,13 +1,14 @@
 // worker thread for Unity (mischa 2022)
 // thread with proper exception handling, profling, init, cleanup, etc. for Unity.
 // use this from main thread.
+
 using System;
 using System.Diagnostics;
 using System.Threading;
 using UnityEngine.Profiling;
 using Debug = UnityEngine.Debug;
 
-namespace Mirror
+namespace Mirror.Core.Threading
 {
     public class WorkerThread
     {

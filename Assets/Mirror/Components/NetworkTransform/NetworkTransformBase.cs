@@ -16,11 +16,14 @@
 //      -> client gets Cmd() and X at the same time, but buffers X for bufferTime
 //      -> for unreliable, it would get X before the reliable Cmd(), still
 //         buffer for bufferTime but end up closer to the original time
-using System;
+
 using System.Collections.Generic;
+using Mirror.Core;
+using Mirror.Core.SnapshotInterpolation;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components.NetworkTransform
 {
     public enum CoordinateSpace { Local, World }
 

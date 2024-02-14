@@ -1,6 +1,7 @@
+using Mirror.Core;
 using Mono.CecilX;
 
-namespace Mirror.Weaver
+namespace Mirror.Editor.Weaver.Processors
 {
     // only shows warnings in case we use SyncVars etc. for MonoBehaviour.
     static class MonoBehaviourProcessor

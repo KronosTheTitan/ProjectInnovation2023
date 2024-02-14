@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Mirror.Transports.SimpleWeb.SimpleWeb.Common;
 using UnityEngine;
+using EventType = Mirror.Transports.SimpleWeb.SimpleWeb.Common.EventType;
 
-namespace Mirror.SimpleWeb
+namespace Mirror.Transports.SimpleWeb.SimpleWeb.Server
 {
     public class SimpleWebServer
     {

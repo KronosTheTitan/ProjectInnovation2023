@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Mirror.Core;
 using Mono.CecilX;
 
-namespace Mirror.Weaver
+namespace Mirror.Editor.Weaver
 {
     public static class Extensions
     {

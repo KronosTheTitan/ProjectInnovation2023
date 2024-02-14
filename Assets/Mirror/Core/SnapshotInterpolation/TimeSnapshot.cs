@@ -1,4 +1,4 @@
-namespace Mirror
+namespace Mirror.Core.SnapshotInterpolation
 {
     // empty snapshot that is only used to progress client's local timeline.
     public struct TimeSnapshot : Snapshot

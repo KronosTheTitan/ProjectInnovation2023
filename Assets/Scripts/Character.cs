@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Items;
 using Mirror;
+using Mirror.Core;
 using Unity.Mathematics;
 using UnityEngine;
 

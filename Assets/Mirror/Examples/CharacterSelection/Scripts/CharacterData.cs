@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Mirror.Examples.CharacterSelection
+namespace Mirror.Examples.CharacterSelection.Scripts
 {
     public class CharacterData : MonoBehaviour
     {

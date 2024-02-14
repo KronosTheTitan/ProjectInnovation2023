@@ -1,5 +1,5 @@
 // relay protocol definitions
-namespace Edgegap
+namespace Mirror.Transports.Edgegap.EdgegapRelay
 {
     public enum ConnectionState : byte
     {

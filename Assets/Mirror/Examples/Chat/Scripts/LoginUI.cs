@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.Chat
+namespace Mirror.Examples.Chat.Scripts
 {
     public class LoginUI : MonoBehaviour
     {

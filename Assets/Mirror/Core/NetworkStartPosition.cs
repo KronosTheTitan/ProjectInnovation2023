@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core
 {
     /// <summary>Start position for player spawning, automatically registers itself in the NetworkManager.</summary>
     [DisallowMultipleComponent]

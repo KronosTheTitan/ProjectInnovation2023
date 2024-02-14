@@ -1,8 +1,9 @@
 ﻿// Pool to avoid allocations (from libuv2k & Mirror)
+
 using System;
 using System.Collections.Generic;
 
-namespace kcp2k
+namespace Mirror.Transports.KCP.kcp2k.kcp
 {
     public class Pool<T>
     {

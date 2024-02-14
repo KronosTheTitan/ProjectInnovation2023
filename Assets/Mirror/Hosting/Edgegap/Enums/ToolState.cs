@@ -1,4 +1,4 @@
-namespace Edgegap
+namespace Mirror.Hosting.Edgegap.Enums
 {
     public enum ToolState
     {

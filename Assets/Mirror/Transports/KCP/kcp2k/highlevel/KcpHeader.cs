@@ -1,4 +1,4 @@
-namespace kcp2k
+namespace Mirror.Transports.KCP.kcp2k.highlevel
 {
     // header for messages processed by kcp.
     // this is NOT for the raw receive messages(!) because handshake/disconnect

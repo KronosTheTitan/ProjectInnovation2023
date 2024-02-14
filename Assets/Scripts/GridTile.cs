@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Mirror;
+using Mirror.Core;
 using UnityEngine;
 
 public class GridTile : NetworkBehaviour

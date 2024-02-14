@@ -6,10 +6,11 @@
 //    (fixes all the flaky tests)
 //
 // ... besides, it also allows us to share code!
+
 using System.Net.Sockets;
 using System.Threading;
 
-namespace Telepathy
+namespace Mirror.Transports.Telepathy.Telepathy
 {
     public class ConnectionState
     {

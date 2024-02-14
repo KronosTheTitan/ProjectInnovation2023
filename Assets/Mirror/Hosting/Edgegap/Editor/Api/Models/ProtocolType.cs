@@ -1,4 +1,4 @@
-namespace Edgegap.Editor.Api.Models
+namespace Mirror.Hosting.Edgegap.Editor.Api.Models
 {
     /// <summary>
     /// Unity default: UDP.

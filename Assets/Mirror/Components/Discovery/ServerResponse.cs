@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Net;
+using Mirror.Core;
 
-namespace Mirror.Discovery
+namespace Mirror.Components.Discovery
 {
     public struct ServerResponse : NetworkMessage
     {

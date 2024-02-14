@@ -1,6 +1,7 @@
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.AdditiveScenes
+namespace Mirror.Examples.AdditiveScenes.Scripts
 {
     // AdditiveNetworkManager, in OnStartServer, instantiates the prefab only on the server.
     // It never exists for clients (other than host client if there is one).

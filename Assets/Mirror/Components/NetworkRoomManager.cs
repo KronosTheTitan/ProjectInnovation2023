@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-namespace Mirror
+namespace Mirror.Components
 {
     /// <summary>
     /// This is a specialized NetworkManager that includes a networked room.

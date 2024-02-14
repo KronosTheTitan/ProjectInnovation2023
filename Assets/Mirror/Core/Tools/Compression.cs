@@ -1,9 +1,10 @@
 // Quaternion compression from DOTSNET
+
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core.Tools
 {
     /// <summary>Functions to Compress Quaternions and Floats</summary>
     public static class Compression

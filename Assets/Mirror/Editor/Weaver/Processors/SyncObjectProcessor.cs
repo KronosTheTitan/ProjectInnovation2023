@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Mirror.Core;
 using Mono.CecilX;
 
-namespace Mirror.Weaver
+namespace Mirror.Editor.Weaver.Processors
 {
     public static class SyncObjectProcessor
     {

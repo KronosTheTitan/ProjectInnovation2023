@@ -10,7 +10,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Telepathy
+namespace Mirror.Transports.Telepathy.Telepathy
 {
     public class MagnificentSendPipe
     {

@@ -1,8 +1,9 @@
 ﻿using System;
+using Mirror.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.MultipleMatch
+namespace Mirror.Examples.MultipleMatches.Scripts
 {
     public class MatchGUI : MonoBehaviour
     {

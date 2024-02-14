@@ -1,6 +1,7 @@
 ﻿using System;
+using Mirror.Core;
 
-namespace Mirror.Examples.MultipleMatch
+namespace Mirror.Examples.MultipleMatches.Scripts
 {
     /// <summary>
     /// Match message to be sent to the server

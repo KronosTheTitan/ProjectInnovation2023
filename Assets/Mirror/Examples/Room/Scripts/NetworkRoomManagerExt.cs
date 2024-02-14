@@ -1,3 +1,6 @@
+using Mirror.Components;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEngine;
 
 /*
@@ -5,7 +8,7 @@ using UnityEngine;
 	API Reference: https://mirror-networking.com/docs/api/Mirror.NetworkManager.html
 */
 
-namespace Mirror.Examples.NetworkRoom
+namespace Mirror.Examples.Room.Scripts
 {
     [AddComponentMenu("")]
     public class NetworkRoomManagerExt : NetworkRoomManager

@@ -1,8 +1,9 @@
-using Mirror;
-using StinkySteak.NetcodeBenchmark;
+using Mirror.Core;
+using Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts;
+using Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts.BehaviourWrapper;
 using UnityEngine;
 
-namespace StinkySteak.MirrorBenchmark
+namespace Mirror.Examples.BenchmarkStinkySteak.Scripts
 { 
     public class WanderMoveBehaviour : NetworkBehaviour
     {

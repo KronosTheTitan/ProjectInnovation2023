@@ -1,6 +1,6 @@
 using System;
 
-namespace Mirror
+namespace Mirror.Core
 {
     /// <summary>Profiling statistics for tool to subscribe to (profiler etc.)</summary>
     public static class NetworkDiagnostics

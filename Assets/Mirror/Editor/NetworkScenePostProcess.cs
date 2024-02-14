@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
+using Mirror.Core;
+using Mirror.Core.Tools;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Editor
 {
     public class NetworkScenePostProcess : MonoBehaviour
     {

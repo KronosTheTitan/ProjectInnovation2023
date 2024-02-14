@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Mirror.Core;
+using UnityEngine;
 
-namespace Mirror.Examples.Benchmark
+namespace Mirror.Examples.Benchmark.Scripts
 {
     public class MonsterMovement : NetworkBehaviour
     {

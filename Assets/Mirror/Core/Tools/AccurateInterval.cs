@@ -22,9 +22,10 @@
 //
 // we need an accurate way to measure intervals for where it matters.
 // and it needs to be testable to guarantee results.
+
 using System.Runtime.CompilerServices;
 
-namespace Mirror
+namespace Mirror.Core.Tools
 {
     public static class AccurateInterval
     {

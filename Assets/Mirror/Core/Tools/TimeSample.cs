@@ -4,10 +4,11 @@
 //
 // .average may safely be called from main thread while Begin/End is in another.
 // i.e. worker threads, transport, etc.
+
 using System.Diagnostics;
 using System.Threading;
 
-namespace Mirror
+namespace Mirror.Core.Tools
 {
     public struct TimeSample
     {

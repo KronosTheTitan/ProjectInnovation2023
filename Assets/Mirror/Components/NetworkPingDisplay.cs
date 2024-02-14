@@ -1,7 +1,8 @@
 using System;
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Components
 {
     /// <summary>
     /// Component that will display the clients ping in milliseconds

@@ -1,6 +1,7 @@
+using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.Pong
+namespace Mirror.Examples.Pong.Scripts
 {
     public class Player : NetworkBehaviour
     {

@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Edgegap.Editor.Api.Models.Results
+namespace Mirror.Hosting.Edgegap.Editor.Api.Models.Results
 {
     /// <summary>
     /// Result model for `[GET | POST] v1/app`.

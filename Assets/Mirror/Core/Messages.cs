@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core
 {
     // need to send time every sendInterval.
     // batching automatically includes remoteTimestamp.

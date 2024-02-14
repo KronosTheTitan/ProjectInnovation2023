@@ -1,7 +1,9 @@
 // API consistent with Microsoft's ObjectPool<T>.
-using System.Runtime.CompilerServices;
 
-namespace Mirror
+using System.Runtime.CompilerServices;
+using Mirror.Core.Tools;
+
+namespace Mirror.Core
 {
     /// <summary>Pool of NetworkWriters to avoid allocations.</summary>
     public static class NetworkWriterPool

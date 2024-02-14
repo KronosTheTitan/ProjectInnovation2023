@@ -1,9 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Mirror.Core;
+using Mirror.Core.SnapshotInterpolation;
+using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Examples.LagCompensationDemo
+namespace Mirror.Examples.LagCompensation
 {
     public class ClientCube : MonoBehaviour
     {

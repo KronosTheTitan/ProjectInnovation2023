@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Mirror.Core;
+using UnityEngine;
 
-namespace Mirror.Examples.Common
+namespace Mirror.Examples._Common.Scripts
 {
     public class RandomColor : NetworkBehaviour
     {

@@ -6,10 +6,11 @@ using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Edgegap.Editor.Api;
-using Edgegap.Editor.Api.Models;
-using Edgegap.Editor.Api.Models.Requests;
-using Edgegap.Editor.Api.Models.Results;
+using Mirror.Hosting.Edgegap.Editor.Api;
+using Mirror.Hosting.Edgegap.Editor.Api.Models;
+using Mirror.Hosting.Edgegap.Editor.Api.Models.Requests;
+using Mirror.Hosting.Edgegap.Editor.Api.Models.Results;
+using Mirror.Hosting.Edgegap.Enums;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
 using UnityEditor.UIElements;
@@ -18,7 +19,7 @@ using UnityEngine.Assertions;
 using UnityEngine.UIElements;
 using Application = UnityEngine.Application;
 
-namespace Edgegap.Editor
+namespace Mirror.Hosting.Edgegap.Editor
 {
     /// <summary>
     /// Editor logic event handler for "UI Builder" EdgegapWindow.uxml, superceding` EdgegapWindow.cs`.

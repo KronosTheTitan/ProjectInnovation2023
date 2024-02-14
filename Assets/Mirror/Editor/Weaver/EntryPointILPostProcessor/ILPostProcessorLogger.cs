@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Mono.CecilX;
 using Unity.CompilationPipeline.Common.Diagnostics;
 
-namespace Mirror.Weaver
+namespace Mirror.Editor.Weaver.EntryPointILPostProcessor
 {
     public class ILPostProcessorLogger : Logger
     {

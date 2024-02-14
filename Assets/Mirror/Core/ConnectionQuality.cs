@@ -1,8 +1,9 @@
 // standalone, Unity-independent connection-quality algorithm & enum.
 // don't need to use this directly, it's built into Mirror's NetworkClient.
+
 using UnityEngine;
 
-namespace Mirror
+namespace Mirror.Core
 {
     public enum ConnectionQuality : byte
     {

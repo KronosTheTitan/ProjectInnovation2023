@@ -1,9 +1,10 @@
 // N-day EMA implementation from Mirror with a few changes (struct etc.)
 // it calculates an exponential moving average roughly equivalent to the last n observations
 // https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average
+
 using System;
 
-namespace Mirror
+namespace Mirror.Core.Tools
 {
     public struct ExponentialMovingAverage
     {

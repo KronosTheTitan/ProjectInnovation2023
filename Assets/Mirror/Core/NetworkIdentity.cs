@@ -1,21 +1,21 @@
+#if UNITY_EDITOR
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Mirror.RemoteCalls;
+using Mirror.Core.Tools;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-#if UNITY_EDITOR
-using UnityEditor;
-
 #if UNITY_2021_2_OR_NEWER
-using UnityEditor.SceneManagement;
+
 #else
 using UnityEditor.Experimental.SceneManagement;
 #endif
 #endif
 
-namespace Mirror
+namespace Mirror.Core
 {
     // Default = use interest management
     // ForceHidden = useful to hide monsters while they respawn etc.

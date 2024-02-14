@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.Basic
+namespace Mirror.Examples.Basic.Scripts
 {
     public class PlayerUI : MonoBehaviour
     {

@@ -1,5 +1,6 @@
 using System;
 using Mirror;
+using Mirror.Core;
 using UnityEngine;
 
 public class Player : NetworkBehaviour
