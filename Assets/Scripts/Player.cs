@@ -40,9 +40,6 @@ public class Player : NetworkBehaviour
             return;
 
         targetedNode = target;
-        
-        Debug.Log("GettingTargetedTile");
-        Debug.Log(targetedNode.name);
     }
 
     private void UseAction()

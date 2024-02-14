@@ -33,6 +33,7 @@ public class Character : NetworkBehaviour
     
     [SerializeField, SyncVar] public Faction faction;
     
+    [Server]
     public void TakeDamage(int amount){
 
         int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
@@ -40,6 +41,7 @@ public class Character : NetworkBehaviour
         health -= modifiedAmount;
     }
     
+    [Server]
     public void MakeAttack(Character target)
     {
         if(Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
@@ -49,7 +51,7 @@ public class Character : NetworkBehaviour
         
         target.TakeDamage(damage);
     }
-
+    
     private int GetTotalDefence()
     {
         int headDef = head.DefenceBonus;

@@ -178,7 +178,7 @@ MonoBehaviour:
   actions:
   - {fileID: 6703407163788104989}
   - {fileID: 6828393510063373239}
-  selectedAction: {fileID: 0}
+  selectedAction: {fileID: 6703407163788104989}
   targetedNode: {fileID: 0}
   character: {fileID: 2857472905130534143}
 --- !u!114 &2857472905130534143
@@ -196,17 +196,17 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  health: 0
+  health: 5
   speed: 0
   remainingSpeed: 0
   defence: 0
-  attack: 0
+  attack: 100
   sense: 0
-  head: {fileID: 0}
-  chest: {fileID: 0}
-  legs: {fileID: 0}
-  feet: {fileID: 0}
-  weapon: {fileID: 0}
+  head: {fileID: 11400000, guid: 32b71075b3eb80a499278054acbe6410, type: 2}
+  chest: {fileID: 11400000, guid: eee5630e5d95ab9429bd058dc9653194, type: 2}
+  legs: {fileID: 11400000, guid: 9104495c1dfd0c741a659cd82500a339, type: 2}
+  feet: {fileID: 11400000, guid: 45216d9554af1514bab4b23e6e02f344, type: 2}
+  weapon: {fileID: 11400000, guid: fc9560939eb210d499a2df91fbc7a3fe, type: 2}
   location: {fileID: 0}
   faction: 0
 --- !u!114 &6703407163788104989

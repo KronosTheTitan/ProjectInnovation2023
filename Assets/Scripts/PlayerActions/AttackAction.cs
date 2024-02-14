@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Mirror.Core;
+using UnityEngine;
 
 namespace PlayerActions
 {
@@ -22,8 +24,11 @@ namespace PlayerActions
             return output.ToArray();
         }
 
+        [Command]
         public override void PerformAction(Node target, Character character)
         {
+            Debug.Log("Attacking");
+            
             if(target.Character == null)
                 return;
             
