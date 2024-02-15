@@ -2,17 +2,22 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public class GridTile : NetworkBehaviour
+
+public class Node : NetworkBehaviour
 {
-    [SerializeField, SyncVar] private Character character;
-    public List<GridTile> adjacentTiles;
-    public Character Character => character;
-    
+    [SyncVar] public Character character;
+    public List<Node> connections;
+
+    private void Awake()
+    {
+        
+    }
+
     private void OnDrawGizmos()
     {
-        foreach (GridTile tile  in adjacentTiles)
+        foreach (Node tile  in connections)
         {
-            if (tile.adjacentTiles.Contains(this))
+            if (tile.connections.Contains(this))
                 Gizmos.color = Color.green;
             else
                 Gizmos.color = Color.red;

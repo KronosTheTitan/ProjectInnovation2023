@@ -60,7 +60,6 @@ namespace Mirror.Discovery
             // Dedicated server
             if (GUILayout.Button("Start Server"))
             {
-                Debug.Log("Start");
                 discoveredServers.Clear();
                 NetworkManager.singleton.StartServer();
                 networkDiscovery.AdvertiseServer();
