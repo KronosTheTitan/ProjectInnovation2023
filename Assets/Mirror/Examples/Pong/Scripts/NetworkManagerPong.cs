@@ -1,4 +1,3 @@
-using Mirror.Core;
 using UnityEngine;
 
 /*
@@ -6,7 +5,7 @@ using UnityEngine;
 	API Reference: https://mirror-networking.com/docs/api/Mirror.NetworkManager.html
 */
 
-namespace Mirror.Examples.Pong.Scripts
+namespace Mirror.Examples.Pong
 {
     // Custom NetworkManager that simply assigns the correct racket positions when
     // spawning players. The built in RoundRobin spawn method wouldn't work after

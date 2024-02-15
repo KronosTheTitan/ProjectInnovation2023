@@ -1,9 +1,7 @@
-using Mirror.Core;
-using Mirror.Core.Tools;
 using Mono.CecilX;
 using Mono.CecilX.Cil;
 
-namespace Mirror.Editor.Weaver.Processors
+namespace Mirror.Weaver
 {
     // Processes [TargetRpc] methods in NetworkBehaviour
     public static class TargetRpcProcessor

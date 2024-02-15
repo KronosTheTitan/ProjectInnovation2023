@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Mirror.Components
+namespace Mirror
 {
     /// <summary>
     /// This component works in conjunction with the NetworkLobbyManager to make up the multiplayer lobby system.

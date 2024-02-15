@@ -1,10 +1,9 @@
 // parse session_id and user_id from command line args.
 // mac: "open mirror.app --args session_id=123 user_id=456"
-
 using System;
 using UnityEngine;
 
-namespace Mirror.Transports.Edgegap.EdgegapRelay
+namespace Edgegap
 {
     public class RelayCredentialsFromArgs : MonoBehaviour
     {

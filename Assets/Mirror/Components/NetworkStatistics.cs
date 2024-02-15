@@ -1,9 +1,7 @@
 using System;
-using Mirror.Core;
-using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Components
+namespace Mirror
 {
     /// <summary>
     /// Shows Network messages and bytes sent and received per second.

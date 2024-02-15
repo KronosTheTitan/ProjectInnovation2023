@@ -1,14 +1,11 @@
 // wraps Telepathy for use as HLAPI TransportLayer
-
 using System;
 using System.Net;
 using System.Net.Sockets;
-using Mirror.Core;
-using Mirror.Core.Tools;
 using UnityEngine;
 
 // Replaced by Kcp November 2020
-namespace Mirror.Transports.Telepathy
+namespace Mirror
 {
     [HelpURL("https://github.com/vis2k/Telepathy/blob/master/README.md")]
     [DisallowMultipleComponent]

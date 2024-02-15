@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     // Mirror's Weaver automatically detects all NetworkReader function types,
     // but they do all need to be extensions.

@@ -1,7 +1,6 @@
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Components
+namespace Mirror
 {
     public class NetworkDiagnosticsDebugger : MonoBehaviour
     {

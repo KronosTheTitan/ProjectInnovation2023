@@ -1,8 +1,6 @@
-using Mirror.Components.NetworkTransform;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.TanksCoop.Scripts
+namespace Mirror.Examples.TanksCoop
 {
     [RequireComponent(typeof(CapsuleCollider))]
     [RequireComponent(typeof(CharacterController))]

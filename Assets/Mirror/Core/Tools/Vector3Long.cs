@@ -5,7 +5,7 @@
 using System;
 using System.Runtime.CompilerServices;
 
-namespace Mirror.Core.Tools
+namespace Mirror
 {
     public struct Vector3Long
     {

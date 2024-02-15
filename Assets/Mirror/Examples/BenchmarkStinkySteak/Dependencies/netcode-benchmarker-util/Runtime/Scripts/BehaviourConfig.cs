@@ -1,7 +1,6 @@
-using Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts.BehaviourWrapper;
 using UnityEngine;
 
-namespace Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts
+namespace StinkySteak.NetcodeBenchmark
 {
     [CreateAssetMenu(fileName = nameof(BehaviourConfig), menuName = "Netcode Benchmark/Behaviour Config")]
     public class BehaviourConfig : ScriptableObject

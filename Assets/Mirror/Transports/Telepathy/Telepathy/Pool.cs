@@ -1,9 +1,8 @@
 // pool to avoid allocations. originally from libuv2k.
-
 using System;
 using System.Collections.Generic;
 
-namespace Mirror.Transports.Telepathy.Telepathy
+namespace Telepathy
 {
     public class Pool<T>
     {

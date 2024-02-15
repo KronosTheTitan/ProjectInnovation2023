@@ -1,15 +1,18 @@
 using System.Collections.Generic;
 using Mirror;
-using Mirror.Core;
 using UnityEngine;
-using UnityEngine.Serialization;
+
 
 public class Node : NetworkBehaviour
 {
-    [SerializeField, SyncVar] private Character character;
+    public Character character;
     public List<Node> connections;
-    public Character Character => character;
-    
+
+    private void Awake()
+    {
+        
+    }
+
     private void OnDrawGizmos()
     {
         foreach (Node tile  in connections)

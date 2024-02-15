@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
-namespace Mirror.Examples.CouchCoop.Scripts
+namespace Mirror.Examples.CouchCoop
 {
     public class CanvasScript : MonoBehaviour
     {

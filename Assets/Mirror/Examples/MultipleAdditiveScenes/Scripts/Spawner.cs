@@ -1,8 +1,7 @@
-using Mirror.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Mirror.Examples.MultipleAdditiveScenes.Scripts
+namespace Mirror.Examples.MultipleAdditiveScenes
 {
     internal class Spawner
     {

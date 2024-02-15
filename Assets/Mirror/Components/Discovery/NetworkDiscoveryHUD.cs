@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Components.Discovery
+namespace Mirror.Discovery
 {
     [DisallowMultipleComponent]
     [AddComponentMenu("Network/Network Discovery HUD")]
@@ -61,7 +60,6 @@ namespace Mirror.Components.Discovery
             // Dedicated server
             if (GUILayout.Button("Start Server"))
             {
-                Debug.Log("Start");
                 discoveredServers.Clear();
                 NetworkManager.singleton.StartServer();
                 networkDiscovery.AdvertiseServer();

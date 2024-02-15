@@ -1,12 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Mirror.Core.Batching;
-using Mirror.Core.SnapshotInterpolation;
-using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     public class NetworkConnectionToClient : NetworkConnection
     {
@@ -76,7 +73,7 @@ namespace Mirror.Core
             {
                 // set bufferTime on the fly.
                 // shows in inspector for easier debugging :)
-                bufferTimeMultiplier = SnapshotInterpolation.SnapshotInterpolation.DynamicAdjustment(
+                bufferTimeMultiplier = SnapshotInterpolation.DynamicAdjustment(
                     NetworkServer.sendInterval,
                     deliveryTimeEma.StandardDeviation,
                     NetworkClient.snapshotSettings.dynamicAdjustmentTolerance
@@ -85,7 +82,7 @@ namespace Mirror.Core
             }
 
             // insert into the server buffer & initialize / adjust / catchup
-            SnapshotInterpolation.SnapshotInterpolation.InsertAndAdjust(
+            SnapshotInterpolation.InsertAndAdjust(
                 snapshots,
                 NetworkClient.snapshotSettings.bufferLimit,
                 snapshot,
@@ -108,12 +105,12 @@ namespace Mirror.Core
             if (snapshots.Count > 0)
             {
                 // progress local timeline.
-                SnapshotInterpolation.SnapshotInterpolation.StepTime(Time.unscaledDeltaTime, ref remoteTimeline, remoteTimescale);
+                SnapshotInterpolation.StepTime(Time.unscaledDeltaTime, ref remoteTimeline, remoteTimescale);
 
                 // progress local interpolation.
                 // TimeSnapshot doesn't interpolate anything.
                 // this is merely to keep removing older snapshots.
-                SnapshotInterpolation.SnapshotInterpolation.StepInterpolation(snapshots, remoteTimeline, out _, out _, out _);
+                SnapshotInterpolation.StepInterpolation(snapshots, remoteTimeline, out _, out _, out _);
                 // Debug.Log($"NetworkClient SnapshotInterpolation @ {localTimeline:F2} t={t:F2}");
             }
         }

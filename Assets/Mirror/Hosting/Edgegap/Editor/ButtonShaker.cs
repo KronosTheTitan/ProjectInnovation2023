@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using UnityEngine.UIElements;
 
-namespace Mirror.Hosting.Edgegap.Editor
+namespace Edgegap.Editor
 {
     /// <summary>Slightly shake a UI button to indicate attention.</summary>
     public class ButtonShaker

@@ -8,7 +8,7 @@ using System.IO;
 using Unity.CompilationPipeline.Common.Diagnostics;
 using Unity.CompilationPipeline.Common.ILPostProcessing;
 
-namespace Mirror.Editor.Weaver.EntryPointILPostProcessor
+namespace Mirror.Weaver
 {
     public static class ILPostProcessorFromFile
     {

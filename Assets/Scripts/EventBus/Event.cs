@@ -21,3 +21,8 @@ public class OnPlayerCharacterTakeDamage : Event
     
 }
 
+public class OnGameStart : Event
+{
+    
+}
+

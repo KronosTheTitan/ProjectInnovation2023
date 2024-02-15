@@ -1,8 +1,7 @@
 ﻿using System.Collections;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.MultipleMatches.Scripts
+namespace Mirror.Examples.MultipleMatch
 {
     [AddComponentMenu("")]
     public class MatchNetworkManager : NetworkManager

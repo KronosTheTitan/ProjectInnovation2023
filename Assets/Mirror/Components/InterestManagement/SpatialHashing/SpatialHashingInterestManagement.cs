@@ -1,15 +1,13 @@
 // extremely fast spatial hashing interest management based on uMMORPG GridChecker.
 // => 30x faster in initial tests
 // => scales way higher
-
 using System.Collections.Generic;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Components.InterestManagement.SpatialHashing
+namespace Mirror
 {
     [AddComponentMenu("Network/ Interest Management/ Spatial Hash/Spatial Hashing Interest Management")]
-    public class SpatialHashingInterestManagement : Core.InterestManagement
+    public class SpatialHashingInterestManagement : InterestManagement
     {
         [Tooltip("The maximum range that objects will be visible at.")]
         public int visRange = 30;

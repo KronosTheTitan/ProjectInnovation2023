@@ -8,7 +8,7 @@ using System.Collections.Specialized;
 using System.IO;
 using System.Text;
 
-namespace Mirror.Hosting.Edgegap.Dependencies // MIRROR CHANGE: namespace Edgegap.* to not collide if anyone has Plastic SCM installed already
+namespace Edgegap.Codice.Utils // MIRROR CHANGE: namespace Edgegap.* to not collide if anyone has Plastic SCM installed already
 {
   public sealed class HttpUtility
   {

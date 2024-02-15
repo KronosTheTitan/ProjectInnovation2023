@@ -3,12 +3,11 @@
 // concurrent for thread safe access.
 //
 // currently not in use. keep it in case we need it again.
-
 using System;
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 
-namespace Mirror.Core.Threading
+namespace Mirror
 {
     public class ConcurrentPool<T>
     {

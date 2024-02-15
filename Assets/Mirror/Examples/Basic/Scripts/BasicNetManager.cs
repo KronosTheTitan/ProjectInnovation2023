@@ -1,7 +1,6 @@
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.Basic.Scripts
+namespace Mirror.Examples.Basic
 {
     [AddComponentMenu("")]
     public class BasicNetManager : NetworkManager

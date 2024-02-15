@@ -1,7 +1,6 @@
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.CharacterSelection.Scripts
+namespace Mirror.Examples.CharacterSelection
 {
     public class NetworkManagerCharacterSelection : NetworkManager
     {

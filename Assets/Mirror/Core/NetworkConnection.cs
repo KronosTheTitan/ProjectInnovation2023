@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-using Mirror.Core.Batching;
-using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     /// <summary>Base NetworkConnection class for server-to-client and client-to-server connection.</summary>
     public abstract class NetworkConnection

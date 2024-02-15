@@ -1,8 +1,6 @@
-using Mirror.Components.NetworkTransform;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Components.NetworkRigidbody
+namespace Mirror
 {
     // [RequireComponent(typeof(Rigidbody))] <- OnValidate ensures this is on .target
     public class NetworkRigidbodyReliable : NetworkTransformReliable

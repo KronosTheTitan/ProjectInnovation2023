@@ -1,4 +1,4 @@
-namespace Mirror.Hosting.Edgegap.Enums
+namespace Edgegap
 {
     public enum ApiEnvironment
     {

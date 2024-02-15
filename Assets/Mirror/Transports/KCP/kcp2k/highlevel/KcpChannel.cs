@@ -1,4 +1,4 @@
-namespace Mirror.Transports.KCP.kcp2k.highlevel
+namespace kcp2k
 {
     // channel type and header for raw messages
     public enum KcpChannel : byte

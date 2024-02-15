@@ -2,12 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Mirror.Components.InterestManagement.Match;
-using Mirror.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.MultipleMatches.Scripts
+namespace Mirror.Examples.MultipleMatch
 {
     public class CanvasController : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace Mirror.Core
+namespace Mirror
 {
     // backing field for sync NetworkBehaviour
     public struct NetworkBehaviourSyncVar : IEquatable<NetworkBehaviourSyncVar>

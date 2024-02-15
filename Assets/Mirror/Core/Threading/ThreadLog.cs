@@ -4,12 +4,11 @@
 // Builds don't show Debug.Logs from different threads.
 //
 // need to hook into logMessageReceivedThreaded to receive them in builds too.
-
 using System.Collections.Concurrent;
 using System.Threading;
 using UnityEngine;
 
-namespace Mirror.Core.Threading
+namespace Mirror
 {
     public static class ThreadLog
     {

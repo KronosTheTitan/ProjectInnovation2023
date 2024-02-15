@@ -2,16 +2,13 @@
 // reuses KcpTransport with custom KcpServer/Client.
 
 //#if MIRROR <- commented out because MIRROR isn't defined on first import yet
-
 using System;
 using System.Text.RegularExpressions;
-using Mirror.Core;
-using Mirror.Transports.KCP;
-using Mirror.Transports.KCP.kcp2k.highlevel;
-using Mirror.Transports.KCP.kcp2k.kcp;
 using UnityEngine;
+using Mirror;
+using kcp2k;
 
-namespace Mirror.Transports.Edgegap.EdgegapRelay
+namespace Edgegap
 {
     [DisallowMultipleComponent]
     public class EdgegapKcpTransport : KcpTransport

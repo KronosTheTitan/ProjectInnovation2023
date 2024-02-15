@@ -1,11 +1,10 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Text;
-using Mirror.Core.Tools;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     /// <summary>Network Writer for most simple types like floats, ints, buffers, structs, etc. Use NetworkWriterPool.GetReader() to avoid allocations.</summary>
     public class NetworkWriter

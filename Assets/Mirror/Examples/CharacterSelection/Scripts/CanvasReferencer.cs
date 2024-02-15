@@ -1,10 +1,9 @@
-using Mirror.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using static Mirror.Examples.CharacterSelection.Scripts.NetworkManagerCharacterSelection;
+using static Mirror.Examples.CharacterSelection.NetworkManagerCharacterSelection;
 
-namespace Mirror.Examples.CharacterSelection.Scripts
+namespace Mirror.Examples.CharacterSelection
 { 
     public class CanvasReferencer : MonoBehaviour
     {

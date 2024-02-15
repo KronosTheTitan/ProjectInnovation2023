@@ -1,3 +1,4 @@
+using Mirror;
 using UnityEngine;
 
 namespace PlayerActions
@@ -7,12 +8,23 @@ namespace PlayerActions
         [SerializeField] private Pathfinder pathfinder;
         public override Node[] PotentialTargets(Node source)
         {
-            throw new System.NotImplementedException();
+            return Map.GetInstance().Nodes;
         }
 
+        [Command]
         public override void PerformAction(Node target, Character character)
         {
-            throw new System.NotImplementedException();
+
+            Node[] path = pathfinder.FindPath(character.location, target).ToArray();
+
+            for (int i = 0; 0 < character.remainingSpeed && i < path.Length; i++, character.remainingSpeed--)
+            {
+                character.location.character = null;
+                character.location = path[i];
+                path[i].character = character;
+            }
+
+            character.transform.position = character.location.transform.position;
         }
     }
 }

@@ -1,8 +1,7 @@
 using System;
-using Mirror.Hosting.Edgegap.Editor.Api.Models;
-using Mirror.Hosting.Edgegap.Enums;
+using Edgegap.Editor.Api.Models;
 
-namespace Mirror.Hosting.Edgegap.Editor
+namespace Edgegap.Editor
 {
     /// <summary>
     /// Contains static metadata / options for the EdgegapWindowV2 UI.

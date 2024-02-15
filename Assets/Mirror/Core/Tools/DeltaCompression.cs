@@ -1,10 +1,9 @@
 // manual delta compression for some types.
 //    varint(b-a)
 // Mirror can't use Mirror II's bit-tree delta compression.
-
 using System.Runtime.CompilerServices;
 
-namespace Mirror.Core.Tools
+namespace Mirror
 {
     public static class DeltaCompression
     {

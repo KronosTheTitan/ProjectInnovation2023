@@ -1,11 +1,8 @@
 // Applies HistoryBounds to the physics world by projecting to a trigger Collider.
 // This way we can use Physics.Raycast on it.
-
-using Mirror.Core;
-using Mirror.Core.LagCompensation;
 using UnityEngine;
 
-namespace Mirror.Components.LagCompensation
+namespace Mirror
 {
     public class HistoryCollider : MonoBehaviour
     {

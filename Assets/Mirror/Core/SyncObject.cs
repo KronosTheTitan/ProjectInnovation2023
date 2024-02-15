@@ -1,6 +1,6 @@
 using System;
 
-namespace Mirror.Core
+namespace Mirror
 {
     /// <summary>SyncObjects sync state between server and client. E.g. SyncLists.</summary>
     // SyncObject should be a class (instead of an interface) for a few reasons:

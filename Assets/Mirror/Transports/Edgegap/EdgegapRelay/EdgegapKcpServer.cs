@@ -1,11 +1,11 @@
 using System;
 using System.Net;
 using System.Net.Sockets;
-using Mirror.Core;
-using Mirror.Transports.KCP.kcp2k.highlevel;
+using Mirror;
 using UnityEngine;
+using kcp2k;
 
-namespace Mirror.Transports.Edgegap.EdgegapRelay
+namespace Edgegap
 {
     public class EdgegapKcpServer : KcpServer
     {

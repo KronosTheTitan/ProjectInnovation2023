@@ -1,8 +1,8 @@
-using Mirror.Core;
-using Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts.UI;
+using Mirror;
+using StinkySteak.NetcodeBenchmark;
 using UnityEngine;
 
-namespace Mirror.Examples.BenchmarkStinkySteak.Scripts
+namespace StinkySteak.MirrorBenchmark
 {
     public class GUIGame : BaseGUIGame
     {

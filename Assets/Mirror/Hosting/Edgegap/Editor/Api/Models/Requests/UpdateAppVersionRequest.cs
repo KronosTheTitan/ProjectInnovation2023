@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Mirror.Hosting.Edgegap.Editor.Api.Models.Requests
+namespace Edgegap.Editor.Api.Models.Requests
 {
     /// <summary>
     /// Request model for `PATCH v1/app/{app_name}/version/{version_name}`.

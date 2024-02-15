@@ -2,9 +2,8 @@ using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-using Mirror.Transports.SimpleWeb.SimpleWeb.Common;
 
-namespace Mirror.Transports.SimpleWeb.SimpleWeb.Server
+namespace Mirror.SimpleWeb
 {
     /// <summary>
     /// Handles Handshakes from new clients on the server

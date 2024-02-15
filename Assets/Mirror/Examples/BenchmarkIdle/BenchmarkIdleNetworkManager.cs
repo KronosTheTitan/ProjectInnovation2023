@@ -1,5 +1,4 @@
-﻿using Mirror.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Mirror.Examples.BenchmarkIdle
 {

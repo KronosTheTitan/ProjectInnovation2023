@@ -1,8 +1,7 @@
 using System;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Components.Experimental
+namespace Mirror.Experimental
 {
     [AddComponentMenu("Network/ Experimental/Network Lerp Rigidbody")]
     [HelpURL("https://mirror-networking.gitbook.io/docs/components/network-lerp-rigidbody")]

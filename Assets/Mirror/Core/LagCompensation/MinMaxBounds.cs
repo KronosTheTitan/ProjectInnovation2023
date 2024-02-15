@@ -3,12 +3,11 @@
 // Unity's (center, extents) to (min, max) every time, and then convert back.
 //
 // It's faster to use a (min, max) representation directly instead.
-
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 
-namespace Mirror.Core.LagCompensation
+namespace Mirror
 {
     public struct MinMaxBounds: IEquatable<Bounds>
     {

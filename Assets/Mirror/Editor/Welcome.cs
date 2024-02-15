@@ -3,7 +3,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Mirror.Editor
+namespace Mirror
 {
     static class Welcome
     {

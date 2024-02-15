@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Mirror.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Mirror.Examples.MultipleAdditiveScenes.Scripts
+namespace Mirror.Examples.MultipleAdditiveScenes
 {
     [AddComponentMenu("")]
     public class MultiSceneNetManager : NetworkManager

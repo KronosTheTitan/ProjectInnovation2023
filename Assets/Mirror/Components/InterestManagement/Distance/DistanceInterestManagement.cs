@@ -1,13 +1,11 @@
 // straight forward Vector3.Distance based interest management.
-
 using System.Collections.Generic;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Components.InterestManagement.Distance
+namespace Mirror
 {
     [AddComponentMenu("Network/ Interest Management/ Distance/Distance Interest Management")]
-    public class DistanceInterestManagement : Core.InterestManagement
+    public class DistanceInterestManagement : InterestManagement
     {
         [Tooltip("The maximum range that objects will be visible at. Add DistanceInterestManagementCustomRange onto NetworkIdentities for custom ranges.")]
         public int visRange = 500;

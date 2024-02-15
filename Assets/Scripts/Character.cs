@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
 using Mirror;
-using Mirror.Core;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -32,7 +29,15 @@ public class Character : NetworkBehaviour
     }
     
     [SerializeField, SyncVar] public Faction faction;
-    
+
+    private void Start()
+    {
+        if (isServer)
+        {
+            EventBus<OnStartTurn>.OnEvent += OnStartTurn;
+        }
+    }
+
     [Server]
     public void TakeDamage(int amount){
 
@@ -62,5 +67,10 @@ public class Character : NetworkBehaviour
         int baseDef = defence;
 
         return baseDef + headDef + chestDef + legsDef + feetDef;
+    }
+
+    private void OnStartTurn(OnStartTurn onStartTurn)
+    {
+        remainingSpeed = speed;
     }
 }

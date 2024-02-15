@@ -4,10 +4,9 @@
 // ILPostProcessorAssemblyRESOLVER does not find the .dll file for:
 // "System.Private.CoreLib"
 // we need this custom reflection importer to fix that.
-
 using Mono.CecilX;
 
-namespace Mirror.Editor.Weaver.EntryPointILPostProcessor
+namespace Mirror.Weaver
 {
     internal class ILPostProcessorReflectionImporterProvider : IReflectionImporterProvider
     {

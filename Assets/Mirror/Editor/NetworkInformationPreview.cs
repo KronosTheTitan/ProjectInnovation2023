@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using Mirror.Core;
 using UnityEditor;
 using UnityEngine;
 
-namespace Mirror.Editor
+namespace Mirror
 {
     [CustomPreview(typeof(GameObject))]
     class NetworkInformationPreview : ObjectPreview

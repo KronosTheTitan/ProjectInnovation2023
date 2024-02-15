@@ -21,7 +21,7 @@ using System.Threading;
 using Mono.CecilX;
 using Unity.CompilationPipeline.Common.ILPostProcessing;
 
-namespace Mirror.Editor.Weaver.EntryPointILPostProcessor
+namespace Mirror.Weaver
 {
     class ILPostProcessorAssemblyResolver : IAssemblyResolver
     {

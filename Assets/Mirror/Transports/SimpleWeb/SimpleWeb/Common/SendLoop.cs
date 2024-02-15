@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine.Profiling;
 
-namespace Mirror.Transports.SimpleWeb.SimpleWeb.Common
+namespace Mirror.SimpleWeb
 {
     public static class SendLoopConfig
     {

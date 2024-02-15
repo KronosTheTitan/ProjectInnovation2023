@@ -1,8 +1,7 @@
 using System.Collections.Generic;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.Basic.Scripts
+namespace Mirror.Examples.Basic
 {
     public class Player : NetworkBehaviour
     {

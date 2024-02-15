@@ -1,10 +1,9 @@
 using System.Net.Http;
 using System.Threading.Tasks;
-using Mirror.Hosting.Edgegap.Editor.Api.Models.Results;
-using Mirror.Hosting.Edgegap.Enums;
+using Edgegap.Editor.Api.Models.Results;
 using Newtonsoft.Json.Linq;
 
-namespace Mirror.Hosting.Edgegap.Editor.Api
+namespace Edgegap.Editor.Api
 {
     /// <summary>Wraps the v1/wizard API endpoint. Used for internal purposes.</summary>
     public class EdgegapWizardApi : EdgegapApiBase

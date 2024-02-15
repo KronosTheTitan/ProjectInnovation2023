@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Mirror.Hosting.Edgegap.Editor.Api.Models.Requests
+namespace Edgegap.Editor.Api.Models.Requests
 {
     /// <summary>
     /// Request model for https://docs.edgegap.com/api/#tag/Applications/operation/application-post

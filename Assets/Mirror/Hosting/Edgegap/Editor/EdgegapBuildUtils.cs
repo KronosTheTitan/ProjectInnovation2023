@@ -9,9 +9,10 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEditor.Build.Reporting;
+
 using Debug = UnityEngine.Debug;
 
-namespace Mirror.Hosting.Edgegap.Editor
+namespace Edgegap
 {
     internal static class EdgegapBuildUtils
     {

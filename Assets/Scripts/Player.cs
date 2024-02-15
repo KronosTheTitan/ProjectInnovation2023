@@ -1,16 +1,29 @@
-using System;
 using System.Linq;
-using Mirror.Core;
+using Mirror;
 using PlayerActions;
 using UnityEngine;
-using UnityEngine.Serialization;
+using UnityEngine.EventSystems;
 
 public class Player : NetworkBehaviour
 {
-    [SerializeField] private PlayerAction[] actions;
-    [SerializeField, SyncVar] private PlayerAction selectedAction;
+    [SerializeField] private MoveAction move;
+    [SerializeField] private AttackAction attack;
+    [SerializeField] private PlayerAction selectedAction;
     [SerializeField] private Node targetedNode;
     [SerializeField, SyncVar] private Character character;
+    public Character Character => character;
+
+    private void Start()
+    {
+        if (isServer)
+        {
+            character.location = Map.GetInstance().Nodes[0];
+            EventBus<OnStartTurn>.OnEvent += OnStartTurn;
+        }
+        
+        Debug.Log("Setting up HUD");
+        Hud.GetInstance().Setup(this,move,attack);
+    }
 
     private void Update()
     {
@@ -44,11 +57,19 @@ public class Player : NetworkBehaviour
 
     private void UseAction()
     {
+        if (selectedAction == null)
+            return;
+        
         if(targetedNode == null)
             return;
         
         if (!Input.GetMouseButtonUp(0))
             return;
+        
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+        
+        Debug.Log("Did not hit UI");
 
         Node[] targets = selectedAction.PotentialTargets(character.location);
         
@@ -58,9 +79,16 @@ public class Player : NetworkBehaviour
         if(!targets.Contains(targetedNode))
             return;
         
-        if (selectedAction == null)
-            return;
-        
         selectedAction.PerformAction(targetedNode, character);
+    }
+
+    public void SetSelectedAction(PlayerAction action)
+    {
+        selectedAction = action;
+    }
+
+    private void OnStartTurn(OnStartTurn onStartTurn)
+    {
+        SetSelectedAction(null);
     }
 }

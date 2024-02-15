@@ -1,7 +1,7 @@
-using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
-namespace Mirror.Hosting.Edgegap.Models
+namespace Edgegap
 {
     public struct DeployPostData
     {

@@ -6,13 +6,11 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Mirror.Hosting.Edgegap.Dependencies;
-using Mirror.Hosting.Edgegap.Enums;
-using UnityEngine;
 // using Codice.Utils; // MIRROR CHANGE
-// MIRROR CHANGE
+using Edgegap.Codice.Utils; // MIRROR CHANGE
+using UnityEngine;
 
-namespace Mirror.Hosting.Edgegap.Editor.Api
+namespace Edgegap.Editor.Api
 {
     /// <summary>
     /// Handles base URL and common methods for all Edgegap APIs.

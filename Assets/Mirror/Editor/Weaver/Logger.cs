@@ -1,6 +1,6 @@
 using Mono.CecilX;
 
-namespace Mirror.Editor.Weaver
+namespace Mirror.Weaver
 {
     // not static, because ILPostProcessor is multithreaded
     public interface Logger

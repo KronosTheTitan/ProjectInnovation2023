@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Runtime.CompilerServices;
 
-namespace Mirror.Transports.SimpleWeb.SimpleWeb.Common
+namespace Mirror.SimpleWeb
 {
     public static class MessageProcessor
     {

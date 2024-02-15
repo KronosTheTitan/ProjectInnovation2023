@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Mirror.Core;
-using Mirror.Editor.Weaver.Processors;
 using Mono.CecilX;
 using Mono.CecilX.Cil;
 using Mono.CecilX.Rocks;
 
-namespace Mirror.Editor.Weaver
+namespace Mirror.Weaver
 {
     // not static, because ILPostProcessor is multithreaded
     internal class Weaver

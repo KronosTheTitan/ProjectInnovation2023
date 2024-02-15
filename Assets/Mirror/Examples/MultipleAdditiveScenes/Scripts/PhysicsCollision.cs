@@ -1,7 +1,6 @@
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.MultipleAdditiveScenes.Scripts
+namespace Mirror.Examples.MultipleAdditiveScenes
 {
     [RequireComponent(typeof(Rigidbody))]
     public class PhysicsCollision : NetworkBehaviour

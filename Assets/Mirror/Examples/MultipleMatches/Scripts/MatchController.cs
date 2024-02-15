@@ -1,11 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Mirror.Components.InterestManagement.Match;
-using Mirror.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Mirror.Examples.MultipleMatches.Scripts
+namespace Mirror.Examples.MultipleMatch
 {
     [RequireComponent(typeof(NetworkMatch))]
     public class MatchController : NetworkBehaviour

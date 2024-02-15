@@ -22,12 +22,10 @@
 //     (Transports can use other threads in the background if they manage them)
 //   * Transports should only process messages while the component is enabled.
 //
-
 using System;
-using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     /// <summary>Abstract transport layer component</summary>
     public abstract class Transport : MonoBehaviour

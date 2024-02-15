@@ -2,7 +2,7 @@
 using System.Net.Sockets;
 using System.Threading;
 
-namespace Mirror.Transports.Telepathy.Telepathy
+namespace Telepathy
 {
     // ClientState OBJECT that can be handed to the ReceiveThread safely.
     // => allows us to create a NEW OBJECT every time we connect and start a

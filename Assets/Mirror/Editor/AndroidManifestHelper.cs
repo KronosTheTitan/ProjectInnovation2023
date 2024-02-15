@@ -1,24 +1,23 @@
 // Android NetworkDiscovery Multicast fix
 // https://github.com/vis2k/Mirror/pull/2887
-
-using System.Xml;
 using UnityEditor;
+using UnityEngine;
 using UnityEditor.Build;
 using UnityEditor.Build.Reporting;
+using System.Xml;
+using System.IO;
 #if UNITY_ANDROID
 using UnityEditor.Android;
 #endif
 
 
-namespace Mirror.Editor
-{
-    [InitializeOnLoad]
-    public class AndroidManifestHelper : IPreprocessBuildWithReport, IPostprocessBuildWithReport
+[InitializeOnLoad]
+public class AndroidManifestHelper : IPreprocessBuildWithReport, IPostprocessBuildWithReport
 #if UNITY_ANDROID
 	, IPostGenerateGradleAndroidProject
 #endif
-    {
-        public int callbackOrder { get { return 99999; } }
+{
+    public int callbackOrder { get { return 99999; } }
 
 #if UNITY_ANDROID
     public void OnPostGenerateGradleAndroidProject(string path)
@@ -62,54 +61,53 @@ namespace Mirror.Editor
     }
 #endif
 
-        static void AddOrRemoveTag(XmlDocument doc, string @namespace, string path, string elementName, string name, bool required, bool modifyIfFound, params string[] attrs) // name, value pairs
+    static void AddOrRemoveTag(XmlDocument doc, string @namespace, string path, string elementName, string name, bool required, bool modifyIfFound, params string[] attrs) // name, value pairs
+    {
+        var nodes = doc.SelectNodes(path + "/" + elementName);
+        XmlElement element = null;
+        foreach (XmlElement e in nodes)
         {
-            var nodes = doc.SelectNodes(path + "/" + elementName);
-            XmlElement element = null;
-            foreach (XmlElement e in nodes)
+            if (name == null || name == e.GetAttribute("name", @namespace))
             {
-                if (name == null || name == e.GetAttribute("name", @namespace))
-                {
-                    element = e;
-                    break;
-                }
-            }
-
-            if (required)
-            {
-                if (element == null)
-                {
-                    var parent = doc.SelectSingleNode(path);
-                    element = doc.CreateElement(elementName);
-                    element.SetAttribute("name", @namespace, name);
-                    parent.AppendChild(element);
-                }
-
-                for (int i = 0; i < attrs.Length; i += 2)
-                {
-                    if (modifyIfFound || string.IsNullOrEmpty(element.GetAttribute(attrs[i], @namespace)))
-                    {
-                        if (attrs[i + 1] != null)
-                        {
-                            element.SetAttribute(attrs[i], @namespace, attrs[i + 1]);
-                        }
-                        else
-                        {
-                            element.RemoveAttribute(attrs[i], @namespace);
-                        }
-                    }
-                }
-            }
-            else
-            {
-                if (element != null && modifyIfFound)
-                {
-                    element.ParentNode.RemoveChild(element);
-                }
+                element = e;
+                break;
             }
         }
 
-        public void OnPostprocessBuild(BuildReport report) {}
-        public void OnPreprocessBuild(BuildReport report) {}
+        if (required)
+        {
+            if (element == null)
+            {
+                var parent = doc.SelectSingleNode(path);
+                element = doc.CreateElement(elementName);
+                element.SetAttribute("name", @namespace, name);
+                parent.AppendChild(element);
+            }
+
+            for (int i = 0; i < attrs.Length; i += 2)
+            {
+                if (modifyIfFound || string.IsNullOrEmpty(element.GetAttribute(attrs[i], @namespace)))
+                {
+                    if (attrs[i + 1] != null)
+                    {
+                        element.SetAttribute(attrs[i], @namespace, attrs[i + 1]);
+                    }
+                    else
+                    {
+                        element.RemoveAttribute(attrs[i], @namespace);
+                    }
+                }
+            }
+        }
+        else
+        {
+            if (element != null && modifyIfFound)
+            {
+                element.ParentNode.RemoveChild(element);
+            }
+        }
     }
+
+    public void OnPostprocessBuild(BuildReport report) {}
+	public void OnPreprocessBuild(BuildReport report) {}
 }

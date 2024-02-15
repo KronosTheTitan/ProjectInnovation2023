@@ -2,7 +2,7 @@ using System;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Mirror.Transports.KCP.kcp2k.highlevel
+namespace kcp2k
 {
     public static class Extensions
     {

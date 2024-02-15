@@ -1,11 +1,10 @@
 // Grid2D from uMMORPG: get/set values of type T at any point
 // -> not named 'Grid' because Unity already has a Grid type. causes warnings.
 // -> struct to avoid memory indirection. it's accessed a lot.
-
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mirror.Components.InterestManagement.SpatialHashing
+namespace Mirror
 {
     // struct to avoid memory indirection. it's accessed a lot.
     public struct Grid2D<T>

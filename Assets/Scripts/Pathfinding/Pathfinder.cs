@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using UnityEngine;
 
-public class Pathfinder
+public class Pathfinder : MonoBehaviour
 {
     public List<Node> FindPath(Node pFrom, Node pTo)
     {
@@ -34,11 +35,14 @@ public class Pathfinder
         //keep looping while no path has been found
         while (!pathFound)
         {
+            Debug.Log(todo.Count);
             if (path.Count != 0)
             {
                 pathFound = true;
                 continue;
             }
+
+            List<Node> newTodo = new List<Node>();
 
             while (todo.Count>0)
             {

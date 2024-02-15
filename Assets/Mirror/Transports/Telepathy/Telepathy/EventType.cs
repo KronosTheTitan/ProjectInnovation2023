@@ -1,4 +1,4 @@
-﻿namespace Mirror.Transports.Telepathy.Telepathy
+﻿namespace Telepathy
 {
     public enum EventType
     {

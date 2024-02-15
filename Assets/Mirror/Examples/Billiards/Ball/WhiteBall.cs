@@ -1,8 +1,8 @@
-using Mirror.Components.NetworkRigidbody;
-using Mirror.Core;
+using System;
+using Mirror;
 using UnityEngine;
 
-namespace Mirror.Examples.Billiards.Ball
+namespace Mirror.Examples.Billiards
 {
     public class WhiteBall : NetworkBehaviour
     {

@@ -1,7 +1,7 @@
 using Mono.CecilX;
 using Mono.CecilX.Cil;
 
-namespace Mirror.Editor.Weaver.Processors
+namespace Mirror.Weaver
 {
     public static class MethodProcessor
     {

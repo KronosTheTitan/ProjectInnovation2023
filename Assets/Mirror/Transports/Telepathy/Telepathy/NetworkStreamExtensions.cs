@@ -2,7 +2,7 @@
 using System.IO;
 using System.Net.Sockets;
 
-namespace Mirror.Transports.Telepathy.Telepathy
+namespace Telepathy
 {
     public static class NetworkStreamExtensions
     {

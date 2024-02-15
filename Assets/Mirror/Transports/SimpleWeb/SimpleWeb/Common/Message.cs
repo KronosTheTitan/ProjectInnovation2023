@@ -1,6 +1,6 @@
 using System;
 
-namespace Mirror.Transports.SimpleWeb.SimpleWeb.Common
+namespace Mirror.SimpleWeb
 {
     public struct Message
     {

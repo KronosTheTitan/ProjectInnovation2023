@@ -1,11 +1,9 @@
 // server needs to store a separate KcpPeer for each connection.
 // as well as remoteEndPoint so we know where to send data to.
-
 using System;
 using System.Net;
-using Mirror.Transports.KCP.kcp2k.kcp;
 
-namespace Mirror.Transports.KCP.kcp2k.highlevel
+namespace kcp2k
 {
     public class KcpServerConnection : KcpPeer
     {

@@ -2,11 +2,10 @@ using System;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
-using Mirror.Core.Tools;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     /// <summary>Network Reader for most simple types like floats, ints, buffers, structs, etc. Use NetworkReaderPool.GetReader() to avoid allocations.</summary>
     // Note: This class is intended to be extremely pedantic,

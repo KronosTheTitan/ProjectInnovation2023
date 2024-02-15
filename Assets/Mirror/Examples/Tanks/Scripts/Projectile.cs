@@ -1,7 +1,6 @@
-﻿using Mirror.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Mirror.Examples.Tanks.Scripts
+namespace Mirror.Examples.Tanks
 {
     public class Projectile : NetworkBehaviour
     {

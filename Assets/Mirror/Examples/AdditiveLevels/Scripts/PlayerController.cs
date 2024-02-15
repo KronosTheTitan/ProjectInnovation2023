@@ -1,8 +1,6 @@
-﻿using Mirror.Components.NetworkTransform;
-using Mirror.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Mirror.Examples.AdditiveLevels.Scripts
+namespace Mirror.Examples.AdditiveLevels
 {
     [RequireComponent(typeof(CapsuleCollider))]
     [RequireComponent(typeof(CharacterController))]

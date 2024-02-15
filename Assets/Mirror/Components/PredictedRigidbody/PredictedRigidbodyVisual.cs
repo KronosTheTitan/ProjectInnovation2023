@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Mirror.Components.PredictedRigidbody
+namespace Mirror
 {
     [Obsolete("Prediction is under development, do not use this yet.")]
     public class PredictedRigidbodyVisual : MonoBehaviour

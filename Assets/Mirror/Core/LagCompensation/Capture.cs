@@ -1,4 +1,4 @@
-namespace Mirror.Core.LagCompensation
+namespace Mirror
 {
     public interface Capture
     {

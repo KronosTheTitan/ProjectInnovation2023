@@ -1,7 +1,6 @@
-using Mirror.Core.LagCompensation;
 using UnityEngine;
 
-namespace Mirror.Examples.LagCompensation
+namespace Mirror.Examples.LagCompensationDemo
 {
     public struct Capture2D : Capture
     {

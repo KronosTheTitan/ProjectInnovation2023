@@ -1,13 +1,10 @@
 // make sure to use a reasonable sync interval.
 // for example, correcting every 100ms seems reasonable.
-
 using System;
 using System.Collections.Generic;
-using Mirror.Core;
-using Mirror.Core.Prediction;
 using UnityEngine;
 
-namespace Mirror.Components.PredictedRigidbody
+namespace Mirror
 {
     struct RigidbodyState : PredictedState
     {

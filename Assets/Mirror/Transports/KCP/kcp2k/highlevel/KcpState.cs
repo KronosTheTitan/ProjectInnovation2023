@@ -1,4 +1,4 @@
-namespace Mirror.Transports.KCP.kcp2k.highlevel
+namespace kcp2k
 {
     public enum KcpState { Connected, Authenticated, Disconnected }
 }

@@ -1,4 +1,4 @@
-namespace Mirror.Core
+namespace Mirror
 {
     public interface NetworkMessage {}
 }

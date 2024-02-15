@@ -2,7 +2,7 @@ using System;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace Mirror.Hosting.Edgegap.Editor.Api.Models.Requests
+namespace Edgegap.Editor.Api.Models.Requests
 {
     /// <summary>
     /// Request model for `POST v1/app/{app_name}/version`.

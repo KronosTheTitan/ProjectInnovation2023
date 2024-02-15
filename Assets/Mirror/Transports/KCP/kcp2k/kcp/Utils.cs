@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-namespace Mirror.Transports.KCP.kcp2k.kcp
+namespace kcp2k
 {
     public static partial class Utils
     {

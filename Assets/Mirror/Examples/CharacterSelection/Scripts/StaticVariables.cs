@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Mirror.Examples.CharacterSelection.Scripts
+namespace Mirror.Examples.CharacterSelection
 {
     // we will use static variables to pass data between scenes
     // this could also be done using other methods

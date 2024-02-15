@@ -1,14 +1,13 @@
 using System;
 using System.Collections.Generic;
-using Mirror.Core;
 using Mono.CecilX;
 using Mono.CecilX.Cil;
-using Mono.CecilX.Rocks;
 // to use Mono.CecilX.Rocks here, we need to 'override references' in the
 // Unity.Mirror.CodeGen assembly definition file in the Editor, and add CecilX.Rocks.
 // otherwise we get an unknown import exception.
+using Mono.CecilX.Rocks;
 
-namespace Mirror.Editor.Weaver
+namespace Mirror.Weaver
 {
     // not static, because ILPostProcessor is multithreaded
     public class Writers

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Mirror.Examples.BenchmarkStinkySteak.Dependencies.netcode_benchmarker_util.Runtime.Scripts.BehaviourWrapper
+namespace StinkySteak.NetcodeBenchmark
 {
     [System.Serializable]
     public struct SinRandomMoveWrapper : IMoveWrapper

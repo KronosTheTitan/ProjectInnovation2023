@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Components.InterestManagement.Match
+namespace Mirror
 {
     [AddComponentMenu("Network/ Interest Management/ Match/Match Interest Management")]
-    public class MatchInterestManagement : Core.InterestManagement
+    public class MatchInterestManagement : InterestManagement
     {
         readonly Dictionary<Guid, HashSet<NetworkIdentity>> matchObjects =
             new Dictionary<Guid, HashSet<NetworkIdentity>>();

@@ -3,7 +3,7 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Mirror.Components.Discovery
+namespace Mirror.Discovery
 {
     [Serializable]
     public class ServerFoundUnityEvent<TResponseType> : UnityEvent<TResponseType> {};

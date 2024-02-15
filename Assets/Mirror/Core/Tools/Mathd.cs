@@ -1,8 +1,7 @@
 // 'double' precision variants for some of Unity's Mathf functions.
-
 using System.Runtime.CompilerServices;
 
-namespace Mirror.Core.Tools
+namespace Mirror
 {
     public static class Mathd
     {

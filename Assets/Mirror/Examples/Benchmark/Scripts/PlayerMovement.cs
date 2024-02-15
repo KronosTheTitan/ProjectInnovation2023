@@ -1,7 +1,6 @@
-﻿using Mirror.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Mirror.Examples.Benchmark.Scripts
+namespace Mirror.Examples.Benchmark
 {
     public class PlayerMovement : NetworkBehaviour
     {

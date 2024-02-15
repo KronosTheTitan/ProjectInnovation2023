@@ -1,13 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Mirror.Core.SnapshotInterpolation;
-using Mirror.Core.Tools;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
-namespace Mirror.Core
+namespace Mirror
 {
     public enum PlayerSpawnMethod { Random, RoundRobin }
     public enum NetworkManagerMode { Offline, ServerOnly, ClientOnly, Host }

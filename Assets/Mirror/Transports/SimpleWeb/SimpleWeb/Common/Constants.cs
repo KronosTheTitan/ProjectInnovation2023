@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Mirror.Transports.SimpleWeb.SimpleWeb.Common
+namespace Mirror.SimpleWeb
 {
     /// <summary>
     /// Constant values that should never change

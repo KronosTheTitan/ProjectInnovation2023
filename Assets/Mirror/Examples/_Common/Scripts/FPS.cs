@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Mirror.Examples._Common.Scripts
+namespace Mirror.Examples.Common
 {
     public class FPS : MonoBehaviour
     {

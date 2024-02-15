@@ -1,10 +1,9 @@
 // snapshot interpolation settings struct.
 // can easily be exposed in Unity inspectors.
-
 using System;
 using UnityEngine;
 
-namespace Mirror.Core.LagCompensation
+namespace Mirror
 {
     // class so we can define defaults easily
     [Serializable]

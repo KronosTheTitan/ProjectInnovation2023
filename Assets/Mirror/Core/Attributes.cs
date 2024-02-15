@@ -1,8 +1,7 @@
 using System;
-using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     /// <summary>
     /// SyncVars are used to synchronize a variable from the server to all clients automatically.

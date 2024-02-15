@@ -1,7 +1,6 @@
-﻿using Mirror.Core;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Mirror.Examples.RigidbodyBenchmark.Scripts
+namespace Mirror.Examples.RigidbodyBenchmark
 {
     [AddComponentMenu("")]
     public class RigidbodyBenchmarkNetworkManager : NetworkManager

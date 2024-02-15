@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Mirror.Core.LagCompensation
+namespace Mirror
 {
     // FakeByte: gather bounds in smaller buckets.
     // for example, bucket(t0,t1,t2), bucket(t3,t4,t5), ...

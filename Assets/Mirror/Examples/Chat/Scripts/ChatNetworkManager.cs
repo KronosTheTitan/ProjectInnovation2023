@@ -1,7 +1,6 @@
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.Chat.Scripts
+namespace Mirror.Examples.Chat
 {
     [AddComponentMenu("")]
     public class ChatNetworkManager : NetworkManager

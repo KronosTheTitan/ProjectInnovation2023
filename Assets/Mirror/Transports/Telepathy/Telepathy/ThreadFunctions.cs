@@ -9,12 +9,11 @@
 //
 // let's even keep them in a STATIC CLASS so it's 100% obvious that this should
 // NOT EVER be changed to non static!
-
 using System;
 using System.Net.Sockets;
 using System.Threading;
 
-namespace Mirror.Transports.Telepathy.Telepathy
+namespace Telepathy
 {
     public static class ThreadFunctions
     {

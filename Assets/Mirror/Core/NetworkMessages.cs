@@ -2,11 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
-using Mirror.Core.Batching;
-using Mirror.Core.Tools;
 using UnityEngine;
 
-namespace Mirror.Core
+namespace Mirror
 {
     // for performance, we (ab)use c# generics to cache the message id in a static field
     // this is significantly faster than doing the computation at runtime or looking up cached results via Dictionary

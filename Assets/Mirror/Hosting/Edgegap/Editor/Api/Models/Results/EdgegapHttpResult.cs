@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
-namespace Mirror.Hosting.Edgegap.Editor.Api.Models.Results
+namespace Edgegap.Editor.Api.Models.Results
 {
     /// <summary>
     /// Wraps the inner json data with outer http info.

@@ -1,9 +1,8 @@
 ﻿using System.Collections;
-using Mirror.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Mirror.Examples.AdditiveLevels.Scripts
+namespace Mirror.Examples.AdditiveLevels
 {
     [AddComponentMenu("")]
     public class AdditiveLevelsNetworkManager : NetworkManager

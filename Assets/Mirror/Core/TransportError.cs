@@ -1,7 +1,7 @@
 // Mirror transport error code enum.
 // most transport implementations should use a subset of this,
 // and then translate the transport error codes to mirror error codes.
-namespace Mirror.Core
+namespace Mirror
 {
     public enum TransportError : byte
     {

@@ -1,7 +1,6 @@
-using Mirror.Core;
 using UnityEngine;
 
-namespace Mirror.Examples.Room.Scripts
+namespace Mirror.Examples.NetworkRoom
 {
     internal class Spawner
     {

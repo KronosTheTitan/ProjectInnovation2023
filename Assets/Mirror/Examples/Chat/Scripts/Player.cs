@@ -1,6 +1,4 @@
-using Mirror.Core;
-
-namespace Mirror.Examples.Chat.Scripts
+namespace Mirror.Examples.Chat
 {
     public class Player : NetworkBehaviour
     {

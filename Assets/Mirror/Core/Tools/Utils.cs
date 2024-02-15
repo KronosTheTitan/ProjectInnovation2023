@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-namespace Mirror.Core.Tools
+namespace Mirror
 {
     // Handles network messages on client and server
     public delegate void NetworkMessageDelegate(NetworkConnection conn, NetworkReader reader, int channelId);

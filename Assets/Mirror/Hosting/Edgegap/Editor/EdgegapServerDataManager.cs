@@ -1,12 +1,11 @@
+using IO.Swagger.Model;
 using System.Collections.Generic;
 using System.Linq;
-using Mirror.Hosting.Edgegap.Enums;
-using Mirror.Hosting.Edgegap.Models.SDK;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Mirror.Hosting.Edgegap.Editor
+namespace Edgegap
 {
     static class EdgegapServerDataManagerUtils
     {

@@ -12,11 +12,10 @@
 //
 // Note: normal Debug.Log messages can be shown by building in Debug/Development
 //       mode.
-
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
-namespace Mirror.Components
+namespace Mirror
 {
     struct LogEntry
     {

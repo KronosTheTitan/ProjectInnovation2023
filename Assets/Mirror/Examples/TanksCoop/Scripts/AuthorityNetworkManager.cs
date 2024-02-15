@@ -1,7 +1,6 @@
 using System.Linq;
-using Mirror.Core;
 
-namespace Mirror.Examples.TanksCoop.Scripts
+namespace Mirror.Examples.TanksCoop
 {
     public class AuthorityNetworkManager : NetworkManager
     {

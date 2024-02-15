@@ -1,4 +1,4 @@
-namespace Mirror.Transports.KCP.kcp2k.kcp
+namespace kcp2k
 {
     internal struct AckItem
     {

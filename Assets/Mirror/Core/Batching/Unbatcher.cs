@@ -5,12 +5,10 @@
 // includes timestamp for tick batching.
 // -> allows NetworkTransform etc. to use timestamp without including it in
 //    every single message
-
 using System;
 using System.Collections.Generic;
-using Mirror.Core.Tools;
 
-namespace Mirror.Core.Batching
+namespace Mirror
 {
     public class Unbatcher
     {

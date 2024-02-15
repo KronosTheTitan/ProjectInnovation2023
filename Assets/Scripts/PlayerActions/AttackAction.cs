@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Mirror.Core;
+using Mirror;
 using UnityEngine;
 
 namespace PlayerActions
@@ -12,10 +12,10 @@ namespace PlayerActions
 
             foreach (Node node in source.connections)
             {
-                if (node.Character == null)
+                if (node.character == null)
                     continue;
 
-                if (source.Character.faction == node.Character.faction)
+                if (source.character.faction == node.character.faction)
                     continue;
 
                 output.Add(node);
@@ -29,10 +29,10 @@ namespace PlayerActions
         {
             Debug.Log("Attacking");
             
-            if(target.Character == null)
+            if(target.character == null)
                 return;
             
-            character.MakeAttack(target.Character);
+            character.MakeAttack(target.character);
         }
     }
 }

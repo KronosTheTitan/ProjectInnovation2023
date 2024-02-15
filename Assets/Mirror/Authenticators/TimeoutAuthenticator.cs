@@ -1,5 +1,4 @@
 using System.Collections;
-using Mirror.Core;
 using UnityEngine;
 
 namespace Mirror.Authenticators

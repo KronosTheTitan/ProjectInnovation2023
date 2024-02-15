@@ -3,9 +3,8 @@ using System.Collections.Concurrent;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading;
-using Mirror.Transports.SimpleWeb.SimpleWeb.Common;
 
-namespace Mirror.Transports.SimpleWeb.SimpleWeb.Server
+namespace Mirror.SimpleWeb
 {
     public class WebSocketServer
     {
