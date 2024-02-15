@@ -14,7 +14,6 @@ namespace PlayerActions
         [Command]
         public override void PerformAction(Node target, Character character)
         {
-
             Node[] path = pathfinder.FindPath(character.location, target).ToArray();
 
             for (int i = 0; 0 < character.remainingSpeed && i < path.Length; i++, character.remainingSpeed--)
@@ -25,6 +24,7 @@ namespace PlayerActions
             }
 
             character.transform.position = character.location.transform.position;
+            character.location.character = character;
         }
     }
 }

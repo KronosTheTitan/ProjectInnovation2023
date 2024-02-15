@@ -21,8 +21,8 @@ public class Player : NetworkBehaviour
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
         
-        Debug.Log("Setting up HUD");
-        Hud.GetInstance().Setup(this,move,attack);
+        if(isLocalPlayer)
+            Hud.GetInstance().Setup(this,move,attack);
     }
 
     private void Update()
@@ -68,8 +68,6 @@ public class Player : NetworkBehaviour
         
         if (EventSystem.current.IsPointerOverGameObject())
             return;
-        
-        Debug.Log("Did not hit UI");
 
         Node[] targets = selectedAction.PotentialTargets(character.location);
         

@@ -16,7 +16,7 @@ public class OnStartTurn : Event
     
 }
 
-public class OnPlayerCharacterTakeDamage : Event
+public class OnCharacterTakeDamage : Event
 {
     
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Node : NetworkBehaviour
 {
-    public Character character;
+    [SyncVar] public Character character;
     public List<Node> connections;
 
     private void Awake()

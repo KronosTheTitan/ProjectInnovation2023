@@ -6,6 +6,7 @@ public class Character : NetworkBehaviour
 {
     [Header("Stats")]
     [SerializeField, SyncVar] public int health;
+    [SerializeField, SyncVar] public int remainingHealth;
     [SerializeField, SyncVar] public int speed;
     [SerializeField, SyncVar] public int remainingSpeed;
     [SerializeField, SyncVar] public int defence;
@@ -20,12 +21,13 @@ public class Character : NetworkBehaviour
 
     [SerializeField, SyncVar] public Weapon weapon;
 
+    [Header("Other")]
     [SerializeField, SyncVar] public Node location;
 
     public enum Faction
     {
-        players,
-        enemies
+        Players,
+        Enemies
     }
     
     [SerializeField, SyncVar] public Faction faction;
@@ -37,14 +39,6 @@ public class Character : NetworkBehaviour
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
     }
-
-    [Server]
-    public void TakeDamage(int amount){
-
-        int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
-
-        health -= modifiedAmount;
-    }
     
     [Server]
     public void MakeAttack(Character target)
@@ -55,6 +49,19 @@ public class Character : NetworkBehaviour
         int damage = attack + weapon.Damage;
         
         target.TakeDamage(damage);
+    }
+
+    [Server]
+    private void TakeDamage(int amount){
+
+        int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
+
+        remainingHealth -= modifiedAmount;
+        
+        EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
+        
+        if(remainingHealth <= 0)
+            Destroy(gameObject);
     }
     
     private int GetTotalDefence()
