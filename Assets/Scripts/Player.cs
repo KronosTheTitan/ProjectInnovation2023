@@ -20,9 +20,12 @@ public class Player : NetworkBehaviour
             character.location = Map.GetInstance().Nodes[0];
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
-        
-        if(isLocalPlayer)
+
+        if (isLocalPlayer)
+        {
             Hud.GetInstance().Setup(this,move,attack);
+            Camera.main.transform.SetParent(transform);
+        }
     }
 
     private void Update()
@@ -63,7 +66,7 @@ public class Player : NetworkBehaviour
         if(targetedNode == null)
             return;
         
-        if (!Input.GetMouseButtonUp(0))
+        if (!Input.GetMouseButtonDown(0))
             return;
         
         if (EventSystem.current.IsPointerOverGameObject())
