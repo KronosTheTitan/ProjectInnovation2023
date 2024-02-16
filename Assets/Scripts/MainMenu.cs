@@ -1,20 +1,24 @@
 using System;
 using Mirror;
 using Mirror.Discovery;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private NetworkManager networkManager;
     [SerializeField] private NetworkDiscovery networkDiscovery;
+    
     public void HostNewGame()
     {
         networkManager.StartHost();
+        networkDiscovery.AdvertiseServer();
     }
 
-    public void JoinGame()
+    private void JoinGame()
     {
-        
+        networkDiscovery.OnServerFound.AddListener(Connect);
+        networkDiscovery.StartDiscovery();
     }
 
     public void QuitButton()
@@ -22,8 +26,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void Start()
+    private void Connect(ServerResponse info)
     {
-        networkDiscovery.StartDiscovery();
+        networkDiscovery.StopDiscovery();
+        networkManager.StartClient(info.uri);
     }
 }
