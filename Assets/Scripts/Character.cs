@@ -11,6 +11,8 @@ public class Character : NetworkBehaviour
     [SerializeField, SyncVar] public int remainingSpeed;
     [SerializeField, SyncVar] public int defence;
     [SerializeField, SyncVar] public int attack;
+    [SerializeField, SyncVar] public int attacksPerTurn;
+    [SerializeField, SyncVar] public int remainingAttacksPerTurn;
     [SerializeField, SyncVar] public int sense;
 
     [Header("Slots")]
@@ -23,6 +25,7 @@ public class Character : NetworkBehaviour
 
     [Header("Other")]
     [SerializeField, SyncVar] public Node location;
+    [SerializeField] private Healthbar healthbar;
 
     public enum Faction
     {
@@ -43,11 +46,11 @@ public class Character : NetworkBehaviour
     [Server]
     public void MakeAttack(Character target)
     {
-        if(Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
+        if (Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
             return;
 
         int damage = attack + weapon.Damage;
-        
+
         target.TakeDamage(damage);
     }
 
@@ -57,7 +60,9 @@ public class Character : NetworkBehaviour
         int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
 
         remainingHealth -= modifiedAmount;
-        
+
+        healthbar.SetHealth(remainingHealth, health);
+
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
         
         if(remainingHealth <= 0)
@@ -79,5 +84,6 @@ public class Character : NetworkBehaviour
     private void OnStartTurn(OnStartTurn onStartTurn)
     {
         remainingSpeed = speed;
+        remainingAttacksPerTurn = attacksPerTurn;
     }
 }

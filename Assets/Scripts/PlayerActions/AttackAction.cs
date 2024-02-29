@@ -27,11 +27,11 @@ namespace PlayerActions
         [Command]
         public override void PerformAction(Node target, Character character)
         {
-            Debug.Log("Attacking");
-            
-            if(target.character == null)
+            Debug.Log(character.remainingAttacksPerTurn);
+            if(target.character == null || character.remainingAttacksPerTurn == 0)
                 return;
-            
+
+            character.remainingAttacksPerTurn--;
             character.MakeAttack(target.character);
         }
     }

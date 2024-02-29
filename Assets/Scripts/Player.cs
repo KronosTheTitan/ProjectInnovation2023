@@ -18,6 +18,7 @@ public class Player : NetworkBehaviour
         if (isServer)
         {
             character.location = Map.GetInstance().Nodes[0];
+            character.location.character = character;
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
 
@@ -73,13 +74,12 @@ public class Player : NetworkBehaviour
             return;
 
         Node[] targets = selectedAction.PotentialTargets(character.location);
-        
         if(targets.Length == 0)
             return;
         
         if(!targets.Contains(targetedNode))
             return;
-        
+
         selectedAction.PerformAction(targetedNode, character);
     }
 
