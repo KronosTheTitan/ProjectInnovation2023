@@ -3,22 +3,25 @@ using Mirror;
 using Mirror.Discovery;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private NetworkManager networkManager;
     [SerializeField] private NetworkDiscovery networkDiscovery;
-    
+    [SerializeField] private LobbyListEntry prefabEntry;
+    [SerializeField] private VerticalLayoutGroup lobbyList;
+
+    private void Start()
+    {
+        networkDiscovery.OnServerFound.AddListener(OnServerFound);
+        networkDiscovery.StartDiscovery();
+    }
+
     public void HostNewGame()
     {
         networkManager.StartHost();
         networkDiscovery.AdvertiseServer();
-    }
-
-    private void JoinGame()
-    {
-        networkDiscovery.OnServerFound.AddListener(Connect);
-        networkDiscovery.StartDiscovery();
     }
 
     public void QuitButton()
@@ -26,9 +29,8 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    private void Connect(ServerResponse info)
+    public void OnServerFound(ServerResponse response)
     {
-        networkDiscovery.StopDiscovery();
-        networkManager.StartClient(info.uri);
+        Instantiate(prefabEntry, lobbyList.transform);
     }
 }
