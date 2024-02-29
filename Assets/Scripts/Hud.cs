@@ -33,19 +33,32 @@ public class Hud : MonoBehaviour
         player = pPlayer;
         move = pMove;
         attack = pAttack;
+        turnManager.RegisterNewPlayer(player);
     }
 
     [SerializeField] private Player player;
     [SerializeField] private MoveAction move;
     [SerializeField] private AttackAction attack;
+    [SerializeField] private TurnManager turnManager;
     
     public void SelectMove()
     {
+        if(turnManager.ActivePlayer != player)
+            return;
+        
         player.SetSelectedAction(move);
     }
 
     public void SelectAttack()
     {
+        if(turnManager.ActivePlayer != player)
+            return;
+        
         player.SetSelectedAction(attack);
+    }
+
+    public void CallNextTurn()
+    {
+        turnManager.NextTurn(player);
     }
 }
