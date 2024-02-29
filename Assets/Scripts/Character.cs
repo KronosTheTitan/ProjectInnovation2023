@@ -25,7 +25,8 @@ public class Character : NetworkBehaviour
 
     [Header("Other")]
     [SerializeField, SyncVar] public Node location;
-    [SerializeField] private Healthbar healthbar;
+
+    public Healthbar healthbar;
 
     public enum Faction
     {
@@ -39,6 +40,7 @@ public class Character : NetworkBehaviour
     {
         if (isServer)
         {
+            healthbar = GetComponentInChildren<Healthbar>();
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
     }

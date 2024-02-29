@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 87352261896369072}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 9.542, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,9 +45,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 80
-  m_Range: 15
-  m_SpotAngle: 100
+  m_Intensity: 100
+  m_Range: 20
+  m_SpotAngle: 100.2923
   m_InnerSpotAngle: 0
   m_CookieSize: 10
   m_Shadows:
@@ -363,6 +363,7 @@ MonoBehaviour:
   selectedAction: {fileID: 6828393510063373239}
   targetedNode: {fileID: 0}
   character: {fileID: 2857472905130534143}
+  spotlight: {fileID: 1475133419596213835}
 --- !u!114 &2857472905130534143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,7 +387,7 @@ MonoBehaviour:
   attack: 10
   attacksPerTurn: 1
   remainingAttacksPerTurn: 1
-  sense: 0
+  sense: 5
   head: {fileID: 11400000, guid: 32b71075b3eb80a499278054acbe6410, type: 2}
   chest: {fileID: 11400000, guid: eee5630e5d95ab9429bd058dc9653194, type: 2}
   legs: {fileID: 11400000, guid: 9104495c1dfd0c741a659cd82500a339, type: 2}

@@ -11,6 +11,8 @@ public class Player : NetworkBehaviour
     [SerializeField] private PlayerAction selectedAction;
     [SerializeField] private Node targetedNode;
     [SerializeField, SyncVar] private Character character;
+    [SerializeField] private Light spotlight;
+
     public Character Character => character;
 
     private void Start()
@@ -19,6 +21,9 @@ public class Player : NetworkBehaviour
         {
             character.location = Map.GetInstance().Nodes[0];
             character.location.character = character;
+            spotlight.spotAngle = Mathf.Atan((character.sense + 0.5f) / spotlight.transform.position.y) * (180 / Mathf.PI) * (spotlight.range / spotlight.transform.position.y);
+            spotlight.innerSpotAngle = spotlight.spotAngle;
+            character.healthbar = Hud.GetInstance().GetHealthBar();
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
 

@@ -38,7 +38,13 @@ public class Hud : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private MoveAction move;
     [SerializeField] private AttackAction attack;
-    
+    [SerializeField] private Healthbar healthbar;
+
+    public Healthbar GetHealthBar()
+    {
+        return healthbar;
+    }
+
     public void SelectMove()
     {
         player.SetSelectedAction(move);
