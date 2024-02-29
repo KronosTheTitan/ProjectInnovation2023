@@ -1,3 +1,5 @@
+using EventBus;
+using Mirror;
 using PlayerActions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -33,32 +35,21 @@ public class Hud : MonoBehaviour
         player = pPlayer;
         move = pMove;
         attack = pAttack;
-        turnManager.RegisterNewPlayer(player);
     }
 
     [SerializeField] private Player player;
     [SerializeField] private MoveAction move;
     [SerializeField] private AttackAction attack;
     [SerializeField] private TurnManager turnManager;
-    
-    public void SelectMove()
+
+    public void NextTurn()
     {
-        if(turnManager.ActivePlayer != player)
-            return;
-        
-        player.SetSelectedAction(move);
+        CallNextTurn(player);
     }
 
-    public void SelectAttack()
+    [Command(requiresAuthority = false)]
+    public void CallNextTurn(Player player)
     {
-        if(turnManager.ActivePlayer != player)
-            return;
-        
-        player.SetSelectedAction(attack);
-    }
-
-    public void CallNextTurn()
-    {
-        turnManager.NextTurn(player);
+        EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(player));
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using EventBus;
 
 /// <summary>
 /// This class is used for receiving and sending events from other parts of the code base
