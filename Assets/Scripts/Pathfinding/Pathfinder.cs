@@ -48,13 +48,6 @@ public class Pathfinder : MonoBehaviour
                 //loop over all the connected nodes to the current one
                 foreach (Node node1 in todo[0].connections)
                 {
-                    //check if it is the end node
-                    if (node1 == pTo)
-                    {
-                        //add the end node to the path
-                        path.Add(node1);
-                        continue;
-                    }
                     
                     if(node1.character != null) continue;
                     //if this node already has a parent (which means it has already been checked) set continue
@@ -64,6 +57,13 @@ public class Pathfinder : MonoBehaviour
                     parents.Add(node1,todo[0]);
                     //add the node to todo list
                     todo.Add(node1);
+                    
+                    //check if it is the end node
+                    if (node1 == pTo)
+                    {
+                        //add the end node to the path
+                        path.Add(node1);
+                    }
                 }
                 
                 //remove the current node from the todo list

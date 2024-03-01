@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using EventBus;
 using UnityEngine;
@@ -6,12 +7,25 @@ namespace AI
 {
     public class EnemyAI : CanTakeTurn
     {
-        private List<Character> enemies;
-        private List<PlayerCharacter> playerCharacters;
+        [SerializeField] private List<Character> enemies;
+        [SerializeField] private List<Character> playerCharacters;
         [SerializeField] private Pathfinder pathfinder;
 
-        public override void TakeTurn()
+        private void Awake()
         {
+            EventBus<OnPlayerJoinedServer>.OnEvent += RegisterNewPlayer;
+        }
+
+        public override async void TakeTurn()
+        {
+            if (enemies.Count == 0)
+            {
+                Debug.Log("Exiting AI");
+                EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(this));
+                return;
+            }
+                
+            
             foreach (Character enemy in enemies)
             {
                 Debug.Log("Enemy taking turn");
@@ -36,29 +50,34 @@ namespace AI
 
                 if (attackTarget != null)
                 {
+                    Debug.Log("Making Attack");
                     enemy.MakeAttack(attackTarget);
                     continue;
                 }
 
-                PlayerCharacter closestPlayer = null;
+                Character closestPlayer = null;
                 float closestDistance = float.PositiveInfinity;
 
-                foreach (PlayerCharacter playerCharacter in playerCharacters)
+                foreach (Character character in playerCharacters)
                 {
-                    float dist = Vector3.Distance(enemy.transform.position, playerCharacter.transform.position);
+                    float dist = Vector3.Distance(enemy.transform.position, character.transform.position);
 
                     if (dist > enemy.sense)
                         continue;
 
-                    if (closestDistance > dist)
+                    if (closestDistance >= dist)
                     {
-                        closestPlayer = playerCharacter;
+                        closestPlayer = character;
                         closestDistance = dist;
                     }
                 }
                 
+                Debug.Log("Checking if closest Player is not null");
+                
                 if(closestPlayer == null)
                     continue;
+                
+                Debug.Log("Moving To Player");
 
                 Node[] path = pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
                 
@@ -89,11 +108,17 @@ namespace AI
 
                 if (attackTarget != null)
                 {
+                    Debug.Log("Making Attack");
                     enemy.MakeAttack(attackTarget);
                 }
             }
             
             EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(this));
+        }
+
+        private void RegisterNewPlayer(OnPlayerJoinedServer onPlayerJoinedServer)
+        {
+            playerCharacters.Add(onPlayerJoinedServer.Player.Character);
         }
     }
 }

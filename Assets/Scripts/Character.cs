@@ -79,7 +79,6 @@ public class Character : NetworkBehaviour
 
     protected void OnStartTurn(OnStartTurn onStartTurn)
     {
-        Debug.Log("Starting Turn");
         remainingSpeed = speed;
     }
 }

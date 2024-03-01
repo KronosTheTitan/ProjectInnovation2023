@@ -15,12 +15,7 @@ public class Player : CanTakeTurn
     [SerializeField, SyncVar] private Character character;
     [SerializeField] private new Camera camera;
     public Character Character => character;
-
-    private void Awake()
-    {
-        if(isServer)
-            EventBus<OnStartTurn>.OnEvent += OnStartTurn;
-    }
+    [SyncVar] public TurnManager TurnManager;
 
     private void Start()
     {
@@ -32,13 +27,21 @@ public class Player : CanTakeTurn
 
         if (isLocalPlayer)
         {
-            if (Camera.main != null) Camera.main.transform.SetParent(transform);
+            if (Camera.main != null)
+            {
+                camera = Camera.main;
+                Camera.main.transform.SetParent(transform);
+            }
+            Hud.GetInstance().Setup(this);
             EventBus<OnPlayerJoinedLocal>.Publish(new OnPlayerJoinedLocal(this));
         }
     }
 
     private void Update()
     {
+        if(TurnManager.ActiveTurnTaker != this)
+            return;
+        
         if(isLocalPlayer)
             OwnerOnlyUpdate();
     }
@@ -105,13 +108,9 @@ public class Player : CanTakeTurn
             selectedAction = attack;
     }
 
-    private void OnStartTurn(OnStartTurn onStartTurn)
-    {
-        
-    }
-
     public override void TakeTurn()
     {
-        
+        Debug.Log("Reseting movement");
+        character.remainingSpeed = character.speed;
     }
 }

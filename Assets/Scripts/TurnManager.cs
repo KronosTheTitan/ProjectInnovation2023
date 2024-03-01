@@ -24,7 +24,7 @@ public class TurnManager : NetworkBehaviour
     
     [Server]
     private void NextTurn(NextTurnButtonPressed nextTurnButtonPressed)
-    {
+    { 
         if(nextTurnButtonPressed.CanTakeTurn != activeTurnTaker)
             return;
         
@@ -43,6 +43,7 @@ public class TurnManager : NetworkBehaviour
     private void RegisterNewPlayer(OnPlayerJoinedServer onPlayerJoinedServer)
     {
         _turnTakers.Add(onPlayerJoinedServer.Player);
+        onPlayerJoinedServer.Player.TurnManager = this;
         if (activeTurnTaker == null)
         {
             activeTurnTakerIndex = _turnTakers.IndexOf(onPlayerJoinedServer.Player);
