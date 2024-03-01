@@ -13,6 +13,7 @@ public class Player : CanTakeTurn
     [SerializeField] private PlayerAction selectedAction;
     [SerializeField] private Node targetedNode;
     [SerializeField, SyncVar] private Character character;
+    [SerializeField] private Light spotlight;
     [SerializeField] private new Camera camera;
     public Character Character => character;
     [SyncVar] public TurnManager TurnManager;
@@ -22,6 +23,11 @@ public class Player : CanTakeTurn
         if (isServer)
         {
             character.location = Map.GetInstance().Nodes[0];
+            character.location.character = character;
+            spotlight.spotAngle = Mathf.Atan((character.sense + 0.5f) / spotlight.transform.position.y) * (180 / Mathf.PI) * (spotlight.range / spotlight.transform.position.y);
+            spotlight.innerSpotAngle = spotlight.spotAngle;
+            character.healthbar = Hud.GetInstance().GetHealthBar();
+            EventBus<OnStartTurn>.OnEvent += OnStartTurn;
             EventBus<OnPlayerJoinedServer>.Publish(new OnPlayerJoinedServer(this));
         }
 
@@ -87,13 +93,12 @@ public class Player : CanTakeTurn
             return;
 
         Node[] targets = selectedAction.PotentialTargets(character.location);
-        
         if(targets.Length == 0)
             return;
         
         if(!targets.Contains(targetedNode))
             return;
-        
+
         selectedAction.PerformAction(targetedNode, character);
     }
 

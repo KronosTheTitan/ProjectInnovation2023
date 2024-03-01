@@ -36,6 +36,12 @@ public class Hud : NetworkBehaviour
     }
 
     [SerializeField] private Player player;
+    [SerializeField] private Healthbar healthbar;
+
+    public Healthbar GetHealthBar()
+    {
+        return healthbar;
+    }
 
     public void NextTurn()
     {
