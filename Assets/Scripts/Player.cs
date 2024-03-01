@@ -1,35 +1,47 @@
+using System;
 using System.Linq;
+using EventBus;
 using Mirror;
 using PlayerActions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Player : NetworkBehaviour
+public class Player : CanTakeTurn
 {
     [SerializeField] private MoveAction move;
     [SerializeField] private AttackAction attack;
     [SerializeField] private PlayerAction selectedAction;
     [SerializeField] private Node targetedNode;
     [SerializeField, SyncVar] private Character character;
+    [SerializeField] private new Camera camera;
     public Character Character => character;
+    [SyncVar] public TurnManager TurnManager;
 
     private void Start()
     {
         if (isServer)
         {
             character.location = Map.GetInstance().Nodes[0];
-            EventBus<OnStartTurn>.OnEvent += OnStartTurn;
+            EventBus<OnPlayerJoinedServer>.Publish(new OnPlayerJoinedServer(this));
         }
 
         if (isLocalPlayer)
         {
-            Hud.GetInstance().Setup(this,move,attack);
-            Camera.main.transform.SetParent(transform);
+            if (Camera.main != null)
+            {
+                camera = Camera.main;
+                Camera.main.transform.SetParent(transform);
+            }
+            Hud.GetInstance().Setup(this);
+            EventBus<OnPlayerJoinedLocal>.Publish(new OnPlayerJoinedLocal(this));
         }
     }
 
     private void Update()
     {
+        if(TurnManager.ActiveTurnTaker != this)
+            return;
+        
         if(isLocalPlayer)
             OwnerOnlyUpdate();
     }
@@ -37,13 +49,15 @@ public class Player : NetworkBehaviour
     private void OwnerOnlyUpdate()
     {
         GetTargetedTile();
+        
+        SetSelectedAction();
 
         UseAction();
     }
 
     private void GetTargetedTile()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         targetedNode = null;
 
@@ -83,13 +97,20 @@ public class Player : NetworkBehaviour
         selectedAction.PerformAction(targetedNode, character);
     }
 
-    public void SetSelectedAction(PlayerAction action)
+    private void SetSelectedAction()
     {
-        selectedAction = action;
+        if(targetedNode == null)
+            return;
+        
+        if (targetedNode.character == null || !character.location.connections.Contains(targetedNode))
+            selectedAction = move;
+        else
+            selectedAction = attack;
     }
 
-    private void OnStartTurn(OnStartTurn onStartTurn)
+    public override void TakeTurn()
     {
-        SetSelectedAction(null);
+        Debug.Log("Reseting movement");
+        character.remainingSpeed = character.speed;
     }
 }
