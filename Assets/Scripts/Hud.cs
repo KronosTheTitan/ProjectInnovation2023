@@ -1,8 +1,10 @@
+using EventBus;
+using Mirror;
 using PlayerActions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Hud : MonoBehaviour
+public class Hud : NetworkBehaviour
 {
     #region Singleton
     private static Hud _instance;
@@ -28,16 +30,12 @@ public class Hud : MonoBehaviour
     }
     #endregion
     
-    public void Setup(Player pPlayer, MoveAction pMove, AttackAction pAttack)
+    public void Setup(Player pPlayer)
     {
         player = pPlayer;
-        move = pMove;
-        attack = pAttack;
     }
 
     [SerializeField] private Player player;
-    [SerializeField] private MoveAction move;
-    [SerializeField] private AttackAction attack;
     [SerializeField] private Healthbar healthbar;
 
     public Healthbar GetHealthBar()
@@ -45,13 +43,16 @@ public class Hud : MonoBehaviour
         return healthbar;
     }
 
-    public void SelectMove()
+    public void NextTurn()
     {
-        player.SetSelectedAction(move);
+        Debug.Log("NextTurnPressed");
+        CallNextTurn(player);
     }
 
-    public void SelectAttack()
+    [Command(requiresAuthority = false)]
+    private void CallNextTurn(Player player)
     {
-        player.SetSelectedAction(attack);
+        Debug.Log("ServerMessageReceived");
+        EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(player));
     }
 }

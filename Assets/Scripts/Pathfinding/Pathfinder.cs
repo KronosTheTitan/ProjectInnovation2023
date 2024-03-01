@@ -48,6 +48,7 @@ public class Pathfinder : MonoBehaviour
                 //loop over all the connected nodes to the current one
                 foreach (Node node1 in todo[0].connections)
                 {
+                    
                     if(node1.character != null) continue;
                     //if this node already has a parent (which means it has already been checked) set continue
                     if(parents.ContainsKey(node1)) continue;
@@ -80,6 +81,10 @@ public class Pathfinder : MonoBehaviour
         
         //put the path in the correct order.
         path.Reverse();
+
+        if (path[^1].character != null)
+            path.Remove(path[^1]);
+            
         return path;
     }
 }

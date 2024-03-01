@@ -1,3 +1,4 @@
+using EventBus;
 using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
@@ -57,7 +58,7 @@ public class Character : NetworkBehaviour
     }
 
     [Server]
-    private void TakeDamage(int amount){
+    protected virtual void TakeDamage(int amount){
 
         int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
 
@@ -71,7 +72,7 @@ public class Character : NetworkBehaviour
             Destroy(gameObject);
     }
     
-    private int GetTotalDefence()
+    protected int GetTotalDefence()
     {
         int headDef = head.DefenceBonus;
         int chestDef = chest.DefenceBonus;
@@ -83,7 +84,7 @@ public class Character : NetworkBehaviour
         return baseDef + headDef + chestDef + legsDef + feetDef;
     }
 
-    private void OnStartTurn(OnStartTurn onStartTurn)
+    protected void OnStartTurn(OnStartTurn onStartTurn)
     {
         remainingSpeed = speed;
         remainingAttacksPerTurn = attacksPerTurn;
