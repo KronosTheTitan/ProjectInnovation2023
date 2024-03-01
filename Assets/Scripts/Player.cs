@@ -27,7 +27,6 @@ public class Player : CanTakeTurn
             spotlight.spotAngle = Mathf.Atan((character.sense + 0.5f) / spotlight.transform.position.y) * (180 / Mathf.PI) * (spotlight.range / spotlight.transform.position.y);
             spotlight.innerSpotAngle = spotlight.spotAngle;
             character.healthbar = Hud.GetInstance().GetHealthBar();
-            EventBus<OnStartTurn>.OnEvent += OnStartTurn;
             EventBus<OnPlayerJoinedServer>.Publish(new OnPlayerJoinedServer(this));
         }
 
