@@ -29,8 +29,9 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnServerFound(ServerResponse response)
+    private void OnServerFound(ServerResponse response)
     {
-        Instantiate(prefabEntry, lobbyList.transform);
+        Debug.Log("Lobby Found!");
+        Instantiate(prefabEntry, lobbyList.transform).Setup(response, networkDiscovery);
     }
 }

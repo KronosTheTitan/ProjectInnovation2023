@@ -16,11 +16,15 @@ namespace PlayerActions
         {
             Node[] path = pathfinder.FindPath(character.location, target).ToArray();
 
-            for (int i = 0; 0 < character.remainingSpeed && i < path.Length; i++, character.remainingSpeed--)
+            foreach (Node node in path)
             {
+                if( 0 >= character.remainingSpeed)
+                    break;
+                
                 character.location.character = null;
-                character.location = path[i];
-                path[i].character = character;
+                character.location = node;
+                node.character = character;
+                character.remainingSpeed--;
             }
 
             character.transform.position = character.location.transform.position;

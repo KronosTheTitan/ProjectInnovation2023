@@ -49,7 +49,7 @@ public class Pathfinder : MonoBehaviour
                 foreach (Node node1 in todo[0].connections)
                 {
                     
-                    if(node1.character != null) continue;
+                    if(node1.character != null && node1 != pTo) continue;
                     //if this node already has a parent (which means it has already been checked) set continue
                     if(parents.ContainsKey(node1)) continue;
                     

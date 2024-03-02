@@ -3553,7 +3553,9 @@ MonoBehaviour:
   speed: 5
   remainingSpeed: 5
   defence: 0
-  attack: 0
+  attack: 5
+  attacksPerTurn: 0
+  remainingAttacksPerTurn: 0
   sense: 10
   head: {fileID: 11400000, guid: 32b71075b3eb80a499278054acbe6410, type: 2}
   chest: {fileID: 11400000, guid: eee5630e5d95ab9429bd058dc9653194, type: 2}
@@ -3561,6 +3563,7 @@ MonoBehaviour:
   feet: {fileID: 11400000, guid: 45216d9554af1514bab4b23e6e02f344, type: 2}
   weapon: {fileID: 11400000, guid: fc9560939eb210d499a2df91fbc7a3fe, type: 2}
   location: {fileID: 1698426640}
+  healthbar: {fileID: 0}
   faction: 1
 --- !u!114 &457263403
 MonoBehaviour:
@@ -5500,6 +5503,7 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   player: {fileID: 0}
+  healthbar: {fileID: 0}
 --- !u!114 &585500476
 MonoBehaviour:
   m_ObjectHideFlags: 0

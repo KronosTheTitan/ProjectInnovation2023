@@ -16,22 +16,22 @@ namespace AI
             EventBus<OnPlayerJoinedServer>.OnEvent += RegisterNewPlayer;
         }
 
-        public override async void TakeTurn()
+        public override void TakeTurn()
         {
+            
             if (enemies.Count == 0)
             {
                 Debug.Log("Exiting AI");
                 EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(this));
                 return;
             }
-                
             
             foreach (Character enemy in enemies)
             {
                 Debug.Log("Enemy taking turn");
 
                 bool nextToPlayer = false;
-                PlayerCharacter attackTarget = null;
+                Character attackTarget = null;
                 
                 foreach (Node node in enemy.location.connections)
                 {
@@ -40,12 +40,9 @@ namespace AI
                     
                     if(node.character.faction == enemy.faction)
                         continue;
-
-                    if (node.character.GetType() == typeof(PlayerCharacter))
-                    {
-                        attackTarget = (PlayerCharacter)node.character;
-                        nextToPlayer = true;
-                    }
+                    
+                    attackTarget = node.character;
+                    nextToPlayer = true;
                 }
 
                 if (attackTarget != null)
@@ -81,11 +78,15 @@ namespace AI
 
                 Node[] path = pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
                 
-                for (int i = 0; 0 < enemy.remainingSpeed && i < path.Length; i++, enemy.remainingSpeed--)
+                foreach (Node node in path)
                 {
+                    if( 0 >= enemy.remainingSpeed)
+                        break;
+                
                     enemy.location.character = null;
-                    enemy.location = path[i];
-                    path[i].character = enemy;
+                    enemy.location = node;
+                    node.character = enemy;
+                    enemy.remainingSpeed--;
                 }
 
                 enemy.transform.position = enemy.location.transform.position;
@@ -98,12 +99,10 @@ namespace AI
                     
                     if(node.character.faction == enemy.faction)
                         continue;
-
-                    if (node.character.GetType() == typeof(PlayerCharacter))
-                    {
-                        attackTarget = (PlayerCharacter)node.character;
-                        nextToPlayer = true;
-                    }
+                    
+                    
+                    attackTarget = node.character;
+                    nextToPlayer = true;
                 }
 
                 if (attackTarget != null)

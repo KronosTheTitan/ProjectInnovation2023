@@ -64,7 +64,7 @@ public class Character : NetworkBehaviour
 
         remainingHealth -= modifiedAmount;
 
-        healthbar.SetHealth(remainingHealth, health);
+//        healthbar.SetHealth(remainingHealth, health);
 
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
         
