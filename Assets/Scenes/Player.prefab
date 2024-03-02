@@ -364,6 +364,8 @@ MonoBehaviour:
   targetedNode: {fileID: 0}
   character: {fileID: 2857472905130534143}
   spotlight: {fileID: 1475133419596213835}
+  camera: {fileID: 0}
+  TurnManager: {fileID: 0}
 --- !u!114 &2857472905130534143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,8 +381,8 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  health: 5
-  remainingHealth: 0
+  health: 50
+  remainingHealth: 50
   speed: 5
   remainingSpeed: 5
   defence: 0
