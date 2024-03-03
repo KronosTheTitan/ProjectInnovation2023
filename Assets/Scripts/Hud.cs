@@ -45,14 +45,12 @@ public class Hud : NetworkBehaviour
 
     public void NextTurn()
     {
-        Debug.Log("NextTurnPressed");
         CallNextTurn(player);
     }
 
     [Command(requiresAuthority = false)]
     private void CallNextTurn(Player player)
     {
-        Debug.Log("ServerMessageReceived");
         EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(player));
     }
 }

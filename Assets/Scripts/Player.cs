@@ -114,7 +114,6 @@ public class Player : CanTakeTurn
 
     public override void TakeTurn()
     {
-        Debug.Log("Reseting movement");
         character.remainingSpeed = character.speed;
     }
 }
