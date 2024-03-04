@@ -22,15 +22,26 @@ public class Pathfinder : MonoBehaviour
         //it is the end node, this caused problems in the other section.
         foreach (Node node in pFrom.connections)
         {
+            if(node.character != null && node != pTo)
+                continue;
+            
+            Debug.Log("Testing initial node");
+            
             parents.Add(node,pFrom);
             if (node == pTo)
             {
+                if (pTo.character != null)
+                    return path;
+                
                 path.Add(pFrom);
                 path.Add(pTo);
                 
                 return path;
             }
         }
+
+        if (todo.Count == 0)
+            return path;
         
         //keep looping while no path has been found
         while (!pathFound)
@@ -40,8 +51,6 @@ public class Pathfinder : MonoBehaviour
                 pathFound = true;
                 continue;
             }
-
-            List<Node> newTodo = new List<Node>();
 
             while (todo.Count>0)
             {
@@ -73,10 +82,10 @@ public class Pathfinder : MonoBehaviour
 
         //stay in loop until the start point has been reached
         //yes it will be in the wrong order, this was the easiest way to do it.
-        while (path[path.Count-1]!= pFrom)
+        while (path[^1]!= pFrom)
         {
             //add the node that is the parent of the last node to the end of the list
-            path.Add(parents[path[path.Count-1]]);
+            path.Add(parents[path[^1]]);
         }
         
         //put the path in the correct order.
