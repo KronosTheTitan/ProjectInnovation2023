@@ -8,7 +8,7 @@ public class CharacterMover : MonoBehaviour
     [SerializeField] private Node[] path;
     [SerializeField] private float progress;
     [SerializeField] private Character character;
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 1;
     [SerializeField] public bool isMoving;
     [SerializeField] private int index;
     [SerializeField] private int lastIndex;

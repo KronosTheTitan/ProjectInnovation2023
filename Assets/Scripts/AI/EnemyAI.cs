@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using EventBus;
+using Mirror;
 using UnityEngine;
 
 namespace AI
@@ -31,6 +32,7 @@ namespace AI
 
         private AiStage currentStage;
         
+        [Server]
         private void Update()
         {
             if(!isTakingActions)
@@ -111,7 +113,7 @@ namespace AI
             EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(this));
         }
 
-        public override async void TakeTurn()
+        public override void TakeTurn()
         {
             Debug.Log("Taking Turn");
             isTakingActions = true;

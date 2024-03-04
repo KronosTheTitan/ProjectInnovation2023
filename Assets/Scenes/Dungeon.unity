@@ -3634,7 +3634,7 @@ MonoBehaviour:
   path: []
   progress: 0
   character: {fileID: 457263402}
-  speed: 0
+  speed: 1
   isMoving: 0
   index: 0
   lastIndex: 0
@@ -13417,6 +13417,9 @@ MonoBehaviour:
   - {fileID: 457263402}
   playerCharacters: []
   pathfinder: {fileID: 1712969314}
+  isTakingActions: 0
+  currentEnemy: 0
+  currentEnemyHasMoved: 0
 --- !u!1 &1789758838
 GameObject:
   m_ObjectHideFlags: 0
