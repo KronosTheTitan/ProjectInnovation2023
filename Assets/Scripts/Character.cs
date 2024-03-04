@@ -50,10 +50,14 @@ public class Character : NetworkBehaviour
     [Server]
     public void MakeAttack(Character target)
     {
+        if(remainingAttacksPerTurn == 0)
+            return;
+        
         if (Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
             return;
 
         int damage = attack + weapon.Damage;
+        remainingAttacksPerTurn--;
 
         target.TakeDamage(damage);
     }

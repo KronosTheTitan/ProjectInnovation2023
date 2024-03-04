@@ -25,6 +25,9 @@ public class Pathfinder : MonoBehaviour
             parents.Add(node,pFrom);
             if (node == pTo)
             {
+                if (pTo.character != null)
+                    return path;
+                
                 path.Add(pFrom);
                 path.Add(pTo);
                 

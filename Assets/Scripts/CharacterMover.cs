@@ -87,7 +87,7 @@ public class CharacterMover : MonoBehaviour
             character.location.character = null;
             character.location = path[^1];
             character.location.character = character;
-            Debug.LogError("Reached end");
+            Debug.Log("Reached end");
             StopMovement();
         }
         else
