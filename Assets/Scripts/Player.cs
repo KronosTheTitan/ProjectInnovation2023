@@ -79,6 +79,9 @@ public class Player : CanTakeTurn
 
     private void UseAction()
     {
+        if (character.isAttacking)
+            return;
+
         if (selectedAction == null)
             return;
         
