@@ -15,6 +15,7 @@ public class Character : NetworkBehaviour
     [SerializeField, SyncVar] public int attacksPerTurn;
     [SerializeField, SyncVar] public int remainingAttacksPerTurn;
     [SerializeField, SyncVar] public int sense;
+    public CharacterMover Mover;
 
     [Header("Slots")]
     [SerializeField, SyncVar] public HeadArmour head;

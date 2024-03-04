@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 6482478565039893852}
   - component: {fileID: 1359377094086714311}
   - component: {fileID: 471996199765138043}
+  - component: {fileID: 1774839277306106780}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -390,6 +391,7 @@ MonoBehaviour:
   attacksPerTurn: 1
   remainingAttacksPerTurn: 1
   sense: 5
+  Mover: {fileID: 1774839277306106780}
   head: {fileID: 11400000, guid: 32b71075b3eb80a499278054acbe6410, type: 2}
   chest: {fileID: 11400000, guid: eee5630e5d95ab9429bd058dc9653194, type: 2}
   legs: {fileID: 11400000, guid: 9104495c1dfd0c741a659cd82500a339, type: 2}
@@ -491,6 +493,23 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   worldSpaceUI: {fileID: 5125513494974735848}
+--- !u!114 &1774839277306106780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553213299081691988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f288e8227b3f44d6861b3bb78e20995f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: []
+  progress: 0
+  character: {fileID: 2857472905130534143}
+  speed: 1
+  isMoving: 0
 --- !u!1 &5557652294485835350
 GameObject:
   m_ObjectHideFlags: 0
