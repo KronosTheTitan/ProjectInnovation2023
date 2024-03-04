@@ -11,6 +11,7 @@ public class TileGrid : MonoBehaviour
 
     [SerializeField] private int width;
     [SerializeField] private int height;
+    [SerializeField] private Texture2D texture;
 
     [SerializeField] private List<Node> generatedTiles = new List<Node>();
 
@@ -23,6 +24,10 @@ public class TileGrid : MonoBehaviour
     public void GenerateGrid()
     {
         ClearGrid();
+
+        width = texture.width;
+        height = texture.height;
+        
         Node[][] grid = new Node[width][];
         for (int index = 0; index < width; index++)
         {
@@ -33,6 +38,9 @@ public class TileGrid : MonoBehaviour
         {
             for (int y = 0; y < height; y++)
             {
+                if(texture.GetPixel(x,y).r == 0)
+                    continue;
+                
                 Vector3 position = new Vector3(x * offsetXAxis, 0, y * offsetZAxis);
 
                 // Create a new HexTile using the provided factory method.
@@ -42,12 +50,14 @@ public class TileGrid : MonoBehaviour
                 grid[x][y] = tile;
                     
                 // Connect the tile with its left neighbor.
-                if(x - 1 >= 0 && y >= 0 )
-                    ConnectTiles(tile, grid[x - 1][y]);
+                if(x - 1 >= 0 && y >= 0)
+                    if(grid[x - 1][y] != null)
+                        ConnectTiles(tile, grid[x - 1][y]);
 
                 // Connect the tile with its top neighbor.
                 if(x >= 0 && y - 1 >= 0)
-                    ConnectTiles(tile, grid[x][y - 1]);
+                    if(grid[x][y - 1] != null)
+                        ConnectTiles(tile, grid[x][y - 1]);
 
                 // Set the name of the tile based on its grid coordinates.
                 tile.name = new Vector2(x, y).ToString();
