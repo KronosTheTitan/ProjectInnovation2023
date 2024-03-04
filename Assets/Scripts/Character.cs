@@ -29,6 +29,7 @@ public class Character : NetworkBehaviour
     [SerializeField, SyncVar] public Node location;
 
     public Healthbar healthbar;
+    public bool isAttacking = false;
 
     public enum Faction
     {
@@ -52,6 +53,8 @@ public class Character : NetworkBehaviour
     {
         if (Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
             return;
+
+        EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this));
 
         int damage = attack + weapon.Damage;
 

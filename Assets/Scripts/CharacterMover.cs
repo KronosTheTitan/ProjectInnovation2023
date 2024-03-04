@@ -25,7 +25,9 @@ public class CharacterMover : MonoBehaviour
         if(pPath.Length == 0)
             return;
         Debug.Log("path length is not 0");
-        
+
+        EventBus<OnCharacterStartMoving>.Publish(new OnCharacterStartMoving(character));
+
         index = 0;
         lastIndex = 0;
         path = pPath;
@@ -37,6 +39,7 @@ public class CharacterMover : MonoBehaviour
     {
         Debug.Log("Stopping mover");
         isMoving = false;
+        EventBus<OnCharacterStopMoving>.Publish(new OnCharacterStopMoving(character));
     }
 
     private void Awake()
