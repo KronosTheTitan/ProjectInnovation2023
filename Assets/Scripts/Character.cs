@@ -51,6 +51,8 @@ public class Character : NetworkBehaviour
     [Server]
     public void MakeAttack(Character target)
     {
+        Debug.Log("starting attack");
+        
         if(remainingAttacksPerTurn == 0)
             return;
         

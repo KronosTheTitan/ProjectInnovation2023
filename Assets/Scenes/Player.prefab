@@ -401,6 +401,7 @@ MonoBehaviour:
   weapon: {fileID: 11400000, guid: fc9560939eb210d499a2df91fbc7a3fe, type: 2}
   location: {fileID: 0}
   healthbar: {fileID: 0}
+  isAttacking: 0
   faction: 0
 --- !u!114 &6703407163788104989
 MonoBehaviour:
@@ -526,7 +527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b264e58f1eee4624aac58ac689786e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 387078424243632897}
+  walkingParameterName: isWalking
+  attackAnimationName: Attack
 --- !u!95 &387078424243632897
 Animator:
   serializedVersion: 5
