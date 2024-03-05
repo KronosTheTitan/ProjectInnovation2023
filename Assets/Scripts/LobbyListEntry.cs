@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class LobbyListEntry : MonoBehaviour
 {
+    [SerializeField] private MainMenu mainMenu;
     private ServerResponse _response;
     private NetworkDiscovery _discovery;
-    
+
     public void Setup(ServerResponse pResponse, NetworkDiscovery pDiscovery)
     {
         _response = pResponse;
@@ -16,6 +17,6 @@ public class LobbyListEntry : MonoBehaviour
     public void Join()
     {
         _discovery.StopDiscovery();
-        NetworkManager.singleton.StartClient(_response.uri);
+        CustomNetworkManager.singleton.StartClient(_response.uri);
     }
 }
