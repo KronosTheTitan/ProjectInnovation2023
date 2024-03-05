@@ -4,6 +4,8 @@ using Mirror.Discovery;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private NetworkDiscovery networkDiscovery;
     [SerializeField] private LobbyListEntry prefabEntry;
     [SerializeField] private VerticalLayoutGroup lobbyList;
+    private List<long> foundServers = new List<long>();
 
     private void Start()
     {
@@ -39,7 +42,16 @@ public class MainMenu : MonoBehaviour
 
     private void OnServerFound(ServerResponse response)
     {
-        Debug.Log("Lobby Found!");
-        Instantiate(prefabEntry, lobbyList.transform).Setup(response, networkDiscovery);
+        if (!foundServers.Contains(response.serverId))
+        {
+            Debug.Log("Lobby Found!");
+            TextMeshProUGUI lobbyButtonText = prefabEntry.GetComponentInChildren<TextMeshProUGUI>();
+            if (lobbyButtonText != null)
+            {
+                lobbyButtonText.SetText("Join Server - ID: " + response.serverId);
+            }
+            Instantiate(prefabEntry, lobbyList.transform).Setup(response, networkDiscovery);
+            foundServers.Add(response.serverId);
+        }
     }
 }
