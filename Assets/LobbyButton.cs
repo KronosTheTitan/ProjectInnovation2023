@@ -6,7 +6,7 @@ public class LobbyButton : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
     
-    public void JoinButton(NetworkManager networkManager)
+    public void JoinButton(CustomNetworkManager networkManager)
     {
         networkManager.StartClient();
     }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private NetworkManager networkManager;
+    [SerializeField] private CustomNetworkManager networkManager;
     [SerializeField] private NetworkDiscovery networkDiscovery;
     [SerializeField] private LobbyListEntry prefabEntry;
     [SerializeField] private VerticalLayoutGroup lobbyList;
@@ -18,8 +18,16 @@ public class MainMenu : MonoBehaviour
         networkDiscovery.StartDiscovery();
     }
 
-    public void HostNewGame()
+    public void HostNewGameAsKnight()
     {
+        CustomNetworkManager.singleton.firstPlayerIsKnight = true;
+        networkManager.StartHost();
+        networkDiscovery.AdvertiseServer();
+    }
+
+    public void HostNewGameAsMage()
+    {
+        CustomNetworkManager.singleton.firstPlayerIsKnight = false;
         networkManager.StartHost();
         networkDiscovery.AdvertiseServer();
     }

@@ -39,6 +39,13 @@ public class Player : CanTakeTurn
             }
             Hud.GetInstance().Setup(this);
             EventBus<OnPlayerJoinedLocal>.Publish(new OnPlayerJoinedLocal(this));
+        } else
+        {
+            GameObject spotlight = GetComponentInChildren<Light>().gameObject;
+            if (spotlight != null)
+            {
+                spotlight.SetActive(false);
+            }
         }
     }
 
@@ -79,6 +86,9 @@ public class Player : CanTakeTurn
 
     private void UseAction()
     {
+        if (character.Mover.isMoving)
+            return;
+
         if (character.isAttacking)
             return;
 
