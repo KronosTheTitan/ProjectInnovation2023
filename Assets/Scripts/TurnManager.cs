@@ -11,12 +11,15 @@ public class TurnManager : NetworkBehaviour
     [SerializeField, SyncVar] private int activeTurnTakerIndex;
     [SerializeField, SyncVar] private EnemyAI _enemyAI;
     private readonly SyncList<CanTakeTurn> _turnTakers = new SyncList<CanTakeTurn>();
+
+    [SerializeField, SyncVar] private int remainingSharedHealth = 100;
     
 
     private void Awake()
     {
         EventBus<OnPlayerJoinedServer>.OnEvent += RegisterNewPlayer;
         EventBus<NextTurnButtonPressed>.OnEvent += NextTurn;
+        EventBus<OnPlayerTakeDamage>.OnEvent += OnPlayerTakeDamage;
         _turnTakers.Add(_enemyAI);
     }
 
@@ -49,5 +52,10 @@ public class TurnManager : NetworkBehaviour
             activeTurnTakerIndex = _turnTakers.IndexOf(onPlayerJoinedServer.Player);
             activeTurnTaker = onPlayerJoinedServer.Player;
         }
+    }
+
+    private void OnPlayerTakeDamage(OnPlayerTakeDamage onPlayerTakeDamage)
+    {
+        remainingSharedHealth -= onPlayerTakeDamage.TakenDamage;
     }
 }
