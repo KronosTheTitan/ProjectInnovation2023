@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2dd029e0943dc488ea1435fa13429182, type: 2}
+  - {fileID: 2100000, guid: d1beaeb93b0462344b92d0063238c3e1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
