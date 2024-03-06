@@ -1,17 +1,15 @@
 using EventBus;
 using Unity.Mathematics;
+using UnityEngine;
 
 public class PlayerCharacter : Character
 {
     protected override void TakeDamage(int amount)
     {
+        Debug.Log("Taking damage");
         int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
-
-        remainingHealth -= modifiedAmount;
+        Debug.Log(modifiedAmount);
         
-        EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
-        
-        if(remainingHealth <= 0)
-            Destroy(gameObject);
+        EventBus<OnPlayerTakeDamage>.Publish(new OnPlayerTakeDamage(modifiedAmount));
     }
 }

@@ -22,17 +22,11 @@ namespace EventBus
 
     public class OnPlayerTakeDamage : Event
     {
-        public readonly Player Player;
         public readonly int TakenDamage;
-        public readonly int NewHealth;
-        public readonly int MaxHealth;
 
-        public OnPlayerTakeDamage(Player player, int takenDamage, int newHealth, int maxHealth)
+        public OnPlayerTakeDamage(int takenDamage)
         {
-            Player = player;
             TakenDamage = takenDamage;
-            NewHealth = newHealth;
-            MaxHealth = maxHealth;
         }
     }
 

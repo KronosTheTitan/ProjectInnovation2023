@@ -37,19 +37,16 @@ namespace AI
         {
             if(!isTakingActions)
                 return;
-
-            Debug.Log("Handling Enemy");
+            
             switch (currentStage)
             {
                 case AiStage.InitialAttackAttempt:
-                    Debug.Log("AttemptingInitialAttack");
                     AttemptAttack(enemies[currentEnemy]);
                     currentStage = AiStage.Movement;
                     break;
                 case AiStage.Movement:
                     if (!currentEnemyHasMoved)
                     {
-                        Debug.Log("Enemy Starts Moving");
                         AttemptMove(enemies[currentEnemy]);
                         currentEnemyHasMoved = true;
                         break;
@@ -57,18 +54,14 @@ namespace AI
                     
                     if (enemies[currentEnemy].Mover.isMoving)
                     {
-                        Debug.Log("Enemy is moving");
                         break;
                     }
-                        
-                    Debug.Log("Enemy is done moving");
+                    
                     currentStage = AiStage.FinalAttackAttempt;
                     
                     break;
                 
                 case AiStage.FinalAttackAttempt:
-
-                    Debug.Log("AttemptingFinalAttack");
                     AttemptAttack(enemies[currentEnemy]);
 
                     currentEnemy++;
@@ -115,7 +108,6 @@ namespace AI
 
         public override void TakeTurn()
         {
-            Debug.Log("Taking Turn");
             isTakingActions = true;
             currentEnemy = 0;
         }
