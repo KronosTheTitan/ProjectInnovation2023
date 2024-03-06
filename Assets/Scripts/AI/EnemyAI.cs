@@ -93,7 +93,7 @@ namespace AI
             if(closestPlayer == null) 
                 return;
             
-            Debug.Log("Starting pathfinder");
+            //Debug.Log("Starting pathfinder");
             Node[] path = pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
             
             enemy.Mover.StartMovement(path);
@@ -101,7 +101,7 @@ namespace AI
 
         private void EndTurn()
         {
-            Debug.Log("Ending Turn");
+            //Debug.Log("Ending Turn");
             isTakingActions = false;
             EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(this));
         }
