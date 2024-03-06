@@ -25,7 +25,7 @@ public class Pathfinder : MonoBehaviour
             if(node.character != null && node != pTo)
                 continue;
             
-            Debug.Log("Testing initial node");
+            //Debug.Log("Testing initial node");
             
             parents.Add(node,pFrom);
             if (node == pTo)

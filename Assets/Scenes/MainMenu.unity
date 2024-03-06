@@ -2199,7 +2199,7 @@ MonoBehaviour:
   evaluationMethod: 0
   evaluationInterval: 3
   timeInterpolationGui: 0
-  PlayerPrefab2: {fileID: 5553213299081691988, guid: 51b36b050c3e15b4e99c2c46a5df4ee3, type: 3}
+  playerPrefab2: {fileID: 5553213299081691988, guid: 51b36b050c3e15b4e99c2c46a5df4ee3, type: 3}
   firstPlayerIsKnight: 0
 --- !u!1 &1424620720
 GameObject:

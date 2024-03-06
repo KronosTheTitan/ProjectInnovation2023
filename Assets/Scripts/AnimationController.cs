@@ -5,7 +5,7 @@ public class AnimationController : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private string walkingParameterName = "isWalking";
-    [SerializeField] private string attackAnimationName = "Attack";
+    [SerializeField] private string attackingParameterName = "isAttacking";
 
     private Character character;
 
@@ -32,24 +32,38 @@ public class AnimationController : MonoBehaviour
         EventBus<OnCharacterStartAttacking>.OnEvent -= CharacterStartAttacking;
     }
 
+    private void Update()
+    {
+        //Debug.Log("Walking: "+animator.GetBool(walkingParameterName));
+    }
+
     private void CharacterStartMoving(OnCharacterStartMoving pOnCharacterStartMoving)
     {
+        if (pOnCharacterStartMoving.character != character)
+            return;
+
         animator.SetBool(walkingParameterName, true);
     }
 
     private void CharacterStopMoving(OnCharacterStopMoving pOnCharacterStopMoving)
     {
+        if (pOnCharacterStopMoving.character != character)
+            return;
+
         animator.SetBool(walkingParameterName, false);
     }
 
     private void CharacterStartAttacking(OnCharacterStartAttacking pOnCharacterStartAttacking)
     {
+        if (pOnCharacterStartAttacking.character != character)
+            return;
+
         character.isAttacking = true;
-        animator.Play(attackAnimationName);
+        animator.SetBool(attackingParameterName, true);
     }
 
     public void OnAttackAnimationOver()
     {
-        character.isAttacking = false;
+        animator.SetBool(attackingParameterName, false);
     }
 }

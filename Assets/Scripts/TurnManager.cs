@@ -13,13 +13,20 @@ public class TurnManager : NetworkBehaviour
     private readonly SyncList<CanTakeTurn> _turnTakers = new SyncList<CanTakeTurn>();
 
     [SerializeField, SyncVar] private int remainingSharedHealth = 100;
-    
+    private int startSharedHealth;
+    private Healthbar healthbar;
 
     private void Awake()
     {
         EventBus<OnPlayerJoinedServer>.OnEvent += RegisterNewPlayer;
         EventBus<NextTurnButtonPressed>.OnEvent += NextTurn;
         EventBus<OnPlayerTakeDamage>.OnEvent += OnPlayerTakeDamage;
+        startSharedHealth = remainingSharedHealth;
+        healthbar = GetComponent<Healthbar>();
+        if (healthbar == null)
+        {
+            throw new System.Exception("There is no Healthbar component.");
+        }
         _turnTakers.Add(_enemyAI);
     }
 
@@ -57,5 +64,6 @@ public class TurnManager : NetworkBehaviour
     private void OnPlayerTakeDamage(OnPlayerTakeDamage onPlayerTakeDamage)
     {
         remainingSharedHealth -= onPlayerTakeDamage.TakenDamage;
+        healthbar.SetHealth(remainingSharedHealth, startSharedHealth);
     }
 }

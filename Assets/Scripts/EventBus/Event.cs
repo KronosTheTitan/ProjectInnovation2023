@@ -67,7 +67,7 @@ namespace EventBus
 
     public class OnCharacterStartMoving : Event
     {
-        Character character;
+        public readonly Character character;
 
         public OnCharacterStartMoving(Character pCharacter)
         {
@@ -77,7 +77,7 @@ namespace EventBus
 
     public class OnCharacterStopMoving : Event
     {
-        Character character;
+        public readonly Character character;
 
         public OnCharacterStopMoving(Character pCharacter)
         {
@@ -87,7 +87,7 @@ namespace EventBus
 
     public class OnCharacterStartAttacking : Event
     {
-        Character character;
+        public readonly Character character;
 
         public OnCharacterStartAttacking(Character pCharacter)
         {

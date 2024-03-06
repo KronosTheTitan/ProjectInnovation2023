@@ -15,6 +15,7 @@ public class Character : NetworkBehaviour
     [SerializeField, SyncVar] public int attacksPerTurn;
     [SerializeField, SyncVar] public int remainingAttacksPerTurn;
     [SerializeField, SyncVar] public int sense;
+    [SerializeField, SyncVar] public float rotationSpeed;
     public CharacterMover Mover;
 
     [Header("Slots")]
@@ -51,7 +52,7 @@ public class Character : NetworkBehaviour
     [Server]
     public void MakeAttack(Character target)
     {
-        Debug.Log("starting attack");
+        //Debug.Log("starting attack");
         
         if(remainingAttacksPerTurn == 0)
             return;
@@ -74,7 +75,8 @@ public class Character : NetworkBehaviour
 
         remainingHealth -= modifiedAmount;
 
-//        healthbar.SetHealth(remainingHealth, health);
+        if(faction == Faction.Enemies)
+            healthbar.SetHealth(remainingHealth, health);
 
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
         
