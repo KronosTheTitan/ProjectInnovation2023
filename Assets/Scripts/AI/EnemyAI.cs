@@ -148,7 +148,7 @@ namespace AI
                 return;
             
             //Debug.Log("Starting pathfinder");
-            Node[] path = pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
+            Node[] path = Pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
             
             enemy.Mover.StartMovement(path);
         }
