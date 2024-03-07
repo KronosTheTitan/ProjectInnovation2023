@@ -14,11 +14,11 @@ namespace PlayerActions
         [Command]
         public override void PerformAction(Node target, Character character)
         {
-            Debug.Log("Moving");
+            //Debug.Log("Moving");
             
             Node[] path = pathfinder.FindPath(character.location, target).ToArray();
 
-            Debug.Log("");
+            //Debug.Log("");
             
             character.Mover.StartMovement(path);
         }
