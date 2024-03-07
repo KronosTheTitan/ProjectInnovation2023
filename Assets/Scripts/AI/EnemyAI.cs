@@ -14,11 +14,11 @@ namespace AI
     {
         [SerializeField] private List<Character> enemies;
         [SerializeField] private List<Character> playerCharacters;
+        [SerializeField] private Pathfinder pathfinder;
         [SerializeField] private bool isTakingActions;
 
         [SerializeField] private int currentEnemy;
         [SerializeField] private bool currentEnemyHasMoved;
-        public bool isDead = false;
 
         private void Awake()
         {
@@ -37,12 +37,30 @@ namespace AI
         [Server]
         private void Update()
         {
+            bool allEnemiesDead = true;
+            foreach (Character enemy in enemies)
+            {
+                if (enemy.gameObject.activeSelf)
+                {
+                    allEnemiesDead = false;
+                    break;
+                }
+            }
+
+            Debug.Log("allEnemiesDead: "+ allEnemiesDead);
+            if (allEnemiesDead)
+            {
+                CustomNetworkManager.singleton.StopClient();
+                CustomNetworkManager.singleton.StopServer();
+                EventBus<GameEnd>.Publish(new GameEnd(true));
+            }
+
             MakeHealthbarInvisible();
 
             if (!isTakingActions)
                 return;
 
-            if (isDead)
+            if (enemies[currentEnemy].isDead)
             {
                 currentEnemy++;
                 
@@ -98,9 +116,7 @@ namespace AI
             {
                 foreach (Character enemy in enemies)
                 {
-                    Slider healthbar = enemy.GetComponentInChildren<Slider>();
-                    //Debug.Log("distance: " + (player.transform.position - enemy.transform.position).magnitude);
-                    //Debug.Log("player.sense: " + player.sense);
+                    //Slider healthbar = enemy.GetComponentInChildren<Slider>();
                     if ((player.transform.position - enemy.transform.position).magnitude >= player.sense)
                     {
                         enemy.transform.localScale = new Vector3(0, 0, 0);
@@ -131,8 +147,8 @@ namespace AI
             if(closestPlayer == null) 
                 return;
             
-            Debug.Log("Starting pathfinder");
-            Node[] path = Pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
+            //Debug.Log("Starting pathfinder");
+            Node[] path = pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
             
             enemy.Mover.StartMovement(path);
         }
