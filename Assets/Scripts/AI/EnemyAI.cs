@@ -6,6 +6,7 @@ using EventBus;
 using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace AI
 {
@@ -37,6 +38,13 @@ namespace AI
         [Server]
         private void Update()
         {
+            if (enemies.Count == 0)
+            {
+                CustomNetworkManager.singleton.StopClient();
+                CustomNetworkManager.singleton.StopServer();
+                EventBus<GameEnd>.Publish(new GameEnd(true));
+            }
+
             MakeHealthbarInvisible();
 
             if (!isTakingActions)
@@ -98,19 +106,15 @@ namespace AI
             {
                 foreach (Character enemy in enemies)
                 {
-                    Slider healthbar = enemy.GetComponentInChildren<Slider>();
-                    //Debug.Log("distance: " + (player.transform.position - enemy.transform.position).magnitude);
-                    //Debug.Log("player.sense: " + player.sense);
+                    //Slider healthbar = enemy.GetComponentInChildren<Slider>();
                     if ((player.transform.position - enemy.transform.position).magnitude >= player.sense)
                     {
-                        Debug.Log("INIVS: "+ healthbar.name);
-                        healthbar.transform.localScale = new Vector3(0, 0, 0);
-                        //healthbar.SetActive(false);
+                        enemy.transform.localScale = new Vector3(0, 0, 0);
                     }
                     else
                     {
-                        Debug.Log("NO INVIS: " + healthbar.name);
-                        healthbar.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
+                        //enemy.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
+                        enemy.transform.localScale = new Vector3(1, 1, 1);
                     }
                 }
             }

@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
+  m_AmbientSkyColor: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 9f1167233ff581d44acd7aafd70b1790, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: b227df51477638e41ba449ca99d34a40, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -6187,6 +6187,10 @@ PrefabInstance:
     - target: {fileID: 2728953901657148557, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
       propertyPath: m_Name
       value: SkeletonBlue
+      objectReference: {fileID: 0}
+    - target: {fileID: 3012087486318332874, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
+      propertyPath: attack
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3012087486318332874, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
       propertyPath: location
@@ -16604,6 +16608,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 316849164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2366954057325885774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7382732906725379368}
+  - component: {fileID: 5194622582764589015}
+  m_Layer: 0
+  m_Name: SceneLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &5194622582764589015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366954057325885774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e25755b89c01f74aad77a781f3aae71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wonScreenSceneName: EndscreenLost
+  lostScreenSceneName: EndscreenWon
+  mainMenuSceneName: MainMenu
+--- !u!4 &7382732906725379368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366954057325885774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 556.87976, y: 236.26595, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -16618,3 +16669,4 @@ SceneRoots:
   - {fileID: 608129811}
   - {fileID: 966365694}
   - {fileID: 1184465283}
+  - {fileID: 7382732906725379368}

@@ -282,7 +282,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  health: 30
+  health: 1
   remainingHealth: 30
   speed: 3
   remainingSpeed: 3

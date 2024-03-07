@@ -72,6 +72,7 @@ public class Character : NetworkBehaviour
 
         int damage = attack + weapon.Damage;
         remainingAttacksPerTurn--;
+        Debug.Log("target: "+ target.name);
 
         target.TakeDamage(damage);
         attackSound.Play();
@@ -86,19 +87,25 @@ public class Character : NetworkBehaviour
 
         remainingHealth -= modifiedAmount;
 
-        if(faction == Faction.Enemies)
+        EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
+        takingDamageSound.Play();
+
+        Debug.Log(modifiedAmount);
+        if (faction == Faction.Enemies)
         {
+            if (remainingHealth <= 0)
+            {
+                //DieOnClients();
+                EventBus<OnCharacterDies>.Publish(new OnCharacterDies(this));
+            }
             healthbar.SetHealth(remainingHealth, health);
             EventBus<OnCharacterGettingHit>.Publish(new OnCharacterGettingHit(this));
         }
-
-        EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
-        takingDamageSound.Play();
-        
-        if(remainingHealth <= 0)
+        else if (faction == Faction.Players && remainingHealth <= 0)
         {
-            //DieOnClients();
-            EventBus<OnCharacterDies>.Publish(new OnCharacterDies(this));
+            CustomNetworkManager.singleton.StopClient();
+            CustomNetworkManager.singleton.StopServer();
+            EventBus<GameEnd>.Publish(new GameEnd(false));
         }
     }
 

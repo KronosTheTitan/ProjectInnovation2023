@@ -117,4 +117,13 @@ namespace EventBus
             character = pCharacter;
         }
     }
+
+    public class GameEnd : Event
+    {
+        public readonly bool won;
+        public GameEnd(bool pWon)
+        {
+            won = pWon;
+        }
+    }
 }
