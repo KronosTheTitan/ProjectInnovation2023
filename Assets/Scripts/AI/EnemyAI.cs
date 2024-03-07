@@ -19,7 +19,6 @@ namespace AI
 
         [SerializeField] private int currentEnemy;
         [SerializeField] private bool currentEnemyHasMoved;
-        public bool isDead = false;
 
         private void Awake()
         {
@@ -38,7 +37,18 @@ namespace AI
         [Server]
         private void Update()
         {
-            if (enemies.Count == 0)
+            bool allEnemiesDead = true;
+            foreach (Character enemy in enemies)
+            {
+                if (enemy.gameObject.activeSelf)
+                {
+                    allEnemiesDead = false;
+                    break;
+                }
+            }
+
+            Debug.Log("allEnemiesDead: "+ allEnemiesDead);
+            if (allEnemiesDead)
             {
                 CustomNetworkManager.singleton.StopClient();
                 CustomNetworkManager.singleton.StopServer();
@@ -50,7 +60,7 @@ namespace AI
             if (!isTakingActions)
                 return;
 
-            if (isDead)
+            if (enemies[currentEnemy].isDead)
             {
                 currentEnemy++;
                 

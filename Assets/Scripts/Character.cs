@@ -34,6 +34,7 @@ public class Character : NetworkBehaviour
     public bool isAttacking = false;
     [SerializeField] protected AudioSource attackSound;
     [SerializeField] private AudioSource takingDamageSound;
+    public bool isDead = false;
 
     public enum Faction
     {
@@ -113,7 +114,7 @@ public class Character : NetworkBehaviour
     public void DieOnClients()
     {
         //gameObject.SetActive(false);
-        GetComponent<EnemyAI>().isDead = true;
+        isDead = true;
     }
     
     protected int GetTotalDefence()
