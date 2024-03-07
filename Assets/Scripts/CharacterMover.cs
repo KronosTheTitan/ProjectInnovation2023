@@ -18,9 +18,6 @@ public class CharacterMover : MonoBehaviour
 
     public void StartMovement(Node[] pPath)
     {
-        if(EventSystem.current.IsPointerOverGameObject())
-            return;
-        Debug.Log(EventSystem.current.IsPointerOverGameObject());
         Debug.Log("Starting mover");
         
         if(character.remainingSpeed <= 0)
