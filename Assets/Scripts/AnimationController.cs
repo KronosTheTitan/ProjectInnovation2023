@@ -21,8 +21,8 @@ public class AnimationController : MonoBehaviour
     private float animationLengthDead;
     private float currentAnimationLengthDead;
     private Character character;
-    private bool isDying;
-    private bool isGettingHit;
+    private bool isDying = false;
+    private bool isGettingHit = false;
 
     private void Awake()
     {
@@ -74,7 +74,7 @@ public class AnimationController : MonoBehaviour
 
     private void CheckHitAnimationTime()
     {
-        if (isGettingHit)
+        if (!isGettingHit)
             return;
 
         currentAnimationLengthHit += Time.fixedDeltaTime;

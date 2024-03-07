@@ -15,6 +15,7 @@ public class Player : CanTakeTurn
     [SerializeField, SyncVar] private Character character;
     [SerializeField] private Light spotlight;
     [SerializeField] private new Camera camera;
+
     public Character Character => character;
     [SyncVar] public TurnManager TurnManager;
 
@@ -51,7 +52,10 @@ public class Player : CanTakeTurn
 
     private void Update()
     {
-        if(TurnManager.ActiveTurnTaker != this)
+        if(isLocalPlayer)
+            HideHealthBars();
+
+        if (TurnManager.ActiveTurnTaker != this)
             return;
         
         if(isLocalPlayer)
@@ -65,6 +69,20 @@ public class Player : CanTakeTurn
         SetSelectedAction();
 
         UseAction();
+    }
+
+    private void HideHealthBars()
+    {
+        foreach (GameObject healthbar in GameObject.FindGameObjectsWithTag("EnemyHealthBar"))
+        {
+            if ((healthbar.gameObject.transform.position - transform.position).magnitude >= character.sense)
+            {
+                healthbar.transform.localScale = new Vector3(0, 0, 0);
+            } else
+            {
+                healthbar.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
+            }
+        }
     }
 
     private void GetTargetedTile()
