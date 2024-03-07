@@ -12,6 +12,7 @@ public class CharacterMover : MonoBehaviour
     [SerializeField] public bool isMoving;
     [SerializeField] private int index;
     [SerializeField] private int lastIndex;
+    [SerializeField] private AudioSource walkingSound;
 
     public void StartMovement(Node[] pPath)
     {
@@ -37,6 +38,7 @@ public class CharacterMover : MonoBehaviour
 
     private void StopMovement()
     {
+        walkingSound.mute = true;
         //Debug.Log("Stopping mover");
         isMoving = false;
         EventBus<OnCharacterStopMoving>.Publish(new OnCharacterStopMoving(character));
@@ -45,20 +47,23 @@ public class CharacterMover : MonoBehaviour
     private void Awake()
     {
         EventBus<OnEndTurn>.OnEvent += OnEndTurn;
+        walkingSound.Play();
+        walkingSound.mute = true;
     }
 
     private void Update()
     {
         Move();
+        //Debug.Log(walkingSound.isPlaying);
     }
     
     private void OnEndTurn(OnEndTurn onEndTurn)
     {
         if(!isMoving)
             return;
-        
+
         //Debug.Log("Moving");
-        
+
         while (character.remainingSpeed > 0)
         {
             if(index >= path.Length - 1)
@@ -82,7 +87,9 @@ public class CharacterMover : MonoBehaviour
     {
         if(!isMoving)
             return;
-        
+
+        walkingSound.mute = false;
+
         progress += speed * Time.deltaTime;
         Vector3 newPos = GetPointOnPath(progress);
         RotateTowardsDestination(newPos);

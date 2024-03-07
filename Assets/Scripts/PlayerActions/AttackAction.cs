@@ -29,8 +29,7 @@ namespace PlayerActions
         {
             if(target.character == null || character.remainingAttacksPerTurn == 0)
                 return;
-
-            character.remainingAttacksPerTurn--;
+            
             character.MakeAttack(target.character);
         }
     }

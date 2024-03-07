@@ -88,10 +88,11 @@ namespace EventBus
     public class OnCharacterStartAttacking : Event
     {
         public readonly Character character;
-
-        public OnCharacterStartAttacking(Character pCharacter)
+        public readonly bool isMage;
+        public OnCharacterStartAttacking(Character pCharacter, bool pIsMage = false)
         {
             character = pCharacter;
+            isMage = pIsMage;
         }
     }
 }

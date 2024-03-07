@@ -35,7 +35,7 @@ public class Player : CanTakeTurn
             if (Camera.main != null)
             {
                 camera = Camera.main;
-                camera.transform.GetComponent<CameraFollow>().target = transform;
+                camera.transform.parent.GetComponent<CameraFollow>().target = transform;
             }
             Hud.GetInstance().Setup(this);
             EventBus<OnPlayerJoinedLocal>.Publish(new OnPlayerJoinedLocal(this));
