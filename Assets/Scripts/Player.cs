@@ -60,6 +60,11 @@ public class Player : CanTakeTurn
 
     private void OwnerOnlyUpdate()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            return;
+        }
+        
         GetTargetedTile();
         
         SetSelectedAction();
@@ -74,9 +79,6 @@ public class Player : CanTakeTurn
         targetedNode = null;
 
         if(!Physics.Raycast(ray, out hit))
-            return;
-
-        if (EventSystem.current.IsPointerOverGameObject())
             return;
 
         Node target = hit.collider.gameObject.GetComponent<Node>();
@@ -101,7 +103,7 @@ public class Player : CanTakeTurn
         if(targetedNode == null)
             return;
         
-        if (!Input.GetMouseButtonDown(0))
+        if (!Input.GetMouseButtonUp(0))
             return;
         
         if (EventSystem.current.IsPointerOverGameObject())

@@ -2,6 +2,7 @@
 using EventBus;
 using Mirror;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CharacterMover : MonoBehaviour
 {
@@ -13,10 +14,14 @@ public class CharacterMover : MonoBehaviour
     [SerializeField] private int index;
     [SerializeField] private int lastIndex;
     [SerializeField] private AudioSource walkingSound;
+    [SerializeField] private float startOfMovement;
 
     public void StartMovement(Node[] pPath)
     {
-        //Debug.Log("Starting mover");
+        if(EventSystem.current.IsPointerOverGameObject())
+            return;
+        Debug.Log(EventSystem.current.IsPointerOverGameObject());
+        Debug.Log("Starting mover");
         
         if(character.remainingSpeed <= 0)
             return;
@@ -25,6 +30,8 @@ public class CharacterMover : MonoBehaviour
         
         if(pPath.Length == 0)
             return;
+
+        startOfMovement = Time.time;
         //Debug.Log("path length is not 0");
 
         EventBus<OnCharacterStartMoving>.Publish(new OnCharacterStartMoving(character));
@@ -62,7 +69,17 @@ public class CharacterMover : MonoBehaviour
         if(!isMoving)
             return;
 
-        Debug.LogError("Moving");
+        if (Time.time - startOfMovement < 0.1f)
+        {
+            character.location.character = null;
+            character.location = path[0];
+            character.location.character = character;
+
+            character.transform.position = path[0].transform.position;
+            
+            StopMovement();
+            return;
+        }
 
         while (character.remainingSpeed > 0)
         {
