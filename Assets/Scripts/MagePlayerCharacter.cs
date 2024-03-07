@@ -16,13 +16,15 @@ public class MagePlayerCharacter : PlayerCharacter
 
         EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this, true));
 
-        int damage = attack + weapon.Damage;
+        Node[] pathToEnemy = Pathfinder.FindPath(location,target.location).ToArray();
+        
+        int damage = attack + weapon.Damage + pathToEnemy.Length;
         remainingAttacksPerTurn--;
-        SppawnProjectile(damage);
+        target.TakeDamage(damage);
         attackSound.Play();
     }
 
-    private void SppawnProjectile(int pDamage)
+    private void SpawnProjectile(int pDamage)
     {
 
     }

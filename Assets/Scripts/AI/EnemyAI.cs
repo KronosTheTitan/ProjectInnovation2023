@@ -12,7 +12,6 @@ namespace AI
     {
         [SerializeField] private List<Character> enemies;
         [SerializeField] private List<Character> playerCharacters;
-        [SerializeField] private Pathfinder pathfinder;
         [SerializeField] private bool isTakingActions;
 
         [SerializeField] private int currentEnemy;
@@ -106,7 +105,7 @@ namespace AI
                 return;
             
             //Debug.Log("Starting pathfinder");
-            Node[] path = pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
+            Node[] path = Pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
             
             enemy.Mover.StartMovement(path);
         }

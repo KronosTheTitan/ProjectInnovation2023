@@ -5,7 +5,6 @@ namespace PlayerActions
 {
     public class MoveAction : PlayerAction
     {
-        [SerializeField] private Pathfinder pathfinder;
         public override Node[] PotentialTargets(Node source)
         {
             return Map.GetInstance().Nodes;
@@ -16,7 +15,7 @@ namespace PlayerActions
         {
             //Debug.Log("Moving");
             
-            Node[] path = pathfinder.FindPath(character.location, target).ToArray();
+            Node[] path = Pathfinder.FindPath(character.location, target).ToArray();
 
             //Debug.Log("");
             
