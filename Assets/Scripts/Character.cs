@@ -31,6 +31,8 @@ public class Character : NetworkBehaviour
 
     public Healthbar healthbar;
     public bool isAttacking = false;
+    [SerializeField] protected AudioSource attackSound;
+    [SerializeField] private AudioSource takingDamageSound;
 
     public enum Faction
     {
@@ -50,7 +52,7 @@ public class Character : NetworkBehaviour
     }
     
     [Server]
-    public void MakeAttack(Character target)
+    public virtual void MakeAttack(Character target)
     {
         //Debug.Log("starting attack");
         
@@ -66,6 +68,7 @@ public class Character : NetworkBehaviour
         remainingAttacksPerTurn--;
 
         target.TakeDamage(damage);
+        attackSound.Play();
     }
 
     [Server]
@@ -82,6 +85,8 @@ public class Character : NetworkBehaviour
         
         if(remainingHealth <= 0)
             Destroy(gameObject);
+
+        takingDamageSound.Play();
     }
     
     protected int GetTotalDefence()
