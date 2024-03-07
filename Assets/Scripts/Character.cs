@@ -63,12 +63,12 @@ public class Character : NetworkBehaviour
         
         Debug.Log("sufficient remaining attacks");
         
-        if (Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
+        if (Vector3.Distance(transform.position, target.transform.position) > weapon.Range)
             return;
         
         Debug.Log("within range");
 
-        EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this));
+        EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this, target.transform.position));
 
         int damage = attack + weapon.Damage;
         remainingAttacksPerTurn--;

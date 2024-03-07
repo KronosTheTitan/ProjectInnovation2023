@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EventBus;
 using Mirror;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AI
 {
@@ -35,7 +36,9 @@ namespace AI
         [Server]
         private void Update()
         {
-            if(!isTakingActions)
+            MakeHealthbarInvisible();
+
+            if (!isTakingActions)
                 return;
 
             if (isDead)
@@ -84,6 +87,31 @@ namespace AI
             if (currentEnemy == enemies.Count)
             {
                 EndTurn();
+            }
+        }
+
+        [ClientRpc]
+        private void MakeHealthbarInvisible()
+        {
+            foreach (Character player in playerCharacters)
+            {
+                foreach (Character enemy in enemies)
+                {
+                    Slider healthbar = enemy.GetComponentInChildren<Slider>();
+                    //Debug.Log("distance: " + (player.transform.position - enemy.transform.position).magnitude);
+                    //Debug.Log("player.sense: " + player.sense);
+                    if ((player.transform.position - enemy.transform.position).magnitude >= player.sense)
+                    {
+                        Debug.Log("INIVS: "+ healthbar.name);
+                        healthbar.transform.localScale = new Vector3(0, 0, 0);
+                        //healthbar.SetActive(false);
+                    }
+                    else
+                    {
+                        Debug.Log("NO INVIS: " + healthbar.name);
+                        healthbar.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
+                    }
+                }
             }
         }
 

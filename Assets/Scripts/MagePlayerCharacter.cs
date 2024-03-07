@@ -16,7 +16,7 @@ public class MagePlayerCharacter : PlayerCharacter
             return;
 
 
-        EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this, true));
+        EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this, target.transform.position, true));
 
         Node[] pathToEnemy = Pathfinder.FindPath(location,target.location).ToArray();
         

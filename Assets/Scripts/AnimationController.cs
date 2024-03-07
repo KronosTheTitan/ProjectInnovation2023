@@ -23,6 +23,7 @@ public class AnimationController : MonoBehaviour
     private Character character;
     private bool isDying = false;
     private bool isGettingHit = false;
+    private Vector3 targetPos;
 
     private void Awake()
     {
@@ -64,12 +65,20 @@ public class AnimationController : MonoBehaviour
             return;
 
         currentAnimationLengthAttack += Time.fixedDeltaTime;
+        RotateTowardsDestination(targetPos);
         if (currentAnimationLengthAttack >= animationLengthAttack)
         {
             currentAnimationLengthAttack = 0;
             character.isAttacking = false;
             animator.SetBool(attackingParameterName, false);
         }
+    }
+
+    private void RotateTowardsDestination(Vector3 pNewPos)
+    {
+        Vector3 direction = (pNewPos - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * character.rotationSpeed);
     }
 
     private void CheckHitAnimationTime()
@@ -136,6 +145,8 @@ public class AnimationController : MonoBehaviour
                 animationLengthAttack = knightAttackAnimationLenghth;
             }
         }
+
+        targetPos = pOnCharacterStartAttacking.targetPos;
 
         character.isAttacking = true;
         animator.SetBool(attackingParameterName, true);
