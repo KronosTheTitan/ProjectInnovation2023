@@ -2,6 +2,7 @@ using EventBus;
 using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
+using AI;
 
 public class Character : NetworkBehaviour
 {
@@ -86,19 +87,26 @@ public class Character : NetworkBehaviour
         remainingHealth -= modifiedAmount;
 
         if(faction == Faction.Enemies)
+        {
             healthbar.SetHealth(remainingHealth, health);
+            EventBus<OnCharacterGettingHit>.Publish(new OnCharacterGettingHit(this));
+        }
 
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
         takingDamageSound.Play();
         
         if(remainingHealth <= 0)
-            DieOnClients();
+        {
+            //DieOnClients();
+            EventBus<OnCharacterDies>.Publish(new OnCharacterDies(this));
+        }
     }
 
     [ClientRpc]
-    private void DieOnClients()
+    public void DieOnClients()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        GetComponent<EnemyAI>().isDead = true;
     }
     
     protected int GetTotalDefence()
