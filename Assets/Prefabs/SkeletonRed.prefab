@@ -113,6 +113,13 @@ MonoBehaviour:
   animator: {fileID: 231833430431459556}
   walkingParameterName: isWalking
   attackingParameterName: isAttacking
+  deadParameterName: isDead
+  hitParameterName: isGettingHit
+  mageAttackAnimationLenghth: 2.3
+  knightAttackAnimationLenghth: 1.35
+  skeletonAttackAnimationLenghth: 1.35
+  dieAnimationLenghth: 2.25
+  hitAnimationLenghth: 1.1
 --- !u!114 &3512972700026460404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,7 +682,7 @@ GameObject:
   - component: {fileID: 3689780917748986072}
   m_Layer: 0
   m_Name: Healthbar
-  m_TagString: Untagged
+  m_TagString: EnemyHealthBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
