@@ -282,12 +282,12 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  health: 50
-  remainingHealth: 50
-  speed: 5
-  remainingSpeed: 5
-  defence: 0
-  attack: 10
+  health: 30
+  remainingHealth: 30
+  speed: 3
+  remainingSpeed: 3
+  defence: 2
+  attack: 3
   attacksPerTurn: 1
   remainingAttacksPerTurn: 1
   sense: 5

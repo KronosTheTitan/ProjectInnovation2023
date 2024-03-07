@@ -37,6 +37,17 @@ namespace AI
         {
             if(!isTakingActions)
                 return;
+
+            if (!enemies[currentEnemy].gameObject.activeInHierarchy)
+            {
+                currentEnemy++;
+                
+                if (currentEnemy == enemies.Count)
+                {
+                    EndTurn();
+                    return;
+                }
+            }
             
             switch (currentStage)
             {

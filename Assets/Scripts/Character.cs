@@ -54,13 +54,18 @@ public class Character : NetworkBehaviour
     [Server]
     public virtual void MakeAttack(Character target)
     {
-        //Debug.Log("starting attack");
+        Debug.Log("starting attack");
+        Debug.Log("Remaining attacks : " + remainingAttacksPerTurn);
         
         if(remainingAttacksPerTurn == 0)
             return;
         
+        Debug.Log("sufficient remaining attacks");
+        
         if (Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
             return;
+        
+        Debug.Log("within range");
 
         EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this));
 
@@ -73,6 +78,8 @@ public class Character : NetworkBehaviour
 
     [Server]
     protected virtual void TakeDamage(int amount){
+        
+        Debug.Log(gameObject.name);
 
         int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
 
@@ -82,11 +89,16 @@ public class Character : NetworkBehaviour
             healthbar.SetHealth(remainingHealth, health);
 
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
+        takingDamageSound.Play();
         
         if(remainingHealth <= 0)
-            Destroy(gameObject);
+            DieOnClients();
+    }
 
-        takingDamageSound.Play();
+    [ClientRpc]
+    private void DieOnClients()
+    {
+        gameObject.SetActive(false);
     }
     
     protected int GetTotalDefence()

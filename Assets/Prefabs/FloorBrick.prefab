@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7799665334713868405
+--- !u!1 &5602761770916973789
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2961097366172644369}
+  - component: {fileID: 6945299171674561823}
   m_Layer: 0
   m_Name: FloorBrick
   m_TagString: Untagged
@@ -16,29 +16,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2961097366172644369
+--- !u!4 &6945299171674561823
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7799665334713868405}
+  m_GameObject: {fileID: 5602761770916973789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3816359470863741436}
+  - {fileID: 4640200902465400688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3710077436214023703
+--- !u!1001 &5183633686529624219
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2961097366172644369}
+    m_TransformParent: {fileID: 6945299171674561823}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ed252bf8b90a62c479914e5d0a6942db, type: 3}
       propertyPath: m_LocalPosition.x
@@ -80,17 +80,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6067185528594298527, guid: ed252bf8b90a62c479914e5d0a6942db, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 511ec022b90810943917d006e2b4b810, type: 2}
+    - target: {fileID: 244997617756738383, guid: ed252bf8b90a62c479914e5d0a6942db, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 402cb205bcb89624f97bc648ebcbcf4d, type: 2}
     - target: {fileID: 919132149155446097, guid: ed252bf8b90a62c479914e5d0a6942db, type: 3}
       propertyPath: m_Name
-      value: Floor1
+      value: FloorBrick
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed252bf8b90a62c479914e5d0a6942db, type: 3}
---- !u!4 &3816359470863741436 stripped
+--- !u!4 &4640200902465400688 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ed252bf8b90a62c479914e5d0a6942db, type: 3}
-  m_PrefabInstance: {fileID: 3710077436214023703}
+  m_PrefabInstance: {fileID: 5183633686529624219}
   m_PrefabAsset: {fileID: 0}
