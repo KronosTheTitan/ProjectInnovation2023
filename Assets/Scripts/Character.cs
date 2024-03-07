@@ -88,7 +88,13 @@ public class Character : NetworkBehaviour
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
         
         if(remainingHealth <= 0)
-            gameObject.SetActive(false);
+            DieOnClients();
+    }
+
+    [ClientRpc]
+    private void DieOnClients()
+    {
+        gameObject.SetActive(false);
     }
     
     protected int GetTotalDefence()
