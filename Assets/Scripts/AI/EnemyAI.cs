@@ -104,7 +104,7 @@ namespace AI
             if(closestPlayer == null) 
                 return;
             
-            //Debug.Log("Starting pathfinder");
+            Debug.Log("Starting pathfinder");
             Node[] path = Pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
             
             enemy.Mover.StartMovement(path);
@@ -147,6 +147,8 @@ namespace AI
                 }
             }
 
+            if(closestPlayer != null)
+                Debug.Log("Player found");
             return closestPlayer;
         }
 
