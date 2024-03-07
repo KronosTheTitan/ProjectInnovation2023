@@ -62,7 +62,7 @@ public class CharacterMover : MonoBehaviour
         if(!isMoving)
             return;
 
-        //Debug.Log("Moving");
+        Debug.LogError("Moving");
 
         while (character.remainingSpeed > 0)
         {
