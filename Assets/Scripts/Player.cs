@@ -25,6 +25,7 @@ public class Player : CanTakeTurn
         {
             character.location = Map.GetInstance().Nodes[0];
             character.location.character = character;
+            character.transform.position = character.location.transform.position;
             spotlight.spotAngle = Mathf.Atan((character.sense + 0.5f) / spotlight.transform.position.y) * (180 / Mathf.PI) * (spotlight.range / spotlight.transform.position.y);
             spotlight.innerSpotAngle = spotlight.spotAngle;
             character.healthbar = Hud.GetInstance().GetHealthBar();
