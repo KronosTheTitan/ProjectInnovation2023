@@ -398,6 +398,9 @@ MonoBehaviour:
   animator: {fileID: 2478398995617319361}
   walkingParameterName: isWalking
   attackingParameterName: isAttacking
+  mageAttackAnimationLenghth: 2.3
+  knightAttackAnimationLenghth: 1.35
+  skeletonAttackAnimationLenghth: 1.35
 --- !u!114 &6482478565039893852
 MonoBehaviour:
   m_ObjectHideFlags: 0

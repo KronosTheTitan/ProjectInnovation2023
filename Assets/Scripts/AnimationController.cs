@@ -6,7 +6,12 @@ public class AnimationController : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private string walkingParameterName = "isWalking";
     [SerializeField] private string attackingParameterName = "isAttacking";
+    [SerializeField] private float mageAttackAnimationLenghth;
+    [SerializeField] private float knightAttackAnimationLenghth;
+    [SerializeField] private float skeletonAttackAnimationLenghth;
 
+    private float animationLength;
+    private float currentAnimationLength;
     private Character character;
 
     private void Awake()
@@ -32,9 +37,18 @@ public class AnimationController : MonoBehaviour
         EventBus<OnCharacterStartAttacking>.OnEvent -= CharacterStartAttacking;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //Debug.Log("Walking: "+animator.GetBool(walkingParameterName));
+        if (!character.isAttacking)
+            return;
+
+        currentAnimationLength += Time.fixedDeltaTime;
+        if (currentAnimationLength >= animationLength)
+        {
+            currentAnimationLength = 0;
+            character.isAttacking = false;
+            animator.SetBool(attackingParameterName, false);
+        }
     }
 
     private void CharacterStartMoving(OnCharacterStartMoving pOnCharacterStartMoving)
@@ -58,12 +72,22 @@ public class AnimationController : MonoBehaviour
         if (pOnCharacterStartAttacking.character != character)
             return;
 
+        if (pOnCharacterStartAttacking.character.faction == Character.Faction.Enemies)
+        {
+            animationLength = skeletonAttackAnimationLenghth;
+        } else
+        {
+            if (pOnCharacterStartAttacking.isMage)
+            {
+                animationLength = mageAttackAnimationLenghth;
+            }
+            else
+            {
+                animationLength = knightAttackAnimationLenghth;
+            }
+        }
+
         character.isAttacking = true;
         animator.SetBool(attackingParameterName, true);
-    }
-
-    public void OnAttackAnimationOver()
-    {
-        animator.SetBool(attackingParameterName, false);
     }
 }
