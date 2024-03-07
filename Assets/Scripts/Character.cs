@@ -34,7 +34,7 @@ public class Character : NetworkBehaviour
     public bool isAttacking = false;
     [SerializeField] protected AudioSource attackSound;
     [SerializeField] private AudioSource takingDamageSound;
-    public bool isDead = false;
+    public bool isDead;
 
     public enum Faction
     {
@@ -48,6 +48,7 @@ public class Character : NetworkBehaviour
     {
         if (isServer)
         {
+            isDead = false;
             healthbar = GetComponentInChildren<Healthbar>();
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
@@ -96,7 +97,7 @@ public class Character : NetworkBehaviour
         {
             if (remainingHealth <= 0)
             {
-                //DieOnClients();
+                DieOnClients();
                 EventBus<OnCharacterDies>.Publish(new OnCharacterDies(this));
             }
             healthbar.SetHealth(remainingHealth, health);
@@ -114,6 +115,7 @@ public class Character : NetworkBehaviour
     public void DieOnClients()
     {
         //gameObject.SetActive(false);
+        Debug.Log("DIE ON CLIENT");
         isDead = true;
     }
     

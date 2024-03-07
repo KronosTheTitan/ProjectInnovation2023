@@ -287,7 +287,7 @@ MonoBehaviour:
   speed: 3
   remainingSpeed: 3
   defence: 2
-  attack: 300
+  attack: 3
   attacksPerTurn: 1
   remainingAttacksPerTurn: 1
   sense: 5
@@ -303,6 +303,7 @@ MonoBehaviour:
   isAttacking: 0
   attackSound: {fileID: 5979267458369716298}
   takingDamageSound: {fileID: 3820976442626000536}
+  isDead: 0
   faction: 0
 --- !u!114 &6703407163788104989
 MonoBehaviour:

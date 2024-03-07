@@ -6190,7 +6190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3012087486318332874, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
       propertyPath: attack
-      value: 500
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3012087486318332874, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
       propertyPath: location
@@ -13809,7 +13809,6 @@ MonoBehaviour:
   isTakingActions: 0
   currentEnemy: 0
   currentEnemyHasMoved: 0
-  isDead: 0
 --- !u!114 &1712969316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16637,8 +16636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e25755b89c01f74aad77a781f3aae71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wonScreenSceneName: EndscreenLost
-  lostScreenSceneName: EndscreenWon
+  lostScreenSceneName: EndscreenLost
+  wonScreenSceneName: EndscreenWon
   mainMenuSceneName: MainMenu
 --- !u!4 &7382732906725379368
 Transform:

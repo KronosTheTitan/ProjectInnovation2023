@@ -40,22 +40,22 @@ namespace AI
             bool allEnemiesDead = true;
             foreach (Character enemy in enemies)
             {
-                if (enemy.gameObject.activeSelf)
+                if (!enemy.isDead)
                 {
                     allEnemiesDead = false;
                     break;
                 }
             }
 
-            Debug.Log("allEnemiesDead: "+ allEnemiesDead);
+            MakeHealthbarInvisible();
+
             if (allEnemiesDead)
             {
                 CustomNetworkManager.singleton.StopClient();
                 CustomNetworkManager.singleton.StopServer();
                 EventBus<GameEnd>.Publish(new GameEnd(true));
+                return;
             }
-
-            MakeHealthbarInvisible();
 
             if (!isTakingActions)
                 return;
