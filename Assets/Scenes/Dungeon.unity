@@ -9307,7 +9307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 53.02, y: 19.879}
+  m_AnchoredPosition: {x: 53.02, y: 11.7}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1116117266
@@ -13638,6 +13638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 275973251}
+  healthbar: {fileID: 0}
 --- !u!1 &1789758838
 GameObject:
   m_ObjectHideFlags: 0

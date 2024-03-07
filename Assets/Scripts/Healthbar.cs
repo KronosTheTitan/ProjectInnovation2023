@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Healthbar : MonoBehaviour
 {
     [SerializeField] private Slider slider;
+    [SerializeField] private GameObject healthbar;
 
     public void SetHealth(int pCurrentHealth, int maxHp)
     {
@@ -14,6 +15,7 @@ public class Healthbar : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
+        if(healthbar != null)
+            healthbar.transform.LookAt(healthbar.transform.position + Camera.main.transform.rotation * Vector3.back, Camera.main.transform.rotation * Vector3.up);
     }
 }
