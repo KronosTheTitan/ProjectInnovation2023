@@ -6,6 +6,7 @@ using EventBus;
 using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace AI
 {
@@ -102,12 +103,12 @@ namespace AI
                     //Debug.Log("player.sense: " + player.sense);
                     if ((player.transform.position - enemy.transform.position).magnitude >= player.sense)
                     {
-                        healthbar.transform.localScale = new Vector3(0, 0, 0);
-                        //healthbar.SetActive(false);
+                        enemy.transform.localScale = new Vector3(0, 0, 0);
                     }
                     else
                     {
-                        healthbar.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
+                        //enemy.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
+                        enemy.transform.localScale = new Vector3(1, 1, 1);
                     }
                 }
             }
@@ -173,8 +174,6 @@ namespace AI
                 }
             }
 
-            if(closestPlayer != null)
-                Debug.Log("Player found");
             return closestPlayer;
         }
 

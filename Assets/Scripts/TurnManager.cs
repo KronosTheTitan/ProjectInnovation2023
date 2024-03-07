@@ -27,6 +27,7 @@ public class TurnManager : NetworkBehaviour
         {
             throw new System.Exception("There is no Healthbar component.");
         }
+        healthbar.SetHealth(remainingSharedHealth, startSharedHealth);
         _turnTakers.Add(_enemyAI);
     }
 
