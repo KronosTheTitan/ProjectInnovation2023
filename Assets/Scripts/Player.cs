@@ -142,10 +142,15 @@ public class Player : CanTakeTurn
         if(targetedNode == null)
             return;
         
-        if (targetedNode.character == null || !character.location.connections.Contains(targetedNode))
+        if (targetedNode.character == null)
             selectedAction = move;
         else
-            selectedAction = attack;
+        {
+            if (Vector3.Distance(transform.position, targetedNode.transform.position) <= character.weapon.Range)
+            {
+                selectedAction = attack;
+            }
+        }
     }
 
     public override void TakeTurn()

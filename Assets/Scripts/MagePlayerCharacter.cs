@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using EventBus;
 
@@ -16,14 +18,23 @@ public class MagePlayerCharacter : PlayerCharacter
 
         EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this, true));
 
-        int damage = attack + weapon.Damage;
+        Node[] pathToEnemy = Pathfinder.FindPath(location,target.location).ToArray();
+        
+        int damage = attack + weapon.Damage + pathToEnemy.Length;
         remainingAttacksPerTurn--;
-        SppawnProjectile(damage);
+        target.TakeDamage(damage);
+        
+        SpawnProjectile();
+        
         attackSound.Play();
     }
 
-    private void SppawnProjectile(int pDamage)
+    [SerializeField] private ParticleSystem particleSystem;
+    
+    private async void SpawnProjectile()
     {
-
+        await Task.Delay(TimeSpan.FromSeconds(.75));
+        
+        particleSystem.Play();
     }
 }

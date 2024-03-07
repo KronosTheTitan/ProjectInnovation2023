@@ -78,7 +78,7 @@ public class Character : NetworkBehaviour
     }
 
     [Server]
-    protected virtual void TakeDamage(int amount){
+    public virtual void TakeDamage(int amount){
         
         Debug.Log(gameObject.name);
 
