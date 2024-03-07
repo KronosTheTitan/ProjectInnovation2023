@@ -54,6 +54,7 @@ public class CharacterMover : MonoBehaviour
     private void Update()
     {
         Move();
+        //Debug.Log(walkingSound.isPlaying);
     }
     
     private void OnEndTurn(OnEndTurn onEndTurn)
@@ -62,7 +63,6 @@ public class CharacterMover : MonoBehaviour
             return;
 
         //Debug.Log("Moving");
-        walkingSound.mute = false;
 
         while (character.remainingSpeed > 0)
         {
@@ -87,7 +87,9 @@ public class CharacterMover : MonoBehaviour
     {
         if(!isMoving)
             return;
-        
+
+        walkingSound.mute = false;
+
         progress += speed * Time.deltaTime;
         Vector3 newPos = GetPointOnPath(progress);
         RotateTowardsDestination(newPos);

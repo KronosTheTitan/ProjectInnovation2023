@@ -15,11 +15,9 @@ public class TurnManager : NetworkBehaviour
     [SerializeField, SyncVar] private int remainingSharedHealth = 100;
     private int startSharedHealth;
     private Healthbar healthbar;
-    [SerializeField] private AudioSource backgroundSound;
 
     private void Awake()
     {
-        backgroundSound.Play();
         EventBus<OnPlayerJoinedServer>.OnEvent += RegisterNewPlayer;
         EventBus<NextTurnButtonPressed>.OnEvent += NextTurn;
         EventBus<OnPlayerTakeDamage>.OnEvent += OnPlayerTakeDamage;
