@@ -95,4 +95,22 @@ namespace EventBus
             isMage = pIsMage;
         }
     }
+
+    public class OnCharacterGettingHit : Event
+    {
+        public readonly Character character;
+        public OnCharacterGettingHit(Character pCharacter)
+        {
+            character = pCharacter;
+        }
+    }
+
+    public class OnCharacterDies : Event
+    {
+        public readonly Character character;
+        public OnCharacterDies(Character pCharacter)
+        {
+            character = pCharacter;
+        }
+    }
 }

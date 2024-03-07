@@ -17,6 +17,7 @@ namespace AI
 
         [SerializeField] private int currentEnemy;
         [SerializeField] private bool currentEnemyHasMoved;
+        public bool isDead = false;
 
         private void Awake()
         {
@@ -38,7 +39,7 @@ namespace AI
             if(!isTakingActions)
                 return;
 
-            if (!enemies[currentEnemy].gameObject.activeInHierarchy)
+            if (isDead)
             {
                 currentEnemy++;
                 

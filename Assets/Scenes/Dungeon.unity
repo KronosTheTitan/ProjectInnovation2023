@@ -5971,6 +5971,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1406754303}
     - target: {fileID: 3789957884123806008, guid: e4eda169691590249a7ea4a2ad43fe44, type: 3}
+      propertyPath: dieAnimationLenghth
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789957884123806008, guid: e4eda169691590249a7ea4a2ad43fe44, type: 3}
+      propertyPath: hitAnimationLenghth
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789957884123806008, guid: e4eda169691590249a7ea4a2ad43fe44, type: 3}
       propertyPath: mageAttackAnimationLenghth
       value: 2.3
       objectReference: {fileID: 0}
@@ -6208,6 +6216,14 @@ PrefabInstance:
       propertyPath: location
       value: 
       objectReference: {fileID: 1817366996}
+    - target: {fileID: 3789957884123806008, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
+      propertyPath: dieAnimationLenghth
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3789957884123806008, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
+      propertyPath: hitAnimationLenghth
+      value: 1.1
+      objectReference: {fileID: 0}
     - target: {fileID: 3789957884123806008, guid: 4c9e7460e63c2114886c314a2e0c90d3, type: 3}
       propertyPath: mageAttackAnimationLenghth
       value: 2.3
@@ -13841,6 +13857,7 @@ MonoBehaviour:
   isTakingActions: 0
   currentEnemy: 0
   currentEnemyHasMoved: 0
+  isDead: 0
 --- !u!114 &1712969316
 MonoBehaviour:
   m_ObjectHideFlags: 0
