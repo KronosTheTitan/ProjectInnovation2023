@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] string wonScreenSceneName;
     [SerializeField] string lostScreenSceneName;
+    [SerializeField] string wonScreenSceneName;
     [SerializeField] string mainMenuSceneName;
 
     private void OnEnable()
