@@ -52,9 +52,6 @@ public class Player : CanTakeTurn
 
     private void Update()
     {
-        if(isLocalPlayer)
-            HideHealthBars();
-
         if (TurnManager.ActiveTurnTaker != this)
             return;
         
@@ -69,20 +66,6 @@ public class Player : CanTakeTurn
         SetSelectedAction();
 
         UseAction();
-    }
-
-    private void HideHealthBars()
-    {
-        foreach (GameObject healthbar in GameObject.FindGameObjectsWithTag("EnemyHealthBar"))
-        {
-            if ((healthbar.gameObject.transform.position - transform.position).magnitude >= character.sense)
-            {
-                healthbar.transform.localScale = new Vector3(0, 0, 0);
-            } else
-            {
-                healthbar.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
-            }
-        }
     }
 
     private void GetTargetedTile()

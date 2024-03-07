@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace EventBus
 {
     public class Event
@@ -88,11 +90,13 @@ namespace EventBus
     public class OnCharacterStartAttacking : Event
     {
         public readonly Character character;
+        public readonly Vector3 targetPos;
         public readonly bool isMage;
-        public OnCharacterStartAttacking(Character pCharacter, bool pIsMage = false)
+        public OnCharacterStartAttacking(Character pCharacter, Vector3 pTargetPos, bool pIsMage = false)
         {
             character = pCharacter;
             isMage = pIsMage;
+            targetPos = pTargetPos;
         }
     }
 
