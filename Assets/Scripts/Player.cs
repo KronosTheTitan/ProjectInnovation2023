@@ -76,6 +76,9 @@ public class Player : CanTakeTurn
         if(!Physics.Raycast(ray, out hit))
             return;
 
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         Node target = hit.collider.gameObject.GetComponent<Node>();
 
         if (target == null)
