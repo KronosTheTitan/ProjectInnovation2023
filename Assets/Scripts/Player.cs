@@ -64,7 +64,8 @@ public class Player : CanTakeTurn
     {
         if (EventSystem.current.IsPointerOverGameObject())
         {
-            return;
+            //Debug.Log("Canceling update");
+            //return;
         }
         
         GetTargetedTile();
@@ -76,6 +77,11 @@ public class Player : CanTakeTurn
 
     private void GetTargetedTile()
     {
+        if (Input.mousePosition.x > 1344+256 && Input.mousePosition.y < 589-128-64)
+        {
+            targetedNode = null;
+            return;
+        }
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         targetedNode = null;

@@ -102,13 +102,11 @@ namespace AI
                     //Debug.Log("player.sense: " + player.sense);
                     if ((player.transform.position - enemy.transform.position).magnitude >= player.sense)
                     {
-                        Debug.Log("INIVS: "+ healthbar.name);
                         healthbar.transform.localScale = new Vector3(0, 0, 0);
                         //healthbar.SetActive(false);
                     }
                     else
                     {
-                        Debug.Log("NO INVIS: " + healthbar.name);
                         healthbar.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
                     }
                 }

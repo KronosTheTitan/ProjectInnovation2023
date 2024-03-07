@@ -1732,7 +1732,7 @@ MonoBehaviour:
   attack: 4
   attacksPerTurn: 1
   remainingAttacksPerTurn: 1
-  sense: 10
+  sense: 1
   rotationSpeed: 3
   Mover: {fileID: 1774839277306106780}
   head: {fileID: 11400000, guid: 32b71075b3eb80a499278054acbe6410, type: 2}
