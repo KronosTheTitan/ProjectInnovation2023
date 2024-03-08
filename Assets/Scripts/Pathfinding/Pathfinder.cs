@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Pathfinder : MonoBehaviour
 {
-    public List<Node> FindPath(Node pFrom, Node pTo)
+    public static List<Node> FindPath(Node pFrom, Node pTo)
     {
         //the lists to keep track of the found path and all the nodes that still need to be checked
         List<Node> path = new List<Node>();
@@ -25,7 +25,7 @@ public class Pathfinder : MonoBehaviour
             if(node.character != null && node != pTo)
                 continue;
             
-            Debug.Log("Testing initial node");
+            //Debug.Log("Testing initial node");
             
             parents.Add(node,pFrom);
             if (node == pTo)

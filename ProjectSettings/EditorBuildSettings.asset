@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Prototype/PrototypeDungeon.unity
     guid: 69a06d7d8e608074ebc513c3d530a3fc
+  - enabled: 1
+    path: Assets/Scenes/EndscreenLost.unity
+    guid: b245851c01f555c42826c305e24b10ff
+  - enabled: 1
+    path: Assets/Scenes/EndscreenWon.unity
+    guid: 65f9c8b3a7e6346449fc96e8f3d9a09d
   m_configObjects: {}

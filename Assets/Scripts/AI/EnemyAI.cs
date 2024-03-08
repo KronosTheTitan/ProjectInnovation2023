@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using EventBus;
 using Mirror;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 namespace AI
 {
@@ -35,8 +37,39 @@ namespace AI
         [Server]
         private void Update()
         {
-            if(!isTakingActions)
+            bool allEnemiesDead = true;
+            foreach (Character enemy in enemies)
+            {
+                if (!enemy.isDead)
+                {
+                    allEnemiesDead = false;
+                    break;
+                }
+            }
+
+            MakeHealthbarInvisible();
+
+            if (allEnemiesDead)
+            {
+                CustomNetworkManager.singleton.StopClient();
+                CustomNetworkManager.singleton.StopServer();
+                EventBus<GameEnd>.Publish(new GameEnd(true));
                 return;
+            }
+
+            if (!isTakingActions)
+                return;
+
+            if (enemies[currentEnemy].isDead)
+            {
+                currentEnemy++;
+                
+                if (currentEnemy == enemies.Count)
+                {
+                    EndTurn();
+                    return;
+                }
+            }
             
             switch (currentStage)
             {
@@ -76,6 +109,27 @@ namespace AI
             }
         }
 
+        [ClientRpc]
+        private void MakeHealthbarInvisible()
+        {
+            foreach (Character player in playerCharacters)
+            {
+                foreach (Character enemy in enemies)
+                {
+                    //Slider healthbar = enemy.GetComponentInChildren<Slider>();
+                    if ((player.transform.position - enemy.transform.position).magnitude >= player.sense)
+                    {
+                        enemy.transform.localScale = new Vector3(0, 0, 0);
+                    }
+                    else
+                    {
+                        //enemy.transform.localScale = new Vector3(-0.00075f, 0.0004f, 0);
+                        enemy.transform.localScale = new Vector3(1, 1, 1);
+                    }
+                }
+            }
+        }
+
         private void AttemptAttack(Character enemy)
         {
             Character attackTarget = checkNeighborsForTargets(enemy);
@@ -93,15 +147,15 @@ namespace AI
             if(closestPlayer == null) 
                 return;
             
-            Debug.Log("Starting pathfinder");
-            Node[] path = pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
+            //Debug.Log("Starting pathfinder");
+            Node[] path = Pathfinder.FindPath(enemy.location, closestPlayer.location).ToArray();
             
             enemy.Mover.StartMovement(path);
         }
 
         private void EndTurn()
         {
-            Debug.Log("Ending Turn");
+            //Debug.Log("Ending Turn");
             isTakingActions = false;
             EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(this));
         }

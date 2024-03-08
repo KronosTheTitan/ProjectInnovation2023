@@ -10,7 +10,7 @@ namespace PlayerActions
         {
             List<Node> output = new List<Node>();
 
-            foreach (Node node in source.connections)
+            foreach (Node node in Map.GetInstance().Nodes)
             {
                 if (node.character == null)
                     continue;
@@ -29,8 +29,7 @@ namespace PlayerActions
         {
             if(target.character == null || character.remainingAttacksPerTurn == 0)
                 return;
-
-            character.remainingAttacksPerTurn--;
+            
             character.MakeAttack(target.character);
         }
     }

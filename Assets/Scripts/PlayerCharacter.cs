@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PlayerCharacter : Character
 {
-    protected override void TakeDamage(int amount)
+    public override void TakeDamage(int amount)
     {
-        Debug.Log("Taking damage");
+        //Debug.Log("Taking damage");
         int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
-        Debug.Log(modifiedAmount);
+        //Debug.Log(modifiedAmount);
         
         EventBus<OnPlayerTakeDamage>.Publish(new OnPlayerTakeDamage(modifiedAmount));
     }

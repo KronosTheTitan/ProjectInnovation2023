@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace EventBus
 {
     public class Event
@@ -67,7 +69,7 @@ namespace EventBus
 
     public class OnCharacterStartMoving : Event
     {
-        Character character;
+        public readonly Character character;
 
         public OnCharacterStartMoving(Character pCharacter)
         {
@@ -77,7 +79,7 @@ namespace EventBus
 
     public class OnCharacterStopMoving : Event
     {
-        Character character;
+        public readonly Character character;
 
         public OnCharacterStopMoving(Character pCharacter)
         {
@@ -87,11 +89,41 @@ namespace EventBus
 
     public class OnCharacterStartAttacking : Event
     {
-        Character character;
-
-        public OnCharacterStartAttacking(Character pCharacter)
+        public readonly Character character;
+        public readonly Vector3 targetPos;
+        public readonly bool isMage;
+        public OnCharacterStartAttacking(Character pCharacter, Vector3 pTargetPos, bool pIsMage = false)
         {
             character = pCharacter;
+            isMage = pIsMage;
+            targetPos = pTargetPos;
+        }
+    }
+
+    public class OnCharacterGettingHit : Event
+    {
+        public readonly Character character;
+        public OnCharacterGettingHit(Character pCharacter)
+        {
+            character = pCharacter;
+        }
+    }
+
+    public class OnCharacterDies : Event
+    {
+        public readonly Character character;
+        public OnCharacterDies(Character pCharacter)
+        {
+            character = pCharacter;
+        }
+    }
+
+    public class GameEnd : Event
+    {
+        public readonly bool won;
+        public GameEnd(bool pWon)
+        {
+            won = pWon;
         }
     }
 }

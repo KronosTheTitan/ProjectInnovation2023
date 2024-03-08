@@ -53,4 +53,12 @@ public class Hud : NetworkBehaviour
     {
         EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(player));
     }
+    
+    
+
+    private void OnDrawGizmos()
+    {
+        Vector3 cornerLeft = new Vector3(1344+256, 589-128-64);
+        Gizmos.DrawSphere(cornerLeft, 50);
+    }
 }

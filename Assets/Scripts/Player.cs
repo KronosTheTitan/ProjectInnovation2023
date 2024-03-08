@@ -15,6 +15,7 @@ public class Player : CanTakeTurn
     [SerializeField, SyncVar] private Character character;
     [SerializeField] private Light spotlight;
     [SerializeField] private new Camera camera;
+
     public Character Character => character;
     [SyncVar] public TurnManager TurnManager;
 
@@ -24,6 +25,7 @@ public class Player : CanTakeTurn
         {
             character.location = Map.GetInstance().Nodes[0];
             character.location.character = character;
+            character.transform.position = character.location.transform.position;
             spotlight.spotAngle = Mathf.Atan((character.sense + 0.5f) / spotlight.transform.position.y) * (180 / Mathf.PI) * (spotlight.range / spotlight.transform.position.y);
             spotlight.innerSpotAngle = spotlight.spotAngle;
             character.healthbar = Hud.GetInstance().GetHealthBar();
@@ -35,7 +37,7 @@ public class Player : CanTakeTurn
             if (Camera.main != null)
             {
                 camera = Camera.main;
-                Camera.main.transform.SetParent(transform);
+                camera.transform.parent.GetComponent<CameraFollow>().target = transform;
             }
             Hud.GetInstance().Setup(this);
             EventBus<OnPlayerJoinedLocal>.Publish(new OnPlayerJoinedLocal(this));
@@ -51,7 +53,7 @@ public class Player : CanTakeTurn
 
     private void Update()
     {
-        if(TurnManager.ActiveTurnTaker != this)
+        if (TurnManager.ActiveTurnTaker != this)
             return;
         
         if(isLocalPlayer)
@@ -60,6 +62,12 @@ public class Player : CanTakeTurn
 
     private void OwnerOnlyUpdate()
     {
+        if (EventSystem.current.IsPointerOverGameObject())
+        {
+            //Debug.Log("Canceling update");
+            //return;
+        }
+        
         GetTargetedTile();
         
         SetSelectedAction();
@@ -69,6 +77,11 @@ public class Player : CanTakeTurn
 
     private void GetTargetedTile()
     {
+        if (Input.mousePosition.x > 1344+256 && Input.mousePosition.y < 589-128-64)
+        {
+            targetedNode = null;
+            return;
+        }
         Ray ray = camera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         targetedNode = null;
@@ -98,7 +111,7 @@ public class Player : CanTakeTurn
         if(targetedNode == null)
             return;
         
-        if (!Input.GetMouseButtonDown(0))
+        if (!Input.GetMouseButtonUp(0))
             return;
         
         if (EventSystem.current.IsPointerOverGameObject())
@@ -119,10 +132,15 @@ public class Player : CanTakeTurn
         if(targetedNode == null)
             return;
         
-        if (targetedNode.character == null || !character.location.connections.Contains(targetedNode))
+        if (targetedNode.character == null)
             selectedAction = move;
         else
-            selectedAction = attack;
+        {
+            if (Vector3.Distance(transform.position, targetedNode.transform.position) <= character.weapon.Range)
+            {
+                selectedAction = attack;
+            }
+        }
     }
 
     public override void TakeTurn()

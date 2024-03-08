@@ -2,6 +2,7 @@ using EventBus;
 using Mirror;
 using Unity.Mathematics;
 using UnityEngine;
+using AI;
 
 public class Character : NetworkBehaviour
 {
@@ -15,6 +16,7 @@ public class Character : NetworkBehaviour
     [SerializeField, SyncVar] public int attacksPerTurn;
     [SerializeField, SyncVar] public int remainingAttacksPerTurn;
     [SerializeField, SyncVar] public int sense;
+    [SerializeField, SyncVar] public float rotationSpeed;
     public CharacterMover Mover;
 
     [Header("Slots")]
@@ -30,6 +32,9 @@ public class Character : NetworkBehaviour
 
     public Healthbar healthbar;
     public bool isAttacking = false;
+    [SerializeField] protected AudioSource attackSound;
+    [SerializeField] private AudioSource takingDamageSound;
+    public bool isDead;
 
     public enum Faction
     {
@@ -43,43 +48,75 @@ public class Character : NetworkBehaviour
     {
         if (isServer)
         {
+            isDead = false;
             healthbar = GetComponentInChildren<Healthbar>();
             EventBus<OnStartTurn>.OnEvent += OnStartTurn;
         }
     }
     
     [Server]
-    public void MakeAttack(Character target)
+    public virtual void MakeAttack(Character target)
     {
         Debug.Log("starting attack");
+        Debug.Log("Remaining attacks : " + remainingAttacksPerTurn);
         
         if(remainingAttacksPerTurn == 0)
             return;
         
-        if (Vector3.Distance(transform.position , target.transform.position) > weapon.Range)
+        Debug.Log("sufficient remaining attacks");
+        
+        if (Vector3.Distance(transform.position, target.transform.position) > weapon.Range)
             return;
+        
+        Debug.Log("within range");
 
-        EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this));
+        EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this, target.transform.position));
 
         int damage = attack + weapon.Damage;
         remainingAttacksPerTurn--;
+        Debug.Log("target: "+ target.name);
 
         target.TakeDamage(damage);
+        attackSound.Play();
     }
 
     [Server]
-    protected virtual void TakeDamage(int amount){
+    public virtual void TakeDamage(int amount){
+        
+        Debug.Log(gameObject.name);
 
         int modifiedAmount = math.clamp(amount - GetTotalDefence(), 0, int.MaxValue);
 
         remainingHealth -= modifiedAmount;
 
-//        healthbar.SetHealth(remainingHealth, health);
-
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
-        
-        if(remainingHealth <= 0)
-            Destroy(gameObject);
+        takingDamageSound.Play();
+
+        Debug.Log(modifiedAmount);
+        if (faction == Faction.Enemies)
+        {
+            if (remainingHealth <= 0)
+            {
+                DieOnClients();
+                EventBus<OnCharacterDies>.Publish(new OnCharacterDies(this));
+            }
+            healthbar.SetHealth(remainingHealth, health);
+            EventBus<OnCharacterGettingHit>.Publish(new OnCharacterGettingHit(this));
+        }
+        else if (faction == Faction.Players && remainingHealth <= 0)
+        {
+            CustomNetworkManager.singleton.StopClient();
+            CustomNetworkManager.singleton.StopServer();
+            EventBus<GameEnd>.Publish(new GameEnd(false));
+        }
+    }
+
+    [ClientRpc]
+    public void DieOnClients()
+    {
+        //gameObject.SetActive(false);
+        Debug.Log("DIE ON CLIENT");
+        isDead = true;
     }
     
     protected int GetTotalDefence()

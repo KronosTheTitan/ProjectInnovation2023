@@ -2,6 +2,7 @@
 using EventBus;
 using Mirror;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CharacterMover : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class CharacterMover : MonoBehaviour
     [SerializeField] public bool isMoving;
     [SerializeField] private int index;
     [SerializeField] private int lastIndex;
+    [SerializeField] private AudioSource walkingSound;
+    [SerializeField] private float startOfMovement;
 
     public void StartMovement(Node[] pPath)
     {
@@ -20,11 +23,13 @@ public class CharacterMover : MonoBehaviour
         if(character.remainingSpeed <= 0)
             return;
         
-        Debug.Log("character has sufficient speed left");
+        //Debug.Log("character has sufficient speed left");
         
         if(pPath.Length == 0)
             return;
-        Debug.Log("path length is not 0");
+
+        startOfMovement = Time.time;
+        //Debug.Log("path length is not 0");
 
         EventBus<OnCharacterStartMoving>.Publish(new OnCharacterStartMoving(character));
 
@@ -37,7 +42,8 @@ public class CharacterMover : MonoBehaviour
 
     private void StopMovement()
     {
-        Debug.Log("Stopping mover");
+        walkingSound.mute = true;
+        //Debug.Log("Stopping mover");
         isMoving = false;
         EventBus<OnCharacterStopMoving>.Publish(new OnCharacterStopMoving(character));
     }
@@ -45,20 +51,33 @@ public class CharacterMover : MonoBehaviour
     private void Awake()
     {
         EventBus<OnEndTurn>.OnEvent += OnEndTurn;
+        walkingSound.Play();
+        walkingSound.mute = true;
     }
 
     private void Update()
     {
         Move();
+        //Debug.Log(walkingSound.isPlaying);
     }
     
     private void OnEndTurn(OnEndTurn onEndTurn)
     {
         if(!isMoving)
             return;
-        
-        Debug.Log("Moving");
-        
+
+        if (Time.time - startOfMovement < 0.1f)
+        {
+            character.location.character = null;
+            character.location = path[0];
+            character.location.character = character;
+
+            character.transform.position = path[0].transform.position;
+            
+            StopMovement();
+            return;
+        }
+
         while (character.remainingSpeed > 0)
         {
             if(index >= path.Length - 1)
@@ -74,7 +93,7 @@ public class CharacterMover : MonoBehaviour
             character.transform.position = path[index].transform.position;
         }
         
-        Debug.Log("end of turn");
+        //Debug.Log("end of turn");
         StopMovement();
     }
 
@@ -82,21 +101,31 @@ public class CharacterMover : MonoBehaviour
     {
         if(!isMoving)
             return;
-        
+
+        walkingSound.mute = false;
+
         progress += speed * Time.deltaTime;
         Vector3 newPos = GetPointOnPath(progress);
+        RotateTowardsDestination(newPos);
         if (newPos == transform.position)
         {
             character.location.character = null;
             character.location = path[^1];
             character.location.character = character;
-            Debug.Log("Reached end");
+            //Debug.Log("Reached end");
             StopMovement();
         }
         else
         {
             transform.position = newPos;
         }
+    }
+
+    private void RotateTowardsDestination(Vector3 pNewPos)
+    {
+        Vector3 direction = (pNewPos - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * character.rotationSpeed);
     }
 
     private Vector3 GetPointOnPath(float inputT)
@@ -108,7 +137,7 @@ public class CharacterMover : MonoBehaviour
             character.location = path[index];
             character.location.character = character;
 
-            Debug.Log("ran out of speed");
+            //Debug.Log("ran out of speed");
             StopMovement();
                 
             return path[index].transform.position;

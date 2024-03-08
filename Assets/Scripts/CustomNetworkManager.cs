@@ -8,7 +8,7 @@ public struct CreateCharacterMessage : NetworkMessage
 
 public class CustomNetworkManager : NetworkManager
 {
-    public GameObject PlayerPrefab2;
+    public GameObject playerPrefab2;
     public bool firstPlayerIsKnight;
     public static new CustomNetworkManager singleton => (CustomNetworkManager)NetworkManager.singleton;
 
@@ -29,19 +29,18 @@ public class CustomNetworkManager : NetworkManager
 
         firstPlayerIsKnight = false;
         NetworkClient.Send(characterMessage);
-
     }
 
     void OnCreateCharacter(NetworkConnectionToClient conn, CreateCharacterMessage message)
     {
         if (message.isKnight)
         {
-            GameObject gameobject = Instantiate(PlayerPrefab2);
+            GameObject gameobject = Instantiate(playerPrefab);
             NetworkServer.AddPlayerForConnection(conn, gameobject);
         }
         else
         {
-            GameObject gameobject = Instantiate(playerPrefab);
+            GameObject gameobject = Instantiate(playerPrefab2);
             NetworkServer.AddPlayerForConnection(conn, gameobject);
         }
     }    
