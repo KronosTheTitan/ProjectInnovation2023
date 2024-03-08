@@ -71,6 +71,7 @@ public class AnimationController : MonoBehaviour
             currentAnimationLengthAttack = 0;
             character.isAttacking = false;
             animator.SetBool(attackingParameterName, false);
+            //Debug.Log(name + " STOP ATTACKING");
         }
     }
 
@@ -92,6 +93,7 @@ public class AnimationController : MonoBehaviour
             currentAnimationLengthHit = 0;
             isGettingHit = false;
             animator.SetBool(hitParameterName, false);
+            //Debug.Log(name + " STOP GETTING HIT");
         }
     }
 
@@ -114,6 +116,7 @@ public class AnimationController : MonoBehaviour
     {
         if (pOnCharacterStartMoving.character != character)
             return;
+        //Debug.Log(name + " ON OnCharacterStartMoving");
 
         animator.SetBool(walkingParameterName, true);
     }
@@ -122,6 +125,7 @@ public class AnimationController : MonoBehaviour
     {
         if (pOnCharacterStopMoving.character != character)
             return;
+        //Debug.Log(name + " ON OnCharacterStopMoving");
 
         animator.SetBool(walkingParameterName, false);
     }
@@ -130,6 +134,8 @@ public class AnimationController : MonoBehaviour
     {
         if (pOnCharacterStartAttacking.character != character)
             return;
+    
+        //Debug.Log(name + " ON OnCharacterStartAttacking");
 
         if (pOnCharacterStartAttacking.character.faction == Character.Faction.Enemies)
         {
@@ -156,6 +162,7 @@ public class AnimationController : MonoBehaviour
     {
         if (pOnCharacterDies.character != character)
             return;
+        //Debug.Log(name + " ON OnCharacterDies");
 
         isDying = true;
         animator.SetBool(deadParameterName, true);
@@ -166,6 +173,7 @@ public class AnimationController : MonoBehaviour
         if (pOnCharacterGettingHit.character != character)
             return;
 
+        //Debug.Log(name +  " ON CharacterHit");
         isGettingHit = true;
         animator.SetBool(hitParameterName, true);
     }

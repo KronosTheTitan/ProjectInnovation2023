@@ -57,24 +57,24 @@ public class Character : NetworkBehaviour
     [Server]
     public virtual void MakeAttack(Character target)
     {
-        Debug.Log("starting attack");
-        Debug.Log("Remaining attacks : " + remainingAttacksPerTurn);
+        //Debug.Log("starting attack");
+        //Debug.Log("Remaining attacks : " + remainingAttacksPerTurn);
         
         if(remainingAttacksPerTurn == 0)
             return;
         
-        Debug.Log("sufficient remaining attacks");
+        //Debug.Log("sufficient remaining attacks");
         
         if (Vector3.Distance(transform.position, target.transform.position) > weapon.Range)
             return;
         
-        Debug.Log("within range");
+        //Debug.Log("within range");
 
         EventBus<OnCharacterStartAttacking>.Publish(new OnCharacterStartAttacking(this, target.transform.position));
 
         int damage = attack + weapon.Damage;
         remainingAttacksPerTurn--;
-        Debug.Log("target: "+ target.name);
+        //Debug.Log("target: "+ target.name);
 
         target.TakeDamage(damage);
         attackSound.Play();
@@ -92,7 +92,7 @@ public class Character : NetworkBehaviour
         EventBus<OnCharacterTakeDamage>.Publish(new OnCharacterTakeDamage());
         takingDamageSound.Play();
 
-        Debug.Log(modifiedAmount);
+        //Debug.Log(modifiedAmount);
         if (faction == Faction.Enemies)
         {
             if (remainingHealth <= 0)
@@ -101,6 +101,7 @@ public class Character : NetworkBehaviour
                 EventBus<OnCharacterDies>.Publish(new OnCharacterDies(this));
             }
             healthbar.SetHealth(remainingHealth, health);
+            Debug.Log("Publish Hit");
             EventBus<OnCharacterGettingHit>.Publish(new OnCharacterGettingHit(this));
         }
         else if (faction == Faction.Players && remainingHealth <= 0)
@@ -115,7 +116,7 @@ public class Character : NetworkBehaviour
     public void DieOnClients()
     {
         //gameObject.SetActive(false);
-        Debug.Log("DIE ON CLIENT");
+        //Debug.Log("DIE ON CLIENT");
         isDead = true;
     }
     
@@ -133,6 +134,7 @@ public class Character : NetworkBehaviour
 
     protected void OnStartTurn(OnStartTurn onStartTurn)
     {
+        //Debug.Log("ON START TURN - RESET REMAINGINGSPEED: "+ speed);
         remainingSpeed = speed;
         remainingAttacksPerTurn = attacksPerTurn;
     }

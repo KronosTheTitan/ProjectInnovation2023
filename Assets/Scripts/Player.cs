@@ -5,6 +5,8 @@ using Mirror;
 using PlayerActions;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Player : CanTakeTurn
 {
@@ -110,12 +112,24 @@ public class Player : CanTakeTurn
         
         if(targetedNode == null)
             return;
-        
+
+        /*
         if (!Input.GetMouseButtonUp(0))
             return;
-        
+        */
+        /*
+        if (Input.touchCount > 0 && !TappedOnUi())
+            return;
         if (EventSystem.current.IsPointerOverGameObject())
             return;
+        */
+        if (Input.touchCount > 0 && !EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+            return;
+
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase != TouchPhase.Ended)
+            return;
+
+
 
         Node[] targets = selectedAction.PotentialTargets(character.location);
         if(targets.Length == 0)
@@ -125,6 +139,24 @@ public class Player : CanTakeTurn
             return;
 
         selectedAction.PerformAction(targetedNode, character);
+    }
+
+    private bool TappedOnUi()
+    {
+
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = Input.GetTouch(0).position;
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        // return results.Count > 0;
+        foreach (var item in results)
+        {
+            if (item.gameObject.CompareTag("UI"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void SetSelectedAction()

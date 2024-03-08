@@ -18,7 +18,7 @@ public class CharacterMover : MonoBehaviour
 
     public void StartMovement(Node[] pPath)
     {
-        Debug.Log("Starting mover");
+        //Debug.Log("Starting mover");
         
         if(character.remainingSpeed <= 0)
             return;
@@ -58,11 +58,12 @@ public class CharacterMover : MonoBehaviour
     private void Update()
     {
         Move();
-        //Debug.Log(walkingSound.isPlaying);
     }
     
     private void OnEndTurn(OnEndTurn onEndTurn)
     {
+        //Debug.Log("ON END TURN");
+
         if(!isMoving)
             return;
 
@@ -78,6 +79,7 @@ public class CharacterMover : MonoBehaviour
             return;
         }
 
+        //Debug.Log("BEFORE WHILE: " + character.remainingSpeed);
         while (character.remainingSpeed > 0)
         {
             if(index >= path.Length - 1)
@@ -90,6 +92,7 @@ public class CharacterMover : MonoBehaviour
             character.location = path[index];
             character.location.character = character;
 
+            //Debug.Log("TEST: "+ path[index].transform.position);
             character.transform.position = path[index].transform.position;
         }
         
@@ -148,8 +151,9 @@ public class CharacterMover : MonoBehaviour
         if (index > lastIndex)
         {
             character.remainingSpeed--;
+            //Debug.Log("-- RemainingSpeed: " + character.remainingSpeed);
         }
-        
+
         lastIndex = index;
         
         float t = inputT - index;
@@ -157,10 +161,11 @@ public class CharacterMover : MonoBehaviour
         {
             return path[^1].transform.position;
         }
-        
+
         character.location.character = null;
         character.location = path[index];
         character.location.character = character;
+        //Debug.Log("lerp target: " + path[index + 1].transform.position);
         return Vector3.Lerp(path[index].transform.position, path[index + 1].transform.position, t);
     }
 }

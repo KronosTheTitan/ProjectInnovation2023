@@ -51,6 +51,7 @@ public class Hud : NetworkBehaviour
     [Command(requiresAuthority = false)]
     private void CallNextTurn(Player player)
     {
+        //Debug.Log("END TURN CLICKED -----------------------------------");
         EventBus<NextTurnButtonPressed>.Publish(new NextTurnButtonPressed(player));
     }
     
